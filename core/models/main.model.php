@@ -3,7 +3,7 @@
 /*
     General page
 */
-class Main extends Projectclass {
+class Main extends GoCharge {
 
     function __construct(){
 
