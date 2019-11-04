@@ -7,5 +7,3 @@ try {
 } catch( Exception $e ){
     print $e->getMessage();
 }
-
-// new GoCharge( BOOT_FULL );
