@@ -14,11 +14,6 @@ define('IMG_PATH', UPLOADS_PATH.'/img');
 // define('BOOT_MODEL', 5); // load DB, model
 // define('BOOT_FULL', 10); // load DB, model, template (default)
 
-// define('DOMAIN', isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : ''); // current domain
-// define('COOKIE_LIFE', 24); // cookie life in hours
-// define('SESSION_ACTIVE_LIFE', 15); // session life in minutes
-// define('IS_AUTH_REQUIRED', true);
 
-// require_once CORE_PATH.'/db.params.php';
 
 require_once CORE_PATH.'/gocharge.class.php';
