@@ -15,7 +15,7 @@ CREATE TABLE `users` (
     `email` varchar(255) NOT NULL,
     `authkey` varchar(255) NOT NULL,
     `date_create` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    `date_update` timestamp,
+    `date_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (`ID`)
   ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
   /*!40101 SET character_set_client = @saved_cs_client */;
@@ -49,7 +49,7 @@ DROP TABLE IF EXISTS `points`;
 
   CREATE TABLE `points` (
     `ID` int(11) NOT NULL AUTO_INCREMENT,
-    `address_id` int(11) NOT NULL DEFAULT '0'
+    `address_id` int(11) NOT NULL DEFAULT '0',
     PRIMARY KEY (`ID`)
   ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -185,6 +185,11 @@ DROP TABLE IF EXISTS `advert_meta`;
 --
 -- Dumping routines for database 'crmloft'
 --
+
+-- alekseychernavskiy:
+-- Comments below don't let prepare database. @OLD_ variables from Kate machine
+-- I delete it, before set database and it works :)
+
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
