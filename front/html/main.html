@@ -1,24 +1,25 @@
 
     {{title}}
-    <style>
-        #map {
-          height: 100%;
-        }
-        html, body {
-          height: 100%;
-          margin: 0;
-          padding: 0;
-        }
-      </style>
-<script src="https://api-maps.yandex.ru/2.1/?apikey=ALY7xF0BAAAAhdxWdAMAKqZ-k-ajocDMtIhyBKidQjiCOekAAAAAAAAAAAAEYfcnOSVoIvoK1YH7JSShZAY_PQ==&lang=ru_RU" type="text/javascript">
-</script>
- <div id="map"></div>
+<style>
+	#map {
+		height: 100%;
+	}
+	html, body {
+		height: 100%;
+		margin: 0;
+		padding: 0;
+	}
+</style>
+<script src="https://api-maps.yandex.ru/2.1/?apikey=ALY7xF0BAAAAhdxWdAMAKqZ-k-ajocDMtIhyBKidQjiCOekAAAAAAAAAAAAEYfcnOSVoIvoK1YH7JSShZAY_PQ==&lang=en_US" type="text/javascript"></script>
+ 
+
+<div id="map"></div>
  <script type="text/javascript">
   ymaps.ready(init);
   function init(){
       var myMap = new ymaps.Map("map", {
-          center: [55.76, 37.64],
-          zoom: 7
+          center: [47.4979, 19.0402],
+          zoom: 13
       });
   }
 </script>
