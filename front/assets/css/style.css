@@ -16,6 +16,10 @@ p {
     color: #999;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 a, a:hover, a:focus {
     color: inherit !important;
     text-decoration: none !important;
@@ -85,6 +89,7 @@ a[data-toggle="collapse"] {
 #sidebar ul li a:hover {
     color: #555;
     background: #ddd;
+    cursor: pointer;
 }
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {

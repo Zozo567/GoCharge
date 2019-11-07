@@ -1,12 +1,41 @@
-<script src="https://api-maps.yandex.ru/2.1/?apikey=ALY7xF0BAAAAhdxWdAMAKqZ-k-ajocDMtIhyBKidQjiCOekAAAAAAAAAAAAEYfcnOSVoIvoK1YH7JSShZAY_PQ==&lang=en_US" type="text/javascript"></script>
-<script type="text/javascript" src="../assets/js/jquery-3.3.1.min.js"></script>
-<script type="text/javascript" src="../assets/js/main.js"></script> 
-<link rel="stylesheet" href="../assets/css/style.css">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-        <script src="https://kit.fontawesome.com/68a1da4b2e.js" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-
-	<div class="sidebar-header">
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	    <meta charset="UTF-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <link rel="ICON" href="logo.ico" type="image/ico"/>
+	    <title>GoCharge App</title>
+    	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+	    <script src="https://kit.fontawesome.com/68a1da4b2e.js" crossorigin="anonymous"></script>
+  		<link rel="stylesheet" type="text/css" href="../assets/css/payment.css">
+  		<link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+  		<script type="text/javascript" src="../assets/js/jquery-3.3.1.min.js"></script>
+	</head>
+	<body>
+		<div class="container-fluid">
+			<div class="row bg-dark">
+					<div class="col-md-4">
+						<div class="searchBox" style="display: inline-block;">
+							<i class="fas fa-search"></i>
+	            <input class="searchInput" type="text" name="" placeholder="search location">
+	        	</div>
+	        	<button style="display: inline-block; border-radius: 7px;">
+							<i class="fas fa-location-arrow"></i>	        	
+						</button>
+        	</div>
+        	<div class="col-md-7">
+						<div class="text-center text-light display-4 p-2" style="position:relative; font-size: 25px;">Go<i class="fas fa-bolt"></i>Charge</div>			
+					</div>
+					<div class="col-md-1">
+						<button style="background: transparent; border-color: transparent;">
+							<i class="fas fa-globe-americas fa-2x" style="color: white; float:right; padding:5px;"></i>
+						</button>
+					</div>
+			</div>
+		</div>
+		
+		<div class="sidebar-header">
       <button type="button" id="sidebarCollapse" class="btn btn-info">
           <i class="fas fa-bars"></i>
       </button>
@@ -58,7 +87,7 @@
 	              </a>
 	          </li>
 	          <li>
-	              <a href="payment.html" aria-expanded="false">
+	              <a href="payment.html" data-toggle="collapse" aria-expanded="false">
 	                  <i class="fas fa-credit-card"></i>
 	                  Payment
 	              </a>
@@ -93,9 +122,83 @@
 	          </li>
 	      </ul>
 	    </nav>
+
+			<div class="container">
+				<div class="row">
+					<div class="paymentCont col-md-9">
+						<div class="headingWrap">
+								<h3 class="headingTop text-center">Payment Method</h3>	
+								<p class="text-center">Choose your payment method below</p>
+						</div>
+						<div class="paymentWrap">
+							<div class="btn-group paymentBtnGroup btn-group-justified" data-toggle="buttons">
+			            <label class="btn paymentMethod active">
+			            	<div class="method visa"></div>
+			                <input type="radio" name="options" checked> 
+			            </label>
+			            <label class="btn paymentMethod">
+			            	<div class="method master-card"></div>
+			                <input type="radio" name="options"> 
+			            </label>
+			            <label class="btn paymentMethod">
+		            		<div class="method amex"></div>
+			                <input type="radio" name="options">
+			            </label>
+			        </div>
+						</div>
+					</div>
+				</div>
+
+				<div class='row'>
+	        <div class='col-md-9'>
+	        	<h4 class="headingTop text-center">Payment Information</h4><br/>
+	          <form accept-charset="UTF-8" action="/" class="require-validation" data-cc-on-file="false" data-stripe-publishable-key="pk_bQQaTxnaZlzv4FnnuZ28LFHccVSaj" id="payment-form" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓" /><input name="_method" type="hidden" value="PUT" /><input name="authenticity_token" type="hidden" value="qLZ9cScer7ZxqulsUWazw4x3cSEzv899SP/7ThPCOV8=" /></div>
+	            <div class='form-row'>
+	              <div class='col-md-9 form-group required'>
+	                <label class='control-label'>Name on Card</label>
+	                <input class='form-control' type='text'>
+	              </div>
+	            </div>
+	            <div class='form-row'>
+	              <div class='col-md-9 form-group required'>
+	                <label class='control-label'>Card Number</label>
+	                <input autocomplete='off' class='form-control card-number' size='20' type='text'>
+	              </div>
+	            </div>
+	            <div class='form-row' style="height: 32px;">
+	            	<div class='col-md-6 form-group'>
+	            		<label class='control-label'>Expiration</label>
+	            	</div>
+	            	<div class='col-md-3 form-group'>
+	            		<label class='control-label'>CVC</label>
+	            	</div>
+	            </div>
+	            <div class='form-row'>
+	              <div class='col-md-3 form-group expiration required'>
+	                <input class='form-control card-expiry-month' placeholder='MM' size='2' type='text'>
+	              </div>
+	              <div class='col-md-3 form-group expiration required'>
+	                <input class='form-control card-expiry-year' placeholder='YYYY' size='4' type='text'>
+	              </div>
+	              <div class='col-md-3 form-group cvc required'>
+	                <input autocomplete='off' class='form-control card-cvc' placeholder='ex. 311' size='3' type='text'>
+	              </div>
+	            </div>
+	            <div class="form-check form-check-inline">
+							  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+							  <label class="form-check-label" for="inlineCheckbox1">I agree to the Terms & Conditions & Privacy Policy</label>
+							</div><br/>
+	            <div class='form-row'>
+	              <div class='col-md-9 form-group'>
+	                <button class='form-control btn btn-primary submit-button' type='submit'>Submit</button>
+	              </div>
+	            </div>
+	          </form>
+	        </div>
+	    	</div>
+	    </div>
 	  </div>
-	  <div id="map"></div>
-		
+
 	  <div id="loginModal" class="modal" tabindex="-1" role="dialog">
 		  <div class="modal-dialog modal-dialog-centered" role="document">
 		    <div class="modal-content">
@@ -229,3 +332,12 @@
 		    </div>
 		  </div>
 		</div>
+
+	  <script type="text/javascript" src="../assets/js/main.js"></script>
+	  <script type="text/javascript" src="../assets/js/payment.js"></script>
+
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+	</body>
+</html>
