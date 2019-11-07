@@ -49,7 +49,7 @@ DROP TABLE IF EXISTS `points`;
 
   CREATE TABLE `points` (
     `ID` int(11) NOT NULL AUTO_INCREMENT,
-    `address_id` int(11) NOT NULL DEFAULT '0'
+    `address_id` int(11) NOT NULL DEFAULT '0',
     PRIMARY KEY (`ID`)
   ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
