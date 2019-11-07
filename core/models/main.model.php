@@ -20,5 +20,10 @@ class Main extends GoCharge {
         $params['{{title}}'] = 'General page';
 
         $this->setParams($params);
+
+        $point_model = $this->initModel('point');
+
+        $points = $point_model->read();
+
     }
 }

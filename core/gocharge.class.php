@@ -5,6 +5,8 @@ class GoCharge {
     protected static $model_name = null;
     protected static $method_name = null;
 
+    private static $class_name = null;
+
     protected static $db = null;
 
     protected static $params = [];
@@ -26,14 +28,14 @@ class GoCharge {
 
         self::$model_name = $model_name;
 
-        $this->initModel();
+        $this->initialModel();
 
         $this->printHTML();
 
         exit;
     }
 
-    private function initModel(){
+    private function initialModel(){
 
         if( file_exists(MODEL_PATH .'/'. self::$model_name . '.model.php') )
             require_once MODEL_PATH .'/'. self::$model_name . '.model.php';
@@ -46,6 +48,23 @@ class GoCharge {
             $model = $this->getModel();
             $model->read();
         }
+    }
+
+    public function initModel( $model_name )
+    {
+        $model_path = MODEL_PATH . '/' . strtolower($model_name) . '.model.php';
+
+        if (!file_exists($model_path))
+            return null;
+
+        $this->setClassName($model_name);
+
+        if (class_exists($model_name))
+            return new $model_name();
+
+        require_once $model_path;
+
+        return new $model_name();
     }
 
     private function loadModel(){
@@ -113,6 +132,16 @@ class GoCharge {
     protected function getBody(){
 
         return self::$html_path;
+    }
+
+    protected function getClassName()
+    {
+        return self::$class_name;
+    }
+
+    protected function setClassName( $class_name )
+    {
+        self::$class_name = $class_name;
     }
 
     protected function printHTML(){
