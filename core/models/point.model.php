@@ -22,7 +22,10 @@ class Point extends Main {
 
         $db = $this->getDB();
 
-        $points = $db->getAll("SELECT * FROM ?n", 'point');
+        // alekseychernavskiy: 
+        // TODO
+        // points? Check DB and Model
+        $points = $db->getAll("SELECT * FROM ?n", 'points');
         
         return $points;
     }
