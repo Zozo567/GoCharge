@@ -2,10 +2,12 @@
 
 class Point extends Main {
 
-    // function __construct(){
+    function __construct(){
 
-    //     self::$html_path = HTML_PATH .'/main.html';
-    // }
+        // self::$html_path = HTML_PATH .'/main.html';
+
+        $test;
+    }
 
     public function read(){
 
@@ -22,9 +24,6 @@ class Point extends Main {
 
         $db = $this->getDB();
 
-        // alekseychernavskiy: 
-        // TODO
-        // points? Check DB and Model
         $points = $db->getAll("SELECT * FROM ?n", 'point');
         
         return $points;
