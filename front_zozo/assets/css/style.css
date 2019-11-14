@@ -64,8 +64,21 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     color: #fff; }
 
 /* line 1, ../scss/_partials/_main.scss */
-.test {
+.left-menu {
+  font-family: "IBM Plex Sans";
   position: absolute;
   top: 100px;
   left: 10px;
-  z-index: 1000; }
+  z-index: 1000;
+  width: 370px;
+  max-height: calc(100vh - 155px); }
+  /* line 10, ../scss/_partials/_main.scss */
+  .left-menu .list-group-item {
+    background-color: #dbdbdb;
+    opacity: .910; }
+    /* line 14, ../scss/_partials/_main.scss */
+    .left-menu .list-group-item .menu-drop {
+      display: block; }
+    /* line 17, ../scss/_partials/_main.scss */
+    .left-menu .list-group-item .menu-undrop {
+      display: none; }

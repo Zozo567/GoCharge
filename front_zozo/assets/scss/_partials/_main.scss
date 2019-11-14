@@ -1,6 +1,22 @@
-.test{
+.left-menu{
+    font-family: "IBM Plex Sans";
     position: absolute;
     top: 100px;
     left: 10px;
     z-index: 1000;
+    width: 370px;
+    max-height: calc(100vh - 155px);
+
+    .list-group-item{
+        background-color: rgb(219, 219, 219);
+        opacity: .910;
+
+        .menu-drop{
+            display: block;
+        }
+        .menu-undrop{
+            display: none;
+        }
+    }
+
 }
