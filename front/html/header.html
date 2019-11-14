@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>GoCharge</title>
     <link rel="stylesheet" href="front/assets/fonts-icons/css/font-awesome.min.css">
-
+    <script src="https://kit.fontawesome.com/68a1da4b2e.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600|Montserrat:200,300,400" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="front/assets/css/style.css">
@@ -16,7 +16,28 @@
 </head>
 
 <body>
-    <div class="header-fix-block">
+    <div class="container-fluid">
+        <div class="row bg-dark">
+            <div class="col-md-4">
+                <div class="searchBox" style="display: inline-block;">
+                    <i class="fas fa-search"></i>
+                    <input class="searchInput" type="text" name="" placeholder="search location">
+                </div>
+                <button style="display: inline-block; border-radius: 7px;">
+                    <i class="fas fa-location-arrow"></i>
+                </button>
+            </div>
+            <div class="col-md-7">
+                <div class="text-center text-light display-4 p-2" style="position:relative; font-size: 25px;">Go<i class="fas fa-bolt"></i>Charge</div>
+            </div>
+            <div class="col-md-1">
+                <button style="background: transparent; border-color: transparent;">
+                    <i class="fas fa-globe-americas fa-2x" style="color: white; float:right; padding:5px;"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="header-fix-block">
         <div class="row">
             <div class="col-9 head-block-text">
                 <h1>GoCharge</h1>
@@ -35,4 +56,4 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
