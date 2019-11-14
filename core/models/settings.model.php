@@ -1,7 +1,6 @@
 <?php
 
-class Point extends Main
-{
+class Settings extends Main {
 
     protected static $model_name = null;
     protected static $method_name = null;
@@ -12,15 +11,11 @@ class Point extends Main
 
     protected static $params = [];
 
-    protected static $html_path = null;
+    protected static $tpl_path = null;
 
     function __construct(){
 
-        // self::$html_path = HTML_PATH .'/main.html';
-
-        $model_name = 'point';
-
-        self::$model_name = $model_name;
+        self::$tpl_path = TPL_PATH .'/settings_modal.tpl';
     }
 
     public function read(){
@@ -30,10 +25,9 @@ class Point extends Main
 
     private function readFormate(){
 
-        $db = $this->getDB();
-
-        $points = $db->getAll("SELECT * FROM ?n", 'point');
+        $html = file_get_contents(self::$tpl_path);
         
-        return $points;
+        // return ['status' => tru]$this->mergeParams($html);
+        return ['status' => true, 'content' => $this->mergeParams($html)];
     }
 }

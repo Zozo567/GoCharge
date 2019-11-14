@@ -17,6 +17,8 @@ class GoCharge {
 
         $model_name = 'main';
 
+        require_once MODEL_PATH .'/'. $model_name . '.model.php';
+
         $action = substr($_SERVER['REQUEST_URI'], 1);
 
         if( $action ) {

@@ -15,25 +15,26 @@ jQuery(document).ready(function(){
             jQuery('.menu-drop-download-app').removeClass('menu-drop').addClass('menu-undrop');
     });
 
-    jQuery('body').on('click', '.settings', function(e){
+    jQuery('body').on('click', '.showmodal', function(e){
 
         e.preventDefault();
 
-        var model = jQuery(this).find('button').attr('id');
-        var action = 'open_modal/';
+        var url = jQuery(this).data('action');
+        // var modal = jQuery(this).data('id');
 
         jQuery.ajax({
-            url : action,
-            type : "POST",
-            data : "action=" + action + "&model=" + model,
+            url: url,
+            data : "action=" + url + "/read",
+            type: 'POST',
             dataType : 'json',
             success : function( res ) {
                 console.log('success');
+                $('#myModal').modal('show'); 
             },
             error : function ( jqXHR, textStatus, errorThrown ) {
                 console.log('error');
+
             }
         });
-
     });
 });
