@@ -29,7 +29,7 @@ jQuery(document).ready(function(){
             dataType : 'json',
             success : function( res ) {
                 console.log('success');
-                $('#myModal').modal('show'); 
+                window.html(res);
             },
             error : function ( jqXHR, textStatus, errorThrown ) {
                 console.log('error');
