@@ -1,49 +1,40 @@
 jQuery(document).ready(function(){
+    console.log(1);
 
-    // jQuery('body').on('click', '.delete-one-note', function(e){
+    jQuery('body').on('click', '.terms-conditions', function(){
+        if( jQuery('.menu-drop-terms-conditions').hasClass('menu-undrop') )
+            jQuery('.menu-drop-terms-conditions').removeClass('menu-undrop').addClass('menu-drop');
+        else
+            jQuery('.menu-drop-terms-conditions').removeClass('menu-drop').addClass('menu-undrop');
+    });
 
-    //     e.preventDefault();
+    jQuery('body').on('click', '.download-app', function(){
+        if( jQuery('.menu-drop-download-app').hasClass('menu-undrop') )
+            jQuery('.menu-drop-download-app').removeClass('menu-undrop').addClass('menu-drop');
+        else
+            jQuery('.menu-drop-download-app').removeClass('menu-drop').addClass('menu-undrop');
+    });
 
-    //     var url = jQuery(this).data('action');
-    //     var note_id = jQuery(this).data('id');
+    jQuery('body').on('click', '.showmodal', function(e){
 
-    //     jQuery.ajax({
-    //         url : url,
-    //         type : "POST",
-    //         data : "action=" + url + "&note_id=" + note_id,
-    //         dataType : 'json',
-    //         success : function( res ) {
-    //             console.log('success');
-    //         },
-    //         error : function ( jqXHR, textStatus, errorThrown ) {
-    //             console.log('error');
-    //         }
-    //     });
-    // });
-    
-    // jQuery('body').on('submit', '.ajax-form-submit', function(e){
+        e.preventDefault();
 
-    //     e.preventDefault();
+        var url = jQuery(this).data('action');
+        // var modal = jQuery(this).data('id');
 
-    //     var form = jQuery(this);
+        jQuery.ajax({
+            url: url,
+            data : "action=" + url + "/read",
+            type: 'POST',
+            dataType : 'json',
+            success : function( res ) {
+                console.log('success');
+                $('#myModal').modal('show'); 
+            },
+            error : function ( jqXHR, textStatus, errorThrown ) {
+                console.log('error');
 
-    //     var url = form.prop('action').defaultValue;
-
-    //     var method = form.prop('method');
-
-    //     var data = form.serialize();
-
-    //     jQuery.ajax({
-    //         url : url,
-    //         type : method,
-    //         data : data,
-    //         dataType : 'json',
-    //         success : function( res ) {
-    //             console.log('success');
-    //         },
-    //         error : function ( jqXHR, textStatus, errorThrown ) {
-    //             console.log('error');
-    //         }
-    //     });
-    // });
+            }
+        });
+    });
 });

@@ -4,7 +4,7 @@ define('ROOT_PATH', realpath(dirname(__FILE__).'/../'));
 define('CORE_PATH', ROOT_PATH.'/core');
 define('LIB_PATH', ROOT_PATH.'/core/libraries');
 define('MODEL_PATH', CORE_PATH.'/models');
-define('FRONT_PATH', ROOT_PATH.'/front_zozo');
+define('FRONT_PATH', ROOT_PATH.'/front');
 define('HTML_PATH', FRONT_PATH.'/html');
 define('TPL_PATH', HTML_PATH.'/tpl');
 define('UPLOADS_PATH', ROOT_PATH.'/uploads');

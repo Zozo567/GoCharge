@@ -1,0 +1,194 @@
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+html, body {
+    font-family: 'Poppins', sans-serif;
+    background: #fafafa;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #999;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+a, a:hover, a:focus {
+    color: inherit !important;
+    text-decoration: none !important;
+    transition: all 0.3s;
+}
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+.wrapper {
+    display: flex;
+    align-items: stretch;  
+    position: absolute;
+    z-index: 5;
+}
+
+#map {
+    height: 100%;
+    /*overflow: hidden;*/
+}
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    background: #666;
+    border-radius: 3px;
+    color: #fff;
+    transition: all 0.3s;
+    border-color: #333;
+    display: block;
+}
+
+#sidebar.active {
+    margin-left: -250px;
+}
+
+.sidebar-header button{
+  background-color: #666;
+  border-color: #333;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid transparent;
+}
+
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+    border-bottom: 1px groove #eee;
+}
+#sidebar ul li a:hover {
+    color: #555;
+    background: #ddd;
+    cursor: pointer;
+}
+
+#sidebar ul li.active > a, a[aria-expanded="true"] {
+    color: #666;
+    background: #ddd;
+}
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #888;
+    border-bottom: 0.5px solid white;
+}
+
+.searchBox {
+    width: 200px;
+    background: #fff;
+    height: 30px;
+    border-radius: 40px;
+    padding: 5px;
+    margin: 8px;
+}
+
+.searchBox .searchInput {
+    position: absolute;
+    padding: 0px 6px;
+}
+
+.searchInput {
+    border:none;
+    background: none;
+    outline:none;
+}
+
+#formFooter a {
+  color: #92badd;
+  display:inline-block;
+  font-weight: 400;
+}
+
+form input[type=button], input[type=submit], input[type=reset]  {
+  background-color: #56baed;
+  border: none;
+  color: white;
+  padding: 15px 80px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 13px;
+  -webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+  box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+  margin: 5px 20px 40px 20px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+form input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
+  background-color: #39ace7;
+}
+
+form input[type=button]:active, input[type=submit]:active, input[type=reset]:active  {
+  -moz-transform: scale(0.95);
+  -webkit-transform: scale(0.95);
+  -o-transform: scale(0.95);
+  -ms-transform: scale(0.95);
+  transform: scale(0.95);
+}
+
+form input[type=text] {
+  background-color: #f6f6f6;
+  color: #0d0d0d;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 3px;
+  width: 85%;
+  border: 2px solid #f6f6f6;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+}
+
+form input[type=text]:focus {
+  background-color: #fff;
+  border-bottom: 2px solid #5fbae9;
+}
+
+form input[type=text]:placeholder {
+  color: #cccccc;
+}
