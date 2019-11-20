@@ -1,19 +1,17 @@
 jQuery(document).ready(function(){
-    console.log(1);
+    // jQuery('body').on('click', '.terms-conditions', function(){
+    //     if( jQuery('.menu-drop-terms-conditions').hasClass('menu-undrop') )
+    //         jQuery('.menu-drop-terms-conditions').removeClass('menu-undrop').addClass('menu-drop');
+    //     else
+    //         jQuery('.menu-drop-terms-conditions').removeClass('menu-drop').addClass('menu-undrop');
+    // });
 
-    jQuery('body').on('click', '.terms-conditions', function(){
-        if( jQuery('.menu-drop-terms-conditions').hasClass('menu-undrop') )
-            jQuery('.menu-drop-terms-conditions').removeClass('menu-undrop').addClass('menu-drop');
-        else
-            jQuery('.menu-drop-terms-conditions').removeClass('menu-drop').addClass('menu-undrop');
-    });
-
-    jQuery('body').on('click', '.download-app', function(){
-        if( jQuery('.menu-drop-download-app').hasClass('menu-undrop') )
-            jQuery('.menu-drop-download-app').removeClass('menu-undrop').addClass('menu-drop');
-        else
-            jQuery('.menu-drop-download-app').removeClass('menu-drop').addClass('menu-undrop');
-    });
+    // jQuery('body').on('click', '.download-app', function(){
+    //     if( jQuery('.menu-drop-download-app').hasClass('menu-undrop') )
+    //         jQuery('.menu-drop-download-app').removeClass('menu-undrop').addClass('menu-drop');
+    //     else
+    //         jQuery('.menu-drop-download-app').removeClass('menu-drop').addClass('menu-undrop');
+    // });
 
     jQuery('body').on('click', '.showmodal', function(e){
 
@@ -29,7 +27,7 @@ jQuery(document).ready(function(){
             dataType : 'json',
             success : function( res ) {
                 console.log('success');
-                $( "#showModal" ).append( res.content );
+                $('#showModal').append( res.content );
                 $('#showModal').modal('show');
             },
             error : function ( jqXHR, textStatus, errorThrown ) {
@@ -40,6 +38,6 @@ jQuery(document).ready(function(){
     });
 
     $('#showModal').on('hidden.bs.modal', function () {
-        $( "#showModal" ).empty();
+        $('#showModal').empty();
     });
 });
