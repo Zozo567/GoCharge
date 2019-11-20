@@ -8,78 +8,78 @@
         <!-- Sidebar  -->
         <nav id="sidebar">
           <ul class="list-unstyled components">
-                <li class="active">
+                <li class="active showmodal">
                   <a href="main.html" data-toggle="collapse" aria-expanded="false">
                       <i class="fas fa-home"></i>
                       Home
                   </a>
               </li>
-              <li>
-                  <a href="#login" data-toggle="modal" aria-expanded="false" data-target="#loginModal">
+              <li class="showmodal">
+                  <a href="#login" data-toggle="modal" aria-expanded="false" data-target="#loginModal" data-action="login">
                       <i class="fas fa-sign-in-alt"></i>
                       Login
                   </a>
               </li>
-              <li>
-                  <a href="#register" data-toggle="modal" aria-expanded="false" data-target="#registerModal">
+              <li class="showmodal">
+                  <a href="#register" data-toggle="modal" aria-expanded="false" data-target="#registerModal" data-action="register">
                       <i class="fas fa-id-card"></i>
                       Register
                   </a>
               </li>
-              <li>
-                  <a href="#filters" data-toggle="modal" aria-expanded="false" data-target="#filtersModal">
+              <li class="showmodal">
+                  <a href="#filters" data-toggle="modal" aria-expanded="false" data-target="#filtersModal" data-action="filters">
                       <i class="fas fa-plug"></i>
                       Filters
                   </a>
               </li>
-              <li>
-                  <a href="#planner" data-toggle="modal" aria-expanded="false" data-target="#plannerModal">
+              <li class="showmodal">
+                  <a href="#planner" data-toggle="modal" aria-expanded="false" data-target="#plannerModal" data-action="trip_planner">
                       <i class="fas fa-road"></i>
                       Trip Planner
                   </a>
               </li>
-              <li>
-                  <a href="#settings" data-toggle="modal" aria-expanded="false" data-target="#settingsModal">
+              <li class="showmodal">
+                  <a href="#settings" data-toggle="modal" aria-expanded="false" data-target="#settingsModal" data-action="settings">
                       <i class="fas fa-cog"></i>
                       Settings
                   </a>
               </li>
-              <li>
-                  <a href="#help" data-toggle="modal" aria-expanded="false" data-target="#helpModal">
+              <li class="showmodal">
+                  <a href="#help" data-toggle="modal" aria-expanded="false" data-target="#helpModal" data-action="help">
                       <i class="fas fa-question"></i>
                       Help
                   </a>
               </li>
-              <li>
-                  <a href="payment.html" aria-expanded="false">
+              <li class="showmodal">
+                  <a href="payment.html" aria-expanded="false" data-action="payment">
                       <i class="fas fa-credit-card"></i>
                       Payment
                   </a>
               </li>
-              <li>
+              <li class="showmodal">
               <a href="#downloadSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                   <i class="fas fa-download"></i>
                   Download App
               </a>
               <ul class="collapse list-unstyled" id="downloadSubmenu">
-                  <li>
+                  <li class="showmodal" >
                       <a href="#">Android</a>
                   </li>
-                  <li>
+                  <li class="showmodal">
                       <a href="#">iOS</a>
                   </li>
               </ul>
             </li>
-            <li>
+            <li class="showmodal">
               <a href="#termsSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                   <i class="fas fa-document"></i>
                   Terms & Conditions
               </a>
               <ul class="collapse list-unstyled" id="termsSubmenu">
-                  <li>
+                  <li class="showmodal">
                       <a href="#">Terms of use</a>
                   </li>
-                  <li>
+                  <li class="showmodal">
                       <a href="#">Privacy Policy</a>
                   </li>
               </ul>
@@ -88,7 +88,7 @@
         </nav>
     </div>
 </div>
-    <div id="map"></div>
+<div id="map"></div>
 <script>
   var map;
   function initMap() {
@@ -99,8 +99,9 @@
     });
   }
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBiHlQx_PBCT7CqT5MvtKdA9qX0Dihpz48&callback=initMap"async defer>
-</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBiHlQx_PBCT7CqT5MvtKdA9qX0Dihpz48&callback=initMap"async defer></script>
+
+<div class="modal" id="showModal" tabindex="-1" role="dialog"></div>
 
 <!-- <div id="menu" class="left-menu">
     <ul class="list-group list-group-flush">

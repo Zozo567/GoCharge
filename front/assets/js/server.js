@@ -19,7 +19,7 @@ jQuery(document).ready(function(){
 
         e.preventDefault();
 
-        var url = jQuery(this).data('action');
+        var url = jQuery(this).find('a').data('action');
         // var modal = jQuery(this).data('id');
 
         jQuery.ajax({
@@ -29,12 +29,17 @@ jQuery(document).ready(function(){
             dataType : 'json',
             success : function( res ) {
                 console.log('success');
-                window.html(res);
+                $( "#showModal" ).append( res.content );
+                $('#showModal').modal('show');
             },
             error : function ( jqXHR, textStatus, errorThrown ) {
                 console.log('error');
 
             }
         });
+    });
+
+    $('#showModal').on('hidden.bs.modal', function () {
+        $( "#showModal" ).empty();
     });
 });
