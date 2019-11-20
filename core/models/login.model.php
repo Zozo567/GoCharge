@@ -1,6 +1,6 @@
 <?php
 
-class Settings extends Main {
+class Login extends Main {
 
     protected static $model_name = null;
     protected static $method_name = null;
@@ -15,7 +15,7 @@ class Settings extends Main {
 
     function __construct(){
 
-        self::$tpl_path = TPL_PATH .'/settings_modal.tpl';
+        self::$tpl_path = TPL_PATH .'/login_modal.tpl';
     }
 
     public function read(){
