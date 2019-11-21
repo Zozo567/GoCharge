@@ -5,7 +5,7 @@ jQuery(document).ready(function(){
     console.log(Go.map);
 
 
-    // Go.addMapObject();
+    Go.addMapObject();
 
     // jQuery('body').on('click', '.terms-conditions', function(){
     //     if( jQuery('.menu-drop-terms-conditions').hasClass('menu-undrop') )
@@ -26,7 +26,6 @@ jQuery(document).ready(function(){
         e.preventDefault();
 
         var url = jQuery(this).find('a').data('action');
-        // var modal = jQuery(this).data('id');
 
         jQuery.ajax({
             url: url,
@@ -49,18 +48,24 @@ jQuery(document).ready(function(){
     });
 });
 
-// Go.addMapObject = function(){
+Go.addMapObject = function(){
 
-//     jQuery.ajax({
-//         url: url,
-//         data : "action=" + 'point' + "/read",
-//         type: 'POST',
-//         dataType : 'json',
-//         success : function( res ) {
-//             console.log('success');
-//         },
-//         error : function ( jqXHR, textStatus, errorThrown ) {
-//             console.log('error');
-//         }
-//     });
-// };
+    jQuery.ajax({
+        url: 'point',
+        data : "action=" + 'point' + "/read",
+        type: 'POST',
+        dataType : 'json',
+        success : function( res ) {
+            console.log('success');
+            var myLatlng = new google.maps.LatLng(47.519015,19.060211);
+            var marker = new google.maps.Marker({
+                position: myLatlng,
+                title:"Hello World!"
+            });
+            marker.setMap(Go_.map);
+        },
+        error : function ( jqXHR, textStatus, errorThrown ) {
+            console.log('error');
+        }
+    });
+};

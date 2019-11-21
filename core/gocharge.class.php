@@ -189,4 +189,5 @@ class GoCharge {
 
         return false;
     }
+
 }
