@@ -5,7 +5,7 @@ jQuery(document).ready(function(){
     console.log(Go.map);
 
 
-    Go.addMapObject();
+    // Go.addMapObject();
 
     // jQuery('body').on('click', '.terms-conditions', function(){
     //     if( jQuery('.menu-drop-terms-conditions').hasClass('menu-undrop') )
@@ -40,7 +40,6 @@ jQuery(document).ready(function(){
             },
             error : function ( jqXHR, textStatus, errorThrown ) {
                 console.log('error');
-
             }
         });
     });
@@ -50,18 +49,18 @@ jQuery(document).ready(function(){
     });
 });
 
-Go.addMapObject = function(){
+// Go.addMapObject = function(){
 
-    jQuery.ajax({
-        url: url,
-        data : "action=" + 'point' + "/read",
-        type: 'POST',
-        dataType : 'json',
-        success : function( res ) {
-            console.log('success');
-        },
-        error : function ( jqXHR, textStatus, errorThrown ) {
-            console.log('error');
-        }
-    });
-};
+//     jQuery.ajax({
+//         url: url,
+//         data : "action=" + 'point' + "/read",
+//         type: 'POST',
+//         dataType : 'json',
+//         success : function( res ) {
+//             console.log('success');
+//         },
+//         error : function ( jqXHR, textStatus, errorThrown ) {
+//             console.log('error');
+//         }
+//     });
+// };
