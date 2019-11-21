@@ -1,93 +1,3 @@
-<div class="sidebar-menu">
-    <div class="sidebar-header">
-      <button type="button" id="sidebarCollapse" class="btn btn-info">
-          <i class="fas fa-bars"></i>
-      </button>
-    </div>  
-    <div class="wrapper">
-        <!-- Sidebar  -->
-        <nav id="sidebar">
-          <ul class="list-unstyled components">
-                <li class="active showmodal">
-                  <a href="main.html" data-toggle="collapse" aria-expanded="false">
-                      <i class="fas fa-home"></i>
-                      Home
-                  </a>
-              </li>
-              <li class="showmodal">
-                  <a href="#login" data-toggle="modal" aria-expanded="false" data-target="#loginModal" data-action="login">
-                      <i class="fas fa-sign-in-alt"></i>
-                      Login
-                  </a>
-              </li>
-              <li class="showmodal">
-                  <a href="#register" data-toggle="modal" aria-expanded="false" data-target="#registerModal" data-action="register">
-                      <i class="fas fa-id-card"></i>
-                      Register
-                  </a>
-              </li>
-              <li class="showmodal">
-                  <a href="#filters" data-toggle="modal" aria-expanded="false" data-target="#filtersModal" data-action="filters">
-                      <i class="fas fa-plug"></i>
-                      Filters
-                  </a>
-              </li>
-              <li class="showmodal">
-                  <a href="#planner" data-toggle="modal" aria-expanded="false" data-target="#plannerModal" data-action="trip_planner">
-                      <i class="fas fa-road"></i>
-                      Trip Planner
-                  </a>
-              </li>
-              <li class="showmodal">
-                  <a href="#settings" data-toggle="modal" aria-expanded="false" data-target="#settingsModal" data-action="settings">
-                      <i class="fas fa-cog"></i>
-                      Settings
-                  </a>
-              </li>
-              <li class="showmodal">
-                  <a href="#help" data-toggle="modal" aria-expanded="false" data-target="#helpModal" data-action="help">
-                      <i class="fas fa-question"></i>
-                      Help
-                  </a>
-              </li>
-              <li class="showmodal">
-                  <a href="payment.html" aria-expanded="false" data-action="payment">
-                      <i class="fas fa-credit-card"></i>
-                      Payment
-                  </a>
-              </li>
-              <li class="showmodal">
-              <a href="#downloadSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                  <i class="fas fa-download"></i>
-                  Download App
-              </a>
-              <ul class="collapse list-unstyled" id="downloadSubmenu">
-                  <li class="showmodal" >
-                      <a href="#">Android</a>
-                  </li>
-                  <li class="showmodal">
-                      <a href="#">iOS</a>
-                  </li>
-              </ul>
-            </li>
-            <li class="showmodal">
-              <a href="#termsSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                  <i class="fas fa-document"></i>
-                  Terms & Conditions
-              </a>
-              <ul class="collapse list-unstyled" id="termsSubmenu">
-                  <li class="showmodal">
-                      <a href="#">Terms of use</a>
-                  </li>
-                  <li class="showmodal">
-                      <a href="#">Privacy Policy</a>
-                  </li>
-              </ul>
-              </li>
-          </ul>
-        </nav>
-    </div>
-</div>
 <div id="map"></div>
 <script>
     var Go_ = {};
@@ -100,38 +10,17 @@
     });
     };</script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBiHlQx_PBCT7CqT5MvtKdA9qX0Dihpz48&callback=initMap"async defer></script>
+  <!-- var map;
+  function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: {
+        lat: 47.4979, 
+        lng: 19.0402
+      },
+      zoom: 15,
+      disableDefaultUI: true
+    });
+  }
+</script> -->
 
 <div class="modal fade" id="showModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true"></div>
-
-<!-- <div id="menu" class="left-menu">
-    <ul class="list-group list-group-flush">
-        <li class="list-group-item"><i class="fa fa-home" aria-hidden="true"></i> Home</li>
-        <li class="list-group-item"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</li>
-        <li class="list-group-item">Register</li>
-        <li class="list-group-item">Filters</li>
-        <li class="list-group-item">Trip Planner</li>
-        <li class="list-group-item">Filters</li>
-        <li class="list-group-item settings"><button id="settings">Settings</button></li>
-        <li class="list-group-item">Help</li>
-        <li class="list-group-item">Payment</li>
-        <li class="list-group-item download-app">
-            Download App
-            <span>Download App</span>
-            <div class="menu-drop-download-app menu-undrop">
-                <ul>
-                    <li>IOS</li>
-                    <li>Android</li>
-                </ul>
-            </div>
-        </li>
-        <li class="list-group-item terms-conditions">
-            <span>Terms & Conditions</span>
-            <div class="menu-drop-terms-conditions menu-undrop">
-                <ul>
-                    <li>Terms of use</li>
-                    <li>Privacy Policy</li>
-                </ul>
-            </div>
-        </li>
-    </ul>
-</div> -->
