@@ -1,5 +1,11 @@
+var Go = Go_ ? Go_ : {};
+
 jQuery(document).ready(function(){
-    console.log(1);
+
+    console.log(Go.map);
+
+
+    Go.addMapObject();
 
     jQuery('body').on('click', '.terms-conditions', function(){
         if( jQuery('.menu-drop-terms-conditions').hasClass('menu-undrop') )
@@ -43,3 +49,19 @@ jQuery(document).ready(function(){
         $( "#showModal" ).empty();
     });
 });
+
+Go.addMapObject = function(){
+
+    jQuery.ajax({
+        url: url,
+        data : "action=" + 'point' + "/read",
+        type: 'POST',
+        dataType : 'json',
+        success : function( res ) {
+            console.log('success');
+        },
+        error : function ( jqXHR, textStatus, errorThrown ) {
+            console.log('error');
+        }
+    });
+};
