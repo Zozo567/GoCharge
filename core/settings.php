@@ -2,6 +2,7 @@
 
 define('ROOT_PATH', realpath(dirname(__FILE__).'/../'));
 define('CORE_PATH', ROOT_PATH.'/core');
+define('MIGRATION_PATH', CORE_PATH.'/migrations');
 define('LIB_PATH', ROOT_PATH.'/core/libraries');
 define('MODEL_PATH', CORE_PATH.'/models');
 define('FRONT_PATH', ROOT_PATH.'/front');

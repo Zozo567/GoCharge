@@ -1,297 +1,131 @@
 <?php
+    require_once 'core/settings.php';
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Migrations\Migration;
+    // Additional constants
+    // define('DB_HOST', 'localhost');
+    define('DB_TABLE_VERSIONS', 'versions');
 
-class CreateUsersTable extends Migration
-{
-    /**
-     *  Execute migration.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('users', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('email');
-            $table->string('authkey');
-            $table->dateTime('date_create');
-            $table->dateTime('date_update');
-            $table->timestamps();
-        });
+    function getDB(){
+
+        require_once CORE_PATH.'/db.params.php';
+        require_once CORE_PATH.'/db.class.php';
+
+        $db_params = [
+            'user' => DB_USER,
+            'pass' => DB_PASS,
+            'db' => DB_NAME,
+        ];
+
+        return new SafeMySQL($db_params);
     }
 
-    /**
-     * Abort migration.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::drop('users');
-    }
-}
+    // // Connect
+    // function connectDB() {
+    //     $errorMessage = 'Can\'t connect to the DB';
+    //     $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+        
+    //     if (!$conn)
+    //         throw new Exception($errorMessage);
+    //     else {
+            
+    //         return $conn;
 
-class CreatePowerbanksTable extends Migration
-{
-    /**
-     *  Execute migration.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('powerbanks', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('company_id');
-            $table->string('number');            
-            $table->string('advert');
-            $table->dateTime('created');
-            $table->integer('use_status');
-            $table->timestamps();
-        });
-    }
+    //         // $query = $conn->query('set names utf8');
+            
+    //         // if (!$query)
+    //         //     throw new Exception($errorMessage);
+    //         // else
+    //         //     return $conn;
+    //     }
+    // }
+    
+    function getMigrationFiles($db) {
 
-    /**
-     * Abort migration.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::drop('powerbanks');
-    }
-}
+        $sqlFolder = str_replace('\\', '/', realpath(dirname(__FILE__)) . '/'.'core/migrations/');
+        $allFiles = glob($sqlFolder . '*.sql');
 
-class CreatePointsTable extends Migration
-{
-    /**
-     *  Execute migration.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('points', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('address_id');
-            $table->timestamps();
-        });
-    }
+        // Check versions table
+        // Also, it means, that DB is not empty (filled after firest migration)
+        $query = sprintf('show tables from `%s` like "%s"', DB_NAME, DB_TABLE_VERSIONS);
+        
+        // $data = $conn->query($query);
+        $data = $db->getAll($query);
 
-    /**
-     * Abort migration.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::drop('points');
-    }
-}
+        // $firstMigration = !$data->num_rows;
+        $firstMigration = false;
+        if (count($data) == 0) {
+            $firstMigration = true;
+        }
+        
+        if ($firstMigration) {
+            return $allFiles;
+        }
 
-class CreateAddressTable extends Migration
-{
-    /**
-     *  Execute migration.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('address', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('region_id');
-            $table->string('city_id');
-            $table->string('street');
-            $table->string('house');
-            $table->string('geo_x');
-            $table->string('geo_y');
-            $table->timestamps();
-        });
+        $versionsFiles = array();
+        
+        // Get all existing names in DB
+        $query = sprintf('select `name` from `%s`', DB_TABLE_VERSIONS);
+        
+        // $data = $conn->query($query)->fetch_all(MYSQLI_ASSOC);
+        $data = $db->getAll($query);
+        
+        // Push into array $versionsFiles
+        foreach ($data as $row) {
+            array_push($versionsFiles, $sqlFolder . $row['name']);
+        }
+    
+        // Return differ versions
+        return array_diff($allFiles, $versionsFiles);
     }
+    
+    // function migrate($conn, $file) {
+    //     // Form sql-command from external file
+    //     $command = sprintf('mysql -u%s -p%s -h %s -D %s < %s', DB_USER, DB_PASS, DB_HOST, DB_NAME, $file);    
+        
+    //     // Execute shell
+    //     shell_exec($command);
+    
+    //     // Get filename except for path
+    //     $baseName = basename($file);
 
-    /**
-     * Abort migration.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::drop('address');
-    }
-}
+    //     // Query to add migration to the versions
+    //     $query = sprintf('insert into `%s` (`name`) values("%s")', DB_TABLE_VERSIONS, $baseName);
+    //     $conn->query($query);
+    // }
+    
+    function migrate($db, $file) {
 
-class CreateAdvertTable extends Migration
-{
-    /**
-     *  Execute migration.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('advert', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('company_name');
-            $table->timestamps();
-        });
-    }
+        $myfile = fopen($file, "r") or die("Unable to open file!");
+        $query = fread($myfile, filesize($file));
+        fclose($myfile);
 
-    /**
-     * Abort migration.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::drop('advert');
-    }
-}
+        $db->query($query);
 
-class CreateUsersMetaTable extends Migration
-{
-    /**
-     *  Execute migration.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('users_meta', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('pid');
-            $table->string('name');
-            $table->string('value');
-            $table->timestamps();
-        });
-    }
+        // Get filename except for path
+        $baseName = basename($file);
 
-    /**
-     * Abort migration.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::drop('users_meta');
+        // Query to add migration to the versions
+        $query = sprintf('insert into `%s` (`name`) values("%s")', DB_TABLE_VERSIONS, $baseName);
+        $db->query($query);
     }
-}
+    
+    // Start
+    
+    // $conn = connectDB();
+    $db = getDB();
+    $files = getMigrationFiles($db);
 
-class CreatePowerbanksMetaTable extends Migration
-{
-    /**
-     *  Execute migration.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('powerbanks_meta', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('pid');
-            $table->string('name');
-            $table->string('value');
-            $table->timestamps();
-        });
+    // Check new migrations
+    if (empty($files)) {
+        echo 'DB in actual state :)';
+    } else {
+        echo 'Start migration...<br><br>';
+    
+        foreach ($files as $file) {
+            echo basename($file) . '<br>';
+            migrate($db, $file);
+        }
+    
+        echo '<br>Migration complete.';    
     }
-
-    /**
-     * Abort migration.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::drop('powerbanks_meta');
-    }
-}
-
-class CreatePointsMetaTable extends Migration
-{
-    /**
-     *  Execute migration.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('points_meta', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('pid');
-            $table->string('name');
-            $table->string('value');
-            $table->timestamps();
-        });
-    }
-
-    /**
-     * Abort migration.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::drop('points_meta');
-    }
-}
-
-class CreateAddressMetaTable extends Migration
-{
-    /**
-     *  Execute migration.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('address_meta', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('pid');
-            $table->string('name');
-            $table->string('value');
-            $table->timestamps();
-        });
-    }
-
-    /**
-     * Abort migration.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::drop('address_meta');
-    }
-}
-
-class CreateAdvertMetaTable extends Migration
-{
-    /**
-     *  Execute migration.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('advert_meta', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('pid');
-            $table->string('name');
-            $table->string('value');
-            $table->timestamps();
-        });
-    }
-
-    /**
-     * Abort migration.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::drop('advert_meta');
-    }
-}
+?>
