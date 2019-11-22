@@ -7,16 +7,17 @@
         	</button>
     	</div>
         <div class="modal-body">
-            <form>
-                <span>From</span>
-                <input type="text">
-                <span>To</span>
-                <input type="text">
+            <form class="trip">
+                <div class="form-group">
+                    <input class="form-control" id="startPoint" placeholder="Enter starting point">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" id="endPoint" placeholder="Enter end point">
+                </div>
             </form>
         </div>
     	<div class="modal-footer">
-        	<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        	<button type="button" class="btn btn-primary">Save changes</button>
+        	<button type="button" class="btn btn-success btn-submit">Save changes</button>
     	</div>
     </div>
 </div>
