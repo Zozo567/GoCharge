@@ -58,11 +58,74 @@ Go.addMapObject = function(){
         success : function( res ) {
             console.log('success');
             var myLatlng = new google.maps.LatLng(47.519015,19.060211);
-            var marker = new google.maps.Marker({
+            var marker_1 = new google.maps.Marker({
                 position: myLatlng,
                 title:"Hello World!"
             });
-            marker.setMap(Go_.map);
+            marker_1.setMap(Go_.map);
+
+            var myLatlng = new google.maps.LatLng(47.484308,19.076556);
+            var marker_2 = new google.maps.Marker({
+                position: myLatlng,
+                title:"Hello World!"
+            });
+            marker_2.setMap(Go_.map);
+
+            var myLatlng = new google.maps.LatLng(47.463978,19.037003);
+            var marker_3 = new google.maps.Marker({
+                position: myLatlng,
+                title:"Hello World!"
+            });
+            marker_3.setMap(Go_.map);
+
+            var myLatlng = new google.maps.LatLng(47.506770,19.028717);
+            var marker_4 = new google.maps.Marker({
+                position: myLatlng,
+                title:"Hello World!"
+            });
+            marker_4.setMap(Go_.map);
+
+            var myLatlng = new google.maps.LatLng(47.522285,19.044100);
+            var marker_5 = new google.maps.Marker({
+                position: myLatlng,
+                title:"Hello World!"
+            });
+            marker_5.setMap(Go_.map);
+
+            var myLatlng = new google.maps.LatLng(47.497608,19.121300);
+            var marker_6 = new google.maps.Marker({
+                position: myLatlng,
+                title:"Hello World!"
+            });
+            marker_6.setMap(Go_.map);
+
+            var myLatlng = new google.maps.LatLng(47.445434,19.106388);
+            var marker_7 = new google.maps.Marker({
+                position: myLatlng,
+                title:"Hello World!"
+            });
+            marker_7.setMap(Go_.map);
+
+            var myLatlng = new google.maps.LatLng(47.500824,19.046705);
+            var marker_8 = new google.maps.Marker({
+                position: myLatlng,
+                title:"Hello World!"
+            });
+            marker_8.setMap(Go_.map);
+
+            var myLatlng = new google.maps.LatLng(47.497094,19.039586);
+            var marker_9 = new google.maps.Marker({
+                position: myLatlng,
+                title:"Hello World!"
+            });
+            marker_9.setMap(Go_.map);
+
+            var myLatlng = new google.maps.LatLng(47.489770,19.053438);
+            var marker_10 = new google.maps.Marker({
+                position: myLatlng,
+                title:"Hello World!"
+            });
+            marker_10.setMap(Go_.map);
         },
         error : function ( jqXHR, textStatus, errorThrown ) {
             console.log('error');
