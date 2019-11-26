@@ -1,6 +1,6 @@
 var Go = Go_ ? Go_ : {};
 
-jQuery(document).ready(function(){
+$(document).ready(function(){
 
     console.log(Go.map);
 
@@ -21,13 +21,13 @@ jQuery(document).ready(function(){
     //         jQuery('.menu-drop-download-app').removeClass('menu-drop').addClass('menu-undrop');
     // });
 
-    jQuery('body').on('click', '.showmodal', function(e){
+    $('body').on('click', '.showmodal', function(e){
 
         e.preventDefault();
 
-        var url = jQuery(this).find('a').data('action');
+        var url = $(this).find('a').data('action');
 
-        jQuery.ajax({
+        $.ajax({
             url: url,
             data : "action=" + url + "/read",
             type: 'POST',
@@ -50,85 +50,52 @@ jQuery(document).ready(function(){
 
 Go.addMapObject = function(){
 
-    jQuery.ajax({
+    $.ajax({
         url: 'point',
         data : "action=" + 'point' + "/read",
         type: 'POST',
         dataType : 'json',
         success : function( res ) {
-            console.log('success');
-            var myLatlng = new google.maps.LatLng(47.519015,19.060211);
-            var marker_1 = new google.maps.Marker({
-                position: myLatlng,
-                title:"Hello World!"
-            });
-            marker_1.setMap(Go_.map);
+            for (var i = 0; i < res.content.length; i ++) {
+                var thisLat = parseFloat(res.content[i].latiude);
+                var thisLng = parseFloat(res.content[i].longitude);
+                var thisLatLng = new google.maps.LatLng(thisLat,thisLng);
+                var marker = new google.maps.Marker({
+                    position: thisLatLng,
+                    title: res.content[i].name + res.content[i].address,
+                    icon: 'front/assets/images/charging_point_red.png'
+                });
+                marker.setMap(Go_.map);
 
-            var myLatlng = new google.maps.LatLng(47.484308,19.076556);
-            var marker_2 = new google.maps.Marker({
-                position: myLatlng,
-                title:"Hello World!"
-            });
-            marker_2.setMap(Go_.map);
-
-            var myLatlng = new google.maps.LatLng(47.463978,19.037003);
-            var marker_3 = new google.maps.Marker({
-                position: myLatlng,
-                title:"Hello World!"
-            });
-            marker_3.setMap(Go_.map);
-
-            var myLatlng = new google.maps.LatLng(47.506770,19.028717);
-            var marker_4 = new google.maps.Marker({
-                position: myLatlng,
-                title:"Hello World!"
-            });
-            marker_4.setMap(Go_.map);
-
-            var myLatlng = new google.maps.LatLng(47.522285,19.044100);
-            var marker_5 = new google.maps.Marker({
-                position: myLatlng,
-                title:"Hello World!"
-            });
-            marker_5.setMap(Go_.map);
-
-            var myLatlng = new google.maps.LatLng(47.497608,19.121300);
-            var marker_6 = new google.maps.Marker({
-                position: myLatlng,
-                title:"Hello World!"
-            });
-            marker_6.setMap(Go_.map);
-
-            var myLatlng = new google.maps.LatLng(47.445434,19.106388);
-            var marker_7 = new google.maps.Marker({
-                position: myLatlng,
-                title:"Hello World!"
-            });
-            marker_7.setMap(Go_.map);
-
-            var myLatlng = new google.maps.LatLng(47.500824,19.046705);
-            var marker_8 = new google.maps.Marker({
-                position: myLatlng,
-                title:"Hello World!"
-            });
-            marker_8.setMap(Go_.map);
-
-            var myLatlng = new google.maps.LatLng(47.497094,19.039586);
-            var marker_9 = new google.maps.Marker({
-                position: myLatlng,
-                title:"Hello World!"
-            });
-            marker_9.setMap(Go_.map);
-
-            var myLatlng = new google.maps.LatLng(47.489770,19.053438);
-            var marker_10 = new google.maps.Marker({
-                position: myLatlng,
-                title:"Hello World!"
-            });
-            marker_10.setMap(Go_.map);
+                var infowindow = new google.maps.InfoWindow({
+                    content: '<div id="content">'+
+                                '<h6>'+ res.content[i].name +'</h6>'+
+                                '<div><b>'+ res.content[i].address +'</b></div><hr>'+
+                                '<div><i class="fas fa-plug"></i> Disposable charger : '+
+                                    res.content[i].powerbanks.disposable_charger +
+                                '</div>'+
+                                '<div><i class="fas fa-charging-station"></i> Micro USB : '+
+                                    res.content[i].powerbanks.micro_usb +
+                                '</div>'+
+                                '<div><i class="fas fa-charging-station"></i> USB A : '+
+                                    res.content[i].powerbanks.usb_a +
+                                '</div>'+
+                                '<div><i class="fas fa-charging-station"></i> USB Type C : '+
+                                    res.content[i].powerbanks.usb_type_c +
+                                '</div>'+
+                             '</div>'
+                });
+                marker.addListener('click', infoCallback(infowindow, marker));
+            }
         },
         error : function ( jqXHR, textStatus, errorThrown ) {
             console.log('error');
         }
     });
 };
+
+function infoCallback(infowindow, marker) {
+    return function() {
+        infowindow.open(map, marker);
+    };
+}
