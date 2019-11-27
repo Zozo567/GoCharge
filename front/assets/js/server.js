@@ -26,6 +26,7 @@ $(document).ready(function(){
         e.preventDefault();
 
         var url = $(this).find('a').data('action');
+        var switch_modal = $(this).find('a').hasClass('switchmodal');
 
         $.ajax({
             url: url,
@@ -34,6 +35,7 @@ $(document).ready(function(){
             dataType : 'json',
             success : function( res ) {
                 console.log('success');
+                if (switch_modal) { $('#showModal').empty(); }
                 $('#showModal').append( res.content );
                 $('#showModal').modal('show');
             },

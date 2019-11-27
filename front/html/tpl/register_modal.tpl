@@ -36,11 +36,8 @@
                     <button class="btn btn-info btn-submit btn-block">Register</button>
                   </form>
                   <hr>
-                  <div class="text-center">
-                    <a class="small" href="forgot-password.html">Forgot Password?</a>
-                  </div>
-                  <div class="text-center">
-                    <a class="small" href="login.html">Already have an account? Login!</a>
+                  <div class="text-center showmodal">
+                    <a class="small switchmodal" href="login" data-action="login">Already have an account? Login!</a>
                   </div>
                 </div>
               </div>
