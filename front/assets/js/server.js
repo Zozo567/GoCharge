@@ -59,7 +59,7 @@ Go.addMapObject = function(){
         dataType : 'json',
         success : function( res ) {
             for (var i = 0; i < res.content.length; i ++) {
-                var thisLat = parseFloat(res.content[i].latiude);
+                var thisLat = parseFloat(res.content[i].latitude);
                 var thisLng = parseFloat(res.content[i].longitude);
                 var thisLatLng = new google.maps.LatLng(thisLat,thisLng);
                 var marker = new google.maps.Marker({
