@@ -6,7 +6,7 @@ $(document).ready(function(){
 
     console.log(Go.map);
 
-    Go.initMap();
+    // Go.initMap();
 
 
     Go.addMapObject();
@@ -54,16 +54,16 @@ $(document).ready(function(){
     });
 });
 
-Go.initMap = function initMap() {
-    // The location of Uluru
-    var uluru = {lat: -25.3, lng: 131.04};
-    // The map, centered at Uluru
-    Go.map = new google.maps.Map(document.getElementById('map'), {
-        center: uluru,
-        zoom: 3,
-        disableDefaultUI: true
-    });
-};
+// Go.initMap = function initMap() {
+//     // The location of Uluru
+//     var uluru = {lat: -25.3, lng: 131.04};
+//     // The map, centered at Uluru
+//     Go.map = new google.maps.Map(document.getElementById('map'), {
+//         center: uluru,
+//         zoom: 3,
+//         disableDefaultUI: true
+//     });
+// };
 
 Go.addMapObject = function(){
 
