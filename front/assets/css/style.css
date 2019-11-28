@@ -82,3 +82,17 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     /* line 17, ../scss/_partials/_main.scss */
     .left-menu .list-group-item .menu-undrop {
       display: none; }
+
+/* line 24, ../scss/_partials/_main.scss */
+.filters {
+  position: absolute;
+  top: 110px;
+  left: 45%;
+  z-index: 1000; }
+  /* line 31, ../scss/_partials/_main.scss */
+  .filters .select-type {
+    float: left;
+    margin-right: 30px; }
+  /* line 36, ../scss/_partials/_main.scss */
+  .filters .map-filter {
+    float: right; }

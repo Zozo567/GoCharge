@@ -20,3 +20,20 @@
     }
 
 }
+
+.filters{
+    position: absolute;
+    top: 110px;
+    left: 45%;
+    z-index: 1000;
+    // background-color: azure;
+
+    .select-type{
+        float: left; 
+        margin-right:30px;
+    }
+
+    .map-filter{
+        float: right;
+    }
+}
