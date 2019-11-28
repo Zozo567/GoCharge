@@ -11,6 +11,28 @@ $(document).ready(function(){
 
     Go.addMapObject();
 
+    // $('body').on('click', '#draw', function () {
+
+    //     // map.geoObjects.remove(Loft.polygon);
+    //     // objectManager.add(Loft.objectList);
+
+    //     console.log('clear');
+
+    //     $('#clear').addClass('hide');
+    //     $('#draw').removeClass('hide');
+    // });
+
+    // $('body').on('click', '#clear', function () {
+
+    //     // map.geoObjects.remove(Loft.polygon);
+    //     // objectManager.add(Loft.objectList);
+
+    //     console.log('clear');
+
+    //     $('#draw').addClass('hide');
+	// 	$('#clear').removeClass('hide');
+    // });
+
     // jQuery('body').on('click', '.terms-conditions', function(){
     //     if( jQuery('.menu-drop-terms-conditions').hasClass('menu-undrop') )
     //         jQuery('.menu-drop-terms-conditions').removeClass('menu-undrop').addClass('menu-drop');
@@ -60,6 +82,22 @@ Go.initMap = function initMap() {
         zoom: 12,
         disableDefaultUI: true
     });
+
+    var drawButton = document.querySelector( '#draw' );
+    var clearButton = document.querySelector( '#clear' );
+
+    clearButton.onclick = function () {
+        $('#clear').addClass('hide');
+        $('#draw').removeClass('hide');
+    }
+
+    drawButton.onclick = function () {
+        $('#draw').addClass('hide');
+        $('#clear').removeClass('hide');
+
+
+        
+    }
 };
 
 Go.addMapObject = function(){
