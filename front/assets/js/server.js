@@ -1,8 +1,12 @@
-var Go = Go_ ? Go_ : {};
+// var Go = Go_ ? Go_ : {};
+
+var Go = {};
 
 $(document).ready(function(){
 
     console.log(Go.map);
+
+    Go.initMap();
 
 
     Go.addMapObject();
@@ -50,6 +54,14 @@ $(document).ready(function(){
     });
 });
 
+Go.initMap = function initMap() {
+    Go.map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: 47.482570, lng: 19.065853},
+        zoom: 12,
+        disableDefaultUI: true
+    });
+};
+
 Go.addMapObject = function(){
 
     $.ajax({
@@ -67,7 +79,7 @@ Go.addMapObject = function(){
                     title: res.content[i].name + res.content[i].address,
                     icon: 'front/assets/images/charging_point_red.png'
                 });
-                marker.setMap(Go_.map);
+                marker.setMap(Go.map);
 
                 var infowindow = new google.maps.InfoWindow({
                     content: '<div id="content">'+
