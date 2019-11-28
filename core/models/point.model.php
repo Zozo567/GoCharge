@@ -71,4 +71,9 @@ class Point extends Main
 
         return ['status' => true, 'content' => $points];
     }
+
+    public function getFilter(){
+
+        return $this->readFormate();
+    }
 }
