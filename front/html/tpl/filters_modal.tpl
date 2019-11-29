@@ -6,11 +6,75 @@
           		<span aria-hidden="true">&times;</span>
         	</button>
     	</div>
-      <div class="modal-body">
-        ...
-      </div>
-    	<div class="modal-footer">
-        	<button class="btn btn-success">Filter</button>
-    	</div>
+        <form id="filterForm" action="/point/getFilter" method="post">
+            <div class="modal-body">
+                <div class="filterWrap">
+                    <div class="text-center">
+                        <h1 class="h4 text-gray-900 mb-4">Stationary Charger Types</h1>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3 nopad text-center">
+                            <label class="image-checkbox">
+                                <img src="front/assets/images/typeA.png" class="img-responsive img-fluid">
+                                <input type="checkbox" name="typeA" value="true"/>
+                                <!-- <i class="fa fa-check hidden"></i> -->
+                            </label>
+                        </div>
+                        <div class="col-md-3 nopad text-center">
+                            <label class="image-checkbox">
+                                <img src="front/assets/images/typeC.png" class="img-responsive img-fluid">
+                                <input type="checkbox" name="typeC" value="true"/>
+                                <!-- <i class="fa fa-check hidden"></i> -->
+                            </label>
+                        </div>
+                        <div class="col-md-3 nopad text-center">
+                            <label class="image-checkbox">
+                                <img src="front/assets/images/microB.png" class="img-responsive img-fluid">
+                                <input type="checkbox" name="microB" value="true"/>
+                                <!-- <i class="fa fa-check hidden"></i> -->
+                            </label>
+                        </div>
+                        <div class="col-md-3 nopad text-center">
+                            <label class="image-checkbox">
+                                <img src="front/assets/images/lightning.png" class="img-responsive img-fluid">
+                                <input type="checkbox" name="lightning" value="true"/>
+                                <!-- <i class="fa fa-check hidden"></i> -->
+                            </label>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="text-center">
+                        <h1 class="h4 text-gray-900 mb-4">Disposable Charger Types</h1>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 nopad text-center">
+                            <label class="image-checkbox">
+                                <img src="front/assets/images/typeC.png" class="img-responsive img-fluid">
+                                <input type="checkbox" name="disp_typeC" value="true"/>
+                                <!-- <i class="fa fa-check hidden"></i> -->
+                            </label>
+                        </div>
+                        <div class="col-md-4 nopad text-center">
+                            <label class="image-checkbox">
+                                <img src="front/assets/images/microB.png" class="img-responsive img-fluid">
+                                <input type="checkbox" name="disp_microB" value="true"/>
+                                <!-- <i class="fa fa-check hidden"></i> -->
+                            </label>
+                        </div>
+                        <div class="col-md-4 nopad text-center">
+                            <label class="image-checkbox">
+                                <img src="front/assets/images/lightning.png" class="img-responsive img-fluid">
+                                <input type="checkbox" name="disp_lightning" value="true"/>
+                                <!-- <i class="fa fa-check hidden"></i> -->
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        	<div class="modal-footer">
+            	<button type="submit" id="setFilter" class="btn btn-success">Set Filter</button>
+        	</div>
+        </form>
     </div>
 </div>
