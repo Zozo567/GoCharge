@@ -2,6 +2,14 @@
 
 var Go = {};
 
+// Global variables to use in 'trip_planner_modal' script
+var POINTS = [];
+var MARKERS = [];
+var A_POINT = '';
+var B_POINT = '';
+var A_MARKER;
+var B_MARKER;
+
 $(document).ready(function(){
 
     console.log(Go.map);
@@ -123,14 +131,13 @@ $(document).ready(function(){
 });
 
 // Go.initMap = function initMap() {
-//     // The location of Uluru
-//     var uluru = {lat: -25.3, lng: 131.04};
-//     // The map, centered at Uluru
+    
 //     Go.map = new google.maps.Map(document.getElementById('map'), {
-//         center: uluru,
-//         zoom: 3,
+//         center: {lat: 47.4979, lng: 19.0402},
+//         zoom: 12,
 //         disableDefaultUI: true
 //     });
+
 // };
 
 Go.addMapObject = function(){
@@ -151,6 +158,8 @@ Go.addMapObject = function(){
                     icon: 'front/assets/images/charging_point_red.png'
                 });
                 marker.setMap(Go.map);
+
+                MARKERS.push(marker);
 
                 var infowindow = new google.maps.InfoWindow({
                     content: '<div id="content">'+
@@ -185,4 +194,79 @@ function infoCallback(infowindow, marker) {
     };
 }
 
+$('body').on('click', '#askLocation', function(e) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+        var lat = position.coords.latitude;
+        var lng = position.coords.longitude;
 
+        var thisLatLng = new google.maps.LatLng(lat, lng);
+        var marker = new google.maps.Marker({
+            position: thisLatLng,
+            title: 'Your location',
+            icon: 'front/assets/images/location-pin.png'
+        });
+        
+        marker.setMap(Go.map);
+        A_POINT = 'MY LOCATION';
+        A_MARKER = marker;
+
+        $('#startPoint').val('MY LOCATION');
+
+        var infowindow = new google.maps.InfoWindow({
+            content: '<div id="content">'+
+                        '<h6>Your location</h6>'+
+                        '</div>'
+        });
+        
+        marker.addListener('click', infoCallback(infowindow, marker));
+    });
+});
+
+// Trip plane
+$('body').on('click', '#tripPlane', function(e){ 
+
+    MARKERS.forEach(M => {
+        M.setMap(null);
+        M.icon = 'front/assets/images/charging_point_red.png';
+        M.setMap(Go.map);
+        
+        if (M.title.indexOf(A_POINT) != -1) {
+            A_MARKER = M;
+        }
+
+        if (M.title.indexOf(B_POINT) != -1) {
+            B_MARKER = M;
+        }
+    });
+
+    A_MARKER.setMap(null);
+    B_MARKER.setMap(null);
+    A_MARKER.icon = 'front/assets/images/location-pin.png';
+    B_MARKER.icon = 'front/assets/images/charging_point_blue.png';
+    A_MARKER.setMap(Go.map);
+    B_MARKER.setMap(Go.map);
+
+    POINTS = [];
+    $('#showModal').empty();
+    $('#showModal').removeAttr('show');
+
+    // var directionsService = new google.maps.DirectionsService;
+    // var directionsDisplay = new google.maps.DirectionsRenderer;
+    // directionsDisplay.setOptions({suppressMarkers: true});
+  
+    // directionsDisplay.setMap(Go.map);
+
+    // var request = {
+    //     origin: new google.maps.LatLng(47.491347,19.0525),
+    //     destination: new google.maps.LatLng(47.438408,19.2521),
+    //     travelMode: google.maps.DirectionsTravelMode.WALKING
+    // };
+
+    // directionsService.route(request, function(response, status){
+    //     if (status == google.maps.DirectionsStatus.OK){
+    //         directionsDisplay.setDirections(response);
+    //     }
+    // });
+
+    // directionsDisplay.setMap(Go.map);
+});
