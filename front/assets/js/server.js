@@ -270,3 +270,30 @@ $('body').on('click', '#tripPlane', function(e){
 
     // directionsDisplay.setMap(Go.map);
 });
+
+// Open in Google
+$('body').on('click', '#openGoogle', function(e){ 
+
+    MARKERS.forEach(M => {
+        M.setMap(null);
+        M.icon = 'front/assets/images/charging_point_red.png';
+        M.setMap(Go.map);
+        
+        if (M.title.indexOf(A_POINT) != -1) {
+            A_MARKER = M;
+        }
+
+        if (M.title.indexOf(B_POINT) != -1) {
+            B_MARKER = M;
+        }
+    });
+
+    var lat_A = A_MARKER.getPosition().lat();
+    var lng_A = A_MARKER.getPosition().lng();
+    var lat_B = B_MARKER.getPosition().lat();
+    var lng_B = B_MARKER.getPosition().lng();
+
+    // console.log('https://www.google.com/maps/dir/?api=1&origin='+lat_A+','+lng_A+'&destination='+lat_B+','+lng_B+'&travelmode=walking');
+
+    window.open('https://www.google.com/maps/dir/?api=1&origin='+lat_A+','+lng_A+'&destination='+lat_B+','+lng_B+'&travelmode=walking');
+});

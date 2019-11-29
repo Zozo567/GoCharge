@@ -24,6 +24,7 @@
             </form>
         </div>
     	<div class="modal-footer">
+            <button type="button" id="openGoogle" class="btn btn-success btn-submit">Open in Google</button>
         	<button type="button" id="tripPlane" class="btn btn-success btn-submit">Build route</button>
     	</div>
     </div>
