@@ -6,39 +6,40 @@
           		<span aria-hidden="true">&times;</span>
         	</button>
     	</div>
-        <form id="filterForm" action="/point/getFilter" method="post">
+        <form id="filterForm" action="point/getFilter" method="post">
             <div class="modal-body">
                 <div class="filterWrap">
                     <div class="text-center">
                         <h1 class="h4 text-gray-900 mb-4">Stationary Charger Types</h1>
                     </div>
+                    <input type="hidden" name="action" value="point/getFilter">
 
                     <div class="row">
                         <div class="col-md-3 nopad text-center">
                             <label class="image-checkbox">
                                 <img src="front/assets/images/typeA.png" class="img-responsive img-fluid">
-                                <input type="checkbox" name="typeA" value="true"/>
+                                <input type="checkbox" name="static_typeA" value="true"/>
                                 <!-- <i class="fa fa-check hidden"></i> -->
                             </label>
                         </div>
                         <div class="col-md-3 nopad text-center">
                             <label class="image-checkbox">
                                 <img src="front/assets/images/typeC.png" class="img-responsive img-fluid">
-                                <input type="checkbox" name="typeC" value="true"/>
+                                <input type="checkbox" name="static_typeC" value="true"/>
                                 <!-- <i class="fa fa-check hidden"></i> -->
                             </label>
                         </div>
                         <div class="col-md-3 nopad text-center">
                             <label class="image-checkbox">
                                 <img src="front/assets/images/microB.png" class="img-responsive img-fluid">
-                                <input type="checkbox" name="microB" value="true"/>
+                                <input type="checkbox" name="static_microB" value="true"/>
                                 <!-- <i class="fa fa-check hidden"></i> -->
                             </label>
                         </div>
                         <div class="col-md-3 nopad text-center">
                             <label class="image-checkbox">
                                 <img src="front/assets/images/lightning.png" class="img-responsive img-fluid">
-                                <input type="checkbox" name="lightning" value="true"/>
+                                <input type="checkbox" name="static_lightning" value="true"/>
                                 <!-- <i class="fa fa-check hidden"></i> -->
                             </label>
                         </div>

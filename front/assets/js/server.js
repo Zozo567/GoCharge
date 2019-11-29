@@ -82,17 +82,23 @@ $(document).ready(function(){
         });
     });
 
-    $('#filterForm').submit(function(e){
-        e.preventDefault(); //prevent default action 
-        var post_url = $(this).attr("action"); //get form action url
-        var request_method = $(this).attr("method"); //get form GET/POST method
-        var form_data = $(this).serialize(); //Encode form elements for submission
+    jQuery('body').on('click', '#setFilter', function(e){
+
         
+        e.preventDefault(); //prevent default action 
+
+        form = jQuery('body').find('#filterForm');
+        var post_url = form.attr("action"); //get form action url
+        var request_method = form.attr("method"); //get form GET/POST method
+        var form_data = form.serialize(); //Encode form elements for submission
+
         $.ajax({
             url : post_url,
-            type: request_method,
+            type: 'POST',
             data : form_data,
-        }).done(function(res){
+            dataType : 'json',
+            success : function( res ) {
+                console.log(res);
             for (var i = 0; i < res.content.length; i ++) {
                 var thisLat = parseFloat(res.content[i].latitude);
                 var thisLng = parseFloat(res.content[i].longitude);
@@ -124,7 +130,52 @@ $(document).ready(function(){
                 });
                 marker.addListener('click', infoCallback(infowindow, marker));
             }
+            },
+            error : function ( jqXHR, textStatus, errorThrown ) {
+                console.log('error');
+            }
         });
+        
+        // $.ajax({
+        //     url : post_url,
+        //     type: 'POST',
+        //     data : form_data,
+        //     dataType : 'json',
+        // }).success(function(res){
+
+        //     console.log(res);
+        //     for (var i = 0; i < res.content.length; i ++) {
+        //         var thisLat = parseFloat(res.content[i].latitude);
+        //         var thisLng = parseFloat(res.content[i].longitude);
+        //         var thisLatLng = new google.maps.LatLng(thisLat,thisLng);
+        //         var marker = new google.maps.Marker({
+        //             position: thisLatLng,
+        //             title: res.content[i].name + res.content[i].address,
+        //             icon: 'front/assets/images/charging_point_red.png'
+        //         });
+        //         marker.setMap(Go.map);
+
+        //         var infowindow = new google.maps.InfoWindow({
+        //             content: '<div id="content">'+
+        //                         '<h6>'+ res.content[i].name +'</h6>'+
+        //                         '<div><b>'+ res.content[i].address +'</b></div><hr>'+
+        //                         '<div><i class="fas fa-plug"></i> Disposable charger : '+
+        //                             res.content[i].powerbanks.disposable_charger +
+        //                         '</div>'+
+        //                         '<div><i class="fas fa-charging-station"></i> Micro USB : '+
+        //                             res.content[i].powerbanks.micro_usb +
+        //                         '</div>'+
+        //                         '<div><i class="fas fa-charging-station"></i> USB A : '+
+        //                             res.content[i].powerbanks.usb_a +
+        //                         '</div>'+
+        //                         '<div><i class="fas fa-charging-station"></i> USB Type C : '+
+        //                             res.content[i].powerbanks.usb_type_c +
+        //                         '</div>'+
+        //                      '</div>'
+        //         });
+        //         marker.addListener('click', infoCallback(infowindow, marker));
+        //     }
+        // });
 
     });
 

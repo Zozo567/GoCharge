@@ -74,6 +74,34 @@ class Point extends Main
 
     public function getFilter(){
 
+        $db = $this->getDB();
+
+        $post = $_POST;
+
+        $filters_powerbanks = [];
+        $filters_wire = [];
+
+        foreach( $post as $key => $value ){
+
+            if( $key == 'action' )
+                continue;
+
+            if( explode('_', $key)[0] == 'disp' )
+                $filters_powerbanks[] = explode('_', $key)[1];
+
+            if( explode('_', $key)[0] == 'static' )
+                $filters_wire[] = explode('_', $key)[1];
+        }
+
+        $sql_powerbanks = "SELECT * FROM ?n WHERE `status` = 1 AND 1=1";
+        
+        foreach( $filters_powerbanks as $check ){
+            $sql_powerbanks = $sql_powerbanks . " OR `wire` = " . "'". $check . "'";
+            // $check;
+        }
+
+        $powerbanks = $db->getAll( $sql_powerbanks, 'powerbank');
+
         return $this->readFormate();
     }
 }
