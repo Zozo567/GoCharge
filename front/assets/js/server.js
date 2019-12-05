@@ -196,7 +196,7 @@ $(document).ready(function(){
         //         marker.addListener('click', infoCallback(infowindow, marker));
         //     }
         // });
-
+        $('#showModal').modal('hide');
     });
 
 
