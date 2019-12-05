@@ -6,4 +6,4 @@ CREATE TABLE `point_meta` (
   PRIMARY KEY (`ID`),
   KEY `pid` (`pid`),
   KEY `pid_name` (`pid`,`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+)
