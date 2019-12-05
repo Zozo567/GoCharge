@@ -263,6 +263,11 @@ form input[type=button]:active, input[type=submit]:active, input[type=reset]:act
   outline: none !important;
 }
 
+.goBtn {
+  margin-left: 50px;
+  margin-top: 10px;
+}
+
 .autocomplete {
   /*the container must be positioned relative:*/
   position: relative;
