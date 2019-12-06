@@ -128,7 +128,7 @@ $(document).ready(function(){
                     MARKERS.push(marker);
 
                     var infowindow = new google.maps.InfoWindow({
-                        content: '<div id="content">'+
+                        content: '<div id="content" class="text-gray-900">'+
                                 '<h6>'+ res.content[i].info_point.name +'</h6>'+
                                 '<div><b>'+ res.content[i].info_point.address +'</b></div><hr>'+
                                 '<h6>In-cabinet chargers:</h6>'+
@@ -143,7 +143,7 @@ $(document).ready(function(){
                                 '</div>'+
                                 '<div><i class="fas fa-charging-station"></i> iPhone-Lightning : '+
                                     res.content[i].wirestatic0iphone_lightning +
-                                '</div>'+
+                                '</div><br>'+
                                 '<h6>Charging Cables:</h6>'+
                                 '<div><i class="fas fa-charging-station"></i> Micro-USB-B : '+
                                     res.content[i].wiresale0micro_usb_b +
@@ -153,7 +153,7 @@ $(document).ready(function(){
                                 '</div>'+
                                 '<div><i class="fas fa-charging-station"></i> iPhone-Lightning : '+
                                     res.content[i].wiresale0iphone_lightning +
-                                '</div>'+
+                                '</div><br>'+
                                 '<h6>Disposable Power Banks:</h6>'+
                                 '<div><i class="fas fa-charging-station"></i>  Micro-USB-B : '+
                                     res.content[i].powdisp0micro_usb_b +
@@ -163,14 +163,14 @@ $(document).ready(function(){
                                 '</div>'+
                                 '<div><i class="fas fa-charging-station"></i> iPhone-Lightning '+
                                     res.content[i].powdisp0iphone_lightning +
-                                '</div>'+
-                                '<h6>Disposable Power Banks:</h6>'+
+                                '</div><br>'+
+                                '<h6>Power Banks:</h6>'+
                                 '<div><i class="fas fa-charging-station"></i> Anker 12000mA : '+
                                     res.content[i].pownodisp0anker +
                                 '</div>'+
                                 '<div><i class="fas fa-charging-station"></i> Samsung 5000mA : '+
                                     res.content[i].pownodisp0samsung +
-                                '</div>'+
+                                '</div><br>'+
                                 '<h6>Special Charging Tools:</h6>'+
                                 '<div><i class="fas fa-charging-station"></i> Walking-Generator : '+
                                     res.content[i].tools0walking_generator +
@@ -180,7 +180,7 @@ $(document).ready(function(){
                                 '</div>'+
                                 '<div><i class="fas fa-charging-station"></i> Solar Charger : '+
                                     res.content[i].tools0solar_charger +
-                                '</div>'+
+                                '</div><br>'+
                                 '<h6>Chargers:</h6>'+
                                 '<div><i class="fas fa-charging-station"></i> Samsung charger : '+
                                     res.content[i].charge0samsung_charger +
@@ -393,22 +393,22 @@ Go.addMapObject = function(){
                 MARKERS.push(marker);
 
                 var infowindow = new google.maps.InfoWindow({
-                    content: '<div id="content">'+
+                    content: '<div id="content" class="text-gray-900">'+
                                 '<h6>'+ res.content[i].info_point.name +'</h6>'+
                                 '<div><b>'+ res.content[i].info_point.address +'</b></div><hr>'+
                                 '<h6>In-cabinet chargers:</h6>'+
-                                '<div><i class="fas fa-charging-station"></i> USB-A : '+
+                                '<div><i class="fas fa-plug"></i> USB-A : '+
                                     res.content[i].wirestatic0usb_a +
                                 '</div>'+
-                                '<div><i class="fas fa-charging-station"></i> Micro-USB-B : '+
+                                '<div><i class="fas fa-plug"></i> Micro-USB-B : '+
                                     res.content[i].wirestatic0micro_usb_b +
                                 '</div>'+
-                                '<div><i class="fas fa-charging-station"></i> USB-Type-C : '+
+                                '<div><i class="fas fa-plug"></i> USB-Type-C : '+
                                     res.content[i].wirestatic0usb_type_c +
                                 '</div>'+
-                                '<div><i class="fas fa-charging-station"></i> iPhone-Lightning : '+
+                                '<div><i class="fas fa-plug"></i> iPhone-Lightning : '+
                                     res.content[i].wirestatic0iphone_lightning +
-                                '</div>'+
+                                '</div><br>'+
                                 '<h6>Charging Cables:</h6>'+
                                 '<div><i class="fas fa-charging-station"></i> Micro-USB-B : '+
                                     res.content[i].wiresale0micro_usb_b +
@@ -418,7 +418,7 @@ Go.addMapObject = function(){
                                 '</div>'+
                                 '<div><i class="fas fa-charging-station"></i> iPhone-Lightning : '+
                                     res.content[i].wiresale0iphone_lightning +
-                                '</div>'+
+                                '</div><br>'+
                                 '<h6>Disposable Power Banks:</h6>'+
                                 '<div><i class="fas fa-charging-station"></i>  Micro-USB-B : '+
                                     res.content[i].powdisp0micro_usb_b +
@@ -428,14 +428,14 @@ Go.addMapObject = function(){
                                 '</div>'+
                                 '<div><i class="fas fa-charging-station"></i> iPhone-Lightning '+
                                     res.content[i].powdisp0iphone_lightning +
-                                '</div>'+
-                                '<h6>Disposable Power Banks:</h6>'+
+                                '</div><br>'+
+                                '<h6>Power Banks:</h6>'+
                                 '<div><i class="fas fa-charging-station"></i> Anker 12000mA : '+
                                     res.content[i].pownodisp0anker +
                                 '</div>'+
                                 '<div><i class="fas fa-charging-station"></i> Samsung 5000mA : '+
                                     res.content[i].pownodisp0samsung +
-                                '</div>'+
+                                '</div><br>'+
                                 '<h6>Special Charging Tools:</h6>'+
                                 '<div><i class="fas fa-charging-station"></i> Walking-Generator : '+
                                     res.content[i].tools0walking_generator +
@@ -445,7 +445,7 @@ Go.addMapObject = function(){
                                 '</div>'+
                                 '<div><i class="fas fa-charging-station"></i> Solar Charger : '+
                                     res.content[i].tools0solar_charger +
-                                '</div>'+
+                                '</div><br>'+
                                 '<h6>Chargers:</h6>'+
                                 '<div><i class="fas fa-charging-station"></i> Samsung charger : '+
                                     res.content[i].charge0samsung_charger +
@@ -453,7 +453,7 @@ Go.addMapObject = function(){
                                 '<div><i class="fas fa-charging-station"></i> iPhone charger : '+
                                     res.content[i].charge0iphone_charger +
                                 '</div>'+
-                                '<div><button type="button" id="'+i+'btn" class="btn btn-success goBtn">Go there</button></div>'+
+                                '<div><button type="button" id="'+i+'btn" class="btn btn-info bg-gradient-info goBtn">Go there</button></div>'+
                              '</div>'
                 });
                 marker.addListener('click', infoCallback(infowindow, marker));

@@ -1,29 +1,30 @@
 <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
-    	<div class="modal-header">
-        	<h5 class="modal-title" id="exampleModalCenterTitle">Settings</h5>
+    	<div class="modal-header bg-gradient-primary">
+        	<h5 class="modal-title text-gray-100" id="exampleModalCenterTitle">Settings</h5>
         	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
           		<span aria-hidden="true">&times;</span>
         	</button>
     	</div>
         <div class="modal-body">
-            <div class="dropdown no-arrow mb-4">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Select Language
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <div class="language">
-                        <a class="dropdown-item" style="display: inline;" href="#">English</a><img src="front/assets/images/eng_language.png">
-                    </div>
-                    <div class="language">
-                        <a class="dropdown-item" style="display: inline;" href="#">Hungarian</a><img src="front/assets/images/hun_language.png">
-                    </div>
+                <div class="text-center">
+                    <h1 class="h6 text-gray-900 mb-4">Select Language</h1>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" class="custom-control-input" id="english" name="inlineDefaultRadiosExample">
                     
+                    <label class="custom-control-label" for="english"> English &nbsp;</label>
+                    <img src="front/assets/images/eng_language.png">            
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" class="custom-control-input" id="magyar" name="inlineDefaultRadiosExample">
+                    
+                    <label class="custom-control-label" for="magyar"> Magyar &nbsp;</label>
+                    <img src="front/assets/images/hun_language.png">
                 </div>
             </div>
-        </div>
     	<div class="modal-footer">
-        	<button class="btn btn-success btn-submit">Save</button>
+        	<button id="save_language" class="btn btn-info bg-gradient-info btn-submit">Save</button>
     	</div>
     </div>
 </div>

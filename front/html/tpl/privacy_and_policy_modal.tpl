@@ -1,7 +1,7 @@
 <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalCenterTitle">Privacy and Policy</h5>
+        <div class="modal-header bg-gradient-primary">
+            <h5 class="modal-title text-gray-100" id="exampleModalCenterTitle">Privacy and Policy</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -18,6 +18,9 @@
             however, you may not be able to take advantage of our websites and services or certain features
             of our websites and services.<br>
             ...
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
     </div>
 </div>

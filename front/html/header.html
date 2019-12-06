@@ -13,15 +13,25 @@
     <link rel="stylesheet" href="front/assets/css/master.css">
     <link rel="stylesheet" href="front/assets/css/server.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Custom fonts for this template-->
+    <link href="front/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="front/assets/css/sb-admin-2.min.css" rel="stylesheet">
 </head>
 
 <body>
     <div class="container-fluid">
-        <div class="row bg-dark">
+        <div class="row bg-gradient-primary">
+            <div class="col-md-7">
+                <div class="text-light display-4 p-2" style="font-size: 25px; margin-right: 20%;">Go<i class="fas fa-bolt"></i>Charge</div>
+            </div>
             <div class="col-md-4">
                 <div class="searchBox" style="display: inline-block;">
                     <i class="fas fa-search"></i>
-                    <input class="searchInput" autocomplete="off" type="text" id="searchInput" name="" placeholder="search location">
+                    <input class="searchInput english" autocomplete="off" type="text" id="searchInput" name="" placeholder="search location">
                 </div>
                 <button style="display: inline-block; border-radius: 7px;" id="searchBtn">
                     <i class="fas fa-search"></i>
@@ -30,11 +40,8 @@
                     <i class="fa fa-map-marker"></i>
                 </button>
             </div>
-            <div class="col-md-7">
-                <div class="text-center text-light display-4 p-2" style="font-size: 25px; margin-right: 20%;">Go<i class="fas fa-bolt"></i>Charge</div>
-            </div>
             <div class="col-md-1">
-                <button style="background: transparent; border-color: transparent;">
+                <button id="language" style="background: transparent; border-color: transparent;">
                     <i class="fas fa-globe-americas fa-2x" style="color: white; float:right; padding:5px;"></i>
                 </button>
             </div>
@@ -52,7 +59,7 @@
             <nav id="sidebar">
               <ul class="list-unstyled components">
                     <li class="active showmodal">
-                      <a href="main.html" data-toggle="collapse" aria-expanded="false">
+                      <a href="#" data-toggle="collapse" aria-expanded="false">
                           <i class="fas fa-home"></i>
                           Home
                       </a>
@@ -115,7 +122,7 @@
                 </li> -->
                 <li class="showmodal">
                   <a href="#termsSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                      <i class="fas fa-document"></i>
+                      <i class="fas fa-file-signature"></i>
                       Terms & Conditions
                   </a>
                   <ul class="collapse list-unstyled" id="termsSubmenu">

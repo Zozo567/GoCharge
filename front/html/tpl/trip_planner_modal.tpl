@@ -1,7 +1,7 @@
 <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
-    	<div class="modal-header">
-        	<h5 class="modal-title" id="exampleModalCenterTitle">Directions</h5>
+    	<div class="modal-header bg-gradient-primary">
+        	<h5 class="modal-title text-gray-100" id="exampleModalCenterTitle">Directions</h5>
         	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
           		<span aria-hidden="true">&times;</span>
         	</button>
@@ -9,7 +9,7 @@
         <div class="modal-body">
             <form class="trip">
                 <div class="form-group">
-                    <button type="button" id="askLocation" class="btn btn-success">My position</button>
+                    <button type="button" id="askLocation" class="btn btn-success bg-gradient-success text-gray-100">My position</button>
                     <br>
                     <br>
                     <div class="autocomplete">
@@ -24,7 +24,7 @@
             </form>
         </div>
     	<div class="modal-footer">
-            <button type="button" id="openGoogle" class="btn btn-success btn-submit">Open in Google</button>
+            <button type="button" id="openGoogle" class="btn btn-info bg-gradient-info btn-submit">Open in Google</button>
     	</div>
     </div>
 </div>
