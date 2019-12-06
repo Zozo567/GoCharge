@@ -1,9 +1,12 @@
-- usb_a  USB-A
+Powerbanks type: 1 - disposable, 2 - non disposable
+Wires type: 1 - static, 2 - for sale
+
+//////////
+
+Items for sale:
 - micro_usb_b  Micro-USB-B
 - usb_type_c  USB-Type-C
 - iphone_lightning  iPhone-Lightning
-
-Items for sale:
 
 Disposable Power Banks:
 - micro_usb_b  Micro-USB-B
@@ -20,6 +23,7 @@ Chargers:
 - iphone_charger  iPhone charger
 
 Charging Cables:
+- usb_a  USB-A
 - micro_usb_b  Micro-USB-B
 - usb_type_c  USB-Type-C
 - iphone_lightning  iPhone-Lightning

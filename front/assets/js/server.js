@@ -286,20 +286,20 @@ $(document).ready(function(){
         MARKERS.forEach(M => {
             if (M.title == point) {
                 Go.map.setCenter(M.position);
-                Go.map.setZoom(20);
+                Go.map.setZoom(17);
                 google.maps.event.trigger(M, 'click');
             }
         });
     });
 
     $('body').on('click', '#locationBtn', function(e) {
-        MARKERS.forEach(M => {
-            if (M.title.indexOf('ELTE') != -1) {
-                Go.map.setCenter(M.position);
-                Go.map.setZoom(20);
-                google.maps.event.trigger(M, 'click');
-            }
-        });
+        var lat_M = 47.473599;
+        var lng_M = 19.060928;
+         
+        var thisLatLng = new google.maps.LatLng(lat_M,lng_M);
+
+        Go.map.setCenter(thisLatLng);
+        Go.map.setZoom(17);
     });
     
     // Open in Google

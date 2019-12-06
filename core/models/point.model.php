@@ -52,25 +52,25 @@ class Point extends Main
             $out_point_list[$i]['wirestatic0usb_a'] = $db->getAll( $sql_one_point_static_wire, 'wire', $point['ID'], 'usb_a' )[0]['COUNT(ID)'];
             $out_point_list[$i]['wirestatic0micro_usb_b'] = $db->getAll( $sql_one_point_static_wire, 'wire', $point['ID'], 'micro_usb_b' )[0]['COUNT(ID)'];
             $out_point_list[$i]['wirestatic0usb_type_c'] = $db->getAll( $sql_one_point_static_wire, 'wire', $point['ID'], 'usb_type_c' )[0]['COUNT(ID)'];
-            $out_point_list[$i]['wirestatic0iphone_lightning'] = $db->getAll( $sql_one_point_static_wire, 'wire', $point['ID'], '-iphone_lightning' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['wirestatic0iphone_lightning'] = $db->getAll( $sql_one_point_static_wire, 'wire', $point['ID'], 'iphone_lightning' )[0]['COUNT(ID)'];
 
             $out_point_list[$i]['wiresale0micro_usb_b'] = $db->getAll( $sql_one_point_sale_wire, 'wire', $point['ID'], 'micro_usb_b' )[0]['COUNT(ID)'];
             $out_point_list[$i]['wiresale0usb_type_c'] = $db->getAll( $sql_one_point_sale_wire, 'wire', $point['ID'], 'usb_type_c' )[0]['COUNT(ID)'];
-            $out_point_list[$i]['wiresale0iphone_lightning'] = $db->getAll( $sql_one_point_sale_wire, 'wire', $point['ID'], '-iphone_lightning' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['wiresale0iphone_lightning'] = $db->getAll( $sql_one_point_sale_wire, 'wire', $point['ID'], 'iphone_lightning' )[0]['COUNT(ID)'];
 
-            $out_point_list[$i]['powdisp0micro_usb_b'] = $db->getAll( $sql_one_point_disp_pow, 'wire', $point['ID'], 'micro_usb_b' )[0]['COUNT(ID)'];
-            $out_point_list[$i]['powdisp0usb_type_c'] = $db->getAll( $sql_one_point_disp_pow, 'wire', $point['ID'], 'usb_type_c' )[0]['COUNT(ID)'];
-            $out_point_list[$i]['powdisp0iphone_lightning'] = $db->getAll( $sql_one_point_disp_pow, 'wire', $point['ID'], '-iphone_lightning' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['powdisp0micro_usb_b'] = $db->getAll( $sql_one_point_disp_pow, 'powerbank', $point['ID'], 'micro_usb_b' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['powdisp0usb_type_c'] = $db->getAll( $sql_one_point_disp_pow, 'powerbank', $point['ID'], 'usb_type_c' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['powdisp0iphone_lightning'] = $db->getAll( $sql_one_point_disp_pow, 'powerbank', $point['ID'], 'iphone_lightning' )[0]['COUNT(ID)'];
 
-            $out_point_list[$i]['pownodisp0anker'] = $db->getAll( $sql_one_point_no_disp_pow, 'wire', $point['ID'], 'anker' )[0]['COUNT(ID)'];
-            $out_point_list[$i]['pownodisp0samsung'] = $db->getAll( $sql_one_point_no_disp_pow, 'wire', $point['ID'], 'samsung' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['pownodisp0anker'] = $db->getAll( $sql_one_point_no_disp_pow, 'powerbank', $point['ID'], 'anker' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['pownodisp0samsung'] = $db->getAll( $sql_one_point_no_disp_pow, 'powerbank', $point['ID'], 'samsung' )[0]['COUNT(ID)'];
 
-            $out_point_list[$i]['tools0walking_generator'] = $db->getAll( $sql_one_point_tool, 'wire', $point['ID'], 'walking_generator' )[0]['COUNT(ID)'];
-            $out_point_list[$i]['tools0cycling_generator'] = $db->getAll( $sql_one_point_tool, 'wire', $point['ID'], 'cycling_generator' )[0]['COUNT(ID)'];
-            $out_point_list[$i]['tools0solar_charger'] = $db->getAll( $sql_one_point_tool, 'wire', $point['ID'], '-solar_charger' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['tools0walking_generator'] = $db->getAll( $sql_one_point_tool, 'charge_tool', $point['ID'], 'walking_generator' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['tools0cycling_generator'] = $db->getAll( $sql_one_point_tool, 'charge_tool', $point['ID'], 'cycling_generator' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['tools0solar_charger'] = $db->getAll( $sql_one_point_tool, 'charge_tool', $point['ID'], 'solar_charger' )[0]['COUNT(ID)'];
 
-            $out_point_list[$i]['charge0samsung_charger'] = $db->getAll( $sql_one_point_charge, 'wire', $point['ID'], 'samsung_charger' )[0]['COUNT(ID)'];
-            $out_point_list[$i]['charge0iphone_charger'] = $db->getAll( $sql_one_point_charge, 'wire', $point['ID'], 'iphone_charger' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['charge0samsung_charger'] = $db->getAll( $sql_one_point_charge, 'charge', $point['ID'], 'samsung_charger' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['charge0iphone_charger'] = $db->getAll( $sql_one_point_charge, 'charge', $point['ID'], 'iphone_charger' )[0]['COUNT(ID)'];
 
 
 
@@ -158,35 +158,65 @@ class Point extends Main
 
         if( $filters_static_wire != [] ){
 
-            $sql_static_wire = "SELECT  DISTINCT `pid` FROM ?n WHERE `type` = 1 AND 1=1";
+            $sql_static_wire = "SELECT  DISTINCT `pid` FROM ?n WHERE `type` = 1";
         
+            $i = 0;
+
             foreach( $filters_static_wire as $static_wire ){
-                $sql_static_wire = $sql_static_wire . " OR `label` = " . "'". $static_wire . "'";
+                if ($i == 0) {
+                    $sql_static_wire = $sql_static_wire . " AND (";    
+                } else {
+                    $sql_static_wire = $sql_static_wire . " OR ";
+                }
+                $sql_static_wire = $sql_static_wire . "`label` = " . "'". $static_wire . "'";
+                $i++;
             }
     
+            $sql_static_wire = $sql_static_wire . ")";
+
             // $static_wire_ = $db->getAll( $sql_static_wire, 'wire');
             $test['static_wire'] = $db->getAll( $sql_static_wire, 'wire');
         }
 
         if( $filters_sale_wire != [] ){
 
-            $sql_sale_wire = "SELECT  DISTINCT `pid` FROM ?n WHERE `type` = 2 AND 1=1";
+            $sql_sale_wire = "SELECT  DISTINCT `pid` FROM ?n WHERE `type` = 2";
+
+            $i = 0;
         
             foreach( $filters_sale_wire as $sale_wire ){
-                $sql_sale_wire = $sql_sale_wire . " OR `label` = " . "'". $sale_wire . "'";
+                if ($i == 0) {
+                    $sql_sale_wire = $sql_sale_wire . " AND (";
+                } else {
+                    $sql_sale_wire = $sql_sale_wire . " OR ";
+                }
+                $sql_sale_wire = $sql_sale_wire . "`label` = " . "'". $sale_wire . "'";
+                $i++;
             }
 
-            $sale_wire_ = $db->getAll( $sql_sale_wire, 'wire');
+            $sql_sale_wire = $sql_sale_wire . ")";
+
+            // $sale_wire_ = $db->getAll( $sql_sale_wire, 'wire');
             $test['sale_wire'] = $db->getAll( $sql_sale_wire, 'wire');
         }
 
         if( $filters_disp_powerbank != [] ){
 
-            $sql_disp_powerbank = "SELECT  DISTINCT `pid` FROM ?n WHERE `type` = 1 AND 1=1";
+            $sql_disp_powerbank = "SELECT  DISTINCT `pid` FROM ?n WHERE `type` = 1";
+
+            $i = 0;
         
             foreach( $filters_disp_powerbank as $disp_powerbank ){
-                $sql_disp_powerbank = $sql_disp_powerbank . " OR `label` = " . "'". $disp_powerbank . "'";
+                if ($i == 0) {
+                    $sql_disp_powerbank = $sql_disp_powerbank . " AND (";
+                } else {
+                    $sql_disp_powerbank = $sql_disp_powerbank . " OR ";
+                }
+                $sql_disp_powerbank = $sql_disp_powerbank . "`label` = " . "'". $disp_powerbank . "'";
+                $i++;
             }
+
+            $sql_disp_powerbank = $sql_disp_powerbank . ")";
     
             // $disp_powerbank_ = $db->getAll( $sql_disp_powerbank, 'powerbank');
             $test['disp_powerbank'] = $db->getAll( $sql_disp_powerbank, 'powerbank');
@@ -194,35 +224,65 @@ class Point extends Main
 
         if( $filters_no_disp_powerbank != [] ){
 
-            $sql_no_disp_powerbank = "SELECT  DISTINCT `pid` FROM ?n WHERE `type` = 2 AND 1=1";
+            $sql_no_disp_powerbank = "SELECT  DISTINCT `pid` FROM ?n WHERE `type` = 2";
+
+            $i = 0;
 
             foreach( $filters_no_disp_powerbank as $no_disp_powerbank ){
-                $sql_no_disp_powerbank = $sql_no_disp_powerbank . " OR `label` = " . "'". $no_disp_powerbank . "'";
+                if ($i == 0) {
+                    $sql_disp_powerbank = $sql_disp_powerbank . " AND (";
+                } else {
+                    $sql_disp_powerbank = $sql_disp_powerbank . " OR ";
+                }
+                $sql_no_disp_powerbank = $sql_no_disp_powerbank . "`label` = " . "'". $no_disp_powerbank . "'";
+                $i++;
             }
     
+            $sql_disp_powerbank = $sql_disp_powerbank . ")";
+
             // $no_disp_powerbank_ = $db->getAll( $sql_no_disp_powerbank, 'powerbank');
             $test['no_disp_powerbank'] = $db->getAll( $sql_no_disp_powerbank, 'powerbank');
         }
 
         if( $filters_tools != [] ){
 
-            $sql_tools = "SELECT  DISTINCT `pid` FROM ?n WHERE 1=1";
+            $sql_tools = "SELECT  DISTINCT `pid` FROM ?n WHERE (";
+
+            $i = 0;
 
             foreach( $filters_tools as $tools ){
-                $sql_tools = $sql_tools . " OR `label` = " . "'". $tools . "'";
+                if ($i == 0) {
+                    // SKIP
+                } else {
+                    $sql_tools = $sql_tools . " OR ";
+                }
+                $sql_tools = $sql_tools . "`label` = " . "'". $tools . "'";
+                $i++;
             }
     
+            $sql_tools = $sql_tools . ")";
+
             // $tools_ = $db->getAll( $sql_tools, 'charge_tool');
             $test['tools'] = $db->getAll( $sql_tools, 'charge_tool');
         }
 
         if( $filters_charges != [] ){
 
-            $sql_charges = "SELECT  DISTINCT `pid` FROM ?n WHERE 1=1";
+            $sql_charges = "SELECT  DISTINCT `pid` FROM ?n WHERE (";
+
+            $i = 0;
 
             foreach( $filters_charges as $charges ){
-                $sql_charges = $sql_charges . " OR `label` = " . "'". $charges . "'";
+                if ($i == 0) {
+                    // SKIP
+                } else {
+                    $sql_charges = $sql_charges . " OR ";    
+                }
+                $sql_charges = $sql_charges . "`label` = " . "'". $charges . "'";
+                $i++;
             }
+
+            $sql_charges = $sql_charges . ")";
     
             // $charges_ = $db->getAll( $sql_charges, 'charge');
             $test['charges'] = $db->getAll( $sql_charges, 'charge');
@@ -255,7 +315,6 @@ class Point extends Main
 
         $i = 0;
 
-
         foreach( $filter_id_list as $point_id ){
 
             $sql_one_point = "SELECT * FROM ?n WHERE `ID` = ?i";
@@ -273,25 +332,25 @@ class Point extends Main
             $out_point_list[$i]['wirestatic0usb_a'] = $db->getAll( $sql_one_point_static_wire, 'wire', $point_id, 'usb_a' )[0]['COUNT(ID)'];
             $out_point_list[$i]['wirestatic0micro_usb_b'] = $db->getAll( $sql_one_point_static_wire, 'wire', $point_id, 'micro_usb_b' )[0]['COUNT(ID)'];
             $out_point_list[$i]['wirestatic0usb_type_c'] = $db->getAll( $sql_one_point_static_wire, 'wire', $point_id, 'usb_type_c' )[0]['COUNT(ID)'];
-            $out_point_list[$i]['wirestatic0iphone_lightning'] = $db->getAll( $sql_one_point_static_wire, 'wire', $point_id, '-iphone_lightning' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['wirestatic0iphone_lightning'] = $db->getAll( $sql_one_point_static_wire, 'wire', $point_id, 'iphone_lightning' )[0]['COUNT(ID)'];
 
             $out_point_list[$i]['wiresale0micro_usb_b'] = $db->getAll( $sql_one_point_sale_wire, 'wire', $point_id, 'micro_usb_b' )[0]['COUNT(ID)'];
             $out_point_list[$i]['wiresale0usb_type_c'] = $db->getAll( $sql_one_point_sale_wire, 'wire', $point_id, 'usb_type_c' )[0]['COUNT(ID)'];
-            $out_point_list[$i]['wiresale0iphone_lightning'] = $db->getAll( $sql_one_point_sale_wire, 'wire', $point_id, '-iphone_lightning' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['wiresale0iphone_lightning'] = $db->getAll( $sql_one_point_sale_wire, 'wire', $point_id, 'iphone_lightning' )[0]['COUNT(ID)'];
 
-            $out_point_list[$i]['powdisp0micro_usb_b'] = $db->getAll( $sql_one_point_disp_pow, 'wire', $point_id, 'micro_usb_b' )[0]['COUNT(ID)'];
-            $out_point_list[$i]['powdisp0usb_type_c'] = $db->getAll( $sql_one_point_disp_pow, 'wire', $point_id, 'usb_type_c' )[0]['COUNT(ID)'];
-            $out_point_list[$i]['powdisp0iphone_lightning'] = $db->getAll( $sql_one_point_disp_pow, 'wire', $point_id, '-iphone_lightning' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['powdisp0micro_usb_b'] = $db->getAll( $sql_one_point_disp_pow, 'powerbank', $point_id, 'micro_usb_b' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['powdisp0usb_type_c'] = $db->getAll( $sql_one_point_disp_pow, 'powerbank', $point_id, 'usb_type_c' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['powdisp0iphone_lightning'] = $db->getAll( $sql_one_point_disp_pow, 'powerbank', $point_id, 'iphone_lightning' )[0]['COUNT(ID)'];
 
-            $out_point_list[$i]['pownodisp0anker'] = $db->getAll( $sql_one_point_no_disp_pow, 'wire', $point_id, 'anker' )[0]['COUNT(ID)'];
-            $out_point_list[$i]['pownodisp0samsung'] = $db->getAll( $sql_one_point_no_disp_pow, 'wire', $point_id, 'samsung' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['pownodisp0anker'] = $db->getAll( $sql_one_point_no_disp_pow, 'powerbank', $point_id, 'anker' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['pownodisp0samsung'] = $db->getAll( $sql_one_point_no_disp_pow, 'powerbank', $point_id, 'samsung' )[0]['COUNT(ID)'];
 
-            $out_point_list[$i]['tools0walking_generator'] = $db->getAll( $sql_one_point_tool, 'wire', $point_id, 'walking_generator' )[0]['COUNT(ID)'];
-            $out_point_list[$i]['tools0cycling_generator'] = $db->getAll( $sql_one_point_tool, 'wire', $point_id, 'cycling_generator' )[0]['COUNT(ID)'];
-            $out_point_list[$i]['tools0solar_charger'] = $db->getAll( $sql_one_point_tool, 'wire', $point_id, '-solar_charger' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['tools0walking_generator'] = $db->getAll( $sql_one_point_tool, 'charge_tool', $point_id, 'walking_generator' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['tools0cycling_generator'] = $db->getAll( $sql_one_point_tool, 'charge_tool', $point_id, 'cycling_generator' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['tools0solar_charger'] = $db->getAll( $sql_one_point_tool, 'charge_tool', $point_id, 'solar_charger' )[0]['COUNT(ID)'];
 
-            $out_point_list[$i]['charge0samsung_charger'] = $db->getAll( $sql_one_point_charge, 'wire', $point_id, 'samsung_charger' )[0]['COUNT(ID)'];
-            $out_point_list[$i]['charge0iphone_charger'] = $db->getAll( $sql_one_point_charge, 'wire', $point_id, 'iphone_charger' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['charge0samsung_charger'] = $db->getAll( $sql_one_point_charge, 'charge', $point_id, 'samsung_charger' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['charge0iphone_charger'] = $db->getAll( $sql_one_point_charge, 'charge', $point_id, 'iphone_charger' )[0]['COUNT(ID)'];
 
             $i++;
         
