@@ -28,7 +28,7 @@ class GoCharge {
                 $model_name = $action;
         }
 
-        if( $model_name == '?i=1' )
+        if( $model_name == '?i=1'|| $model_name == '?i=2' || $model_name == '?i=3' || $model_name == '?i=4' || $model_name == '?i=5' || $model_name == '?i=6' || $model_name == '?i=7' || $model_name == '?i=8' )
             $model_name = 'main';
 
         self::$model_name = $model_name;
