@@ -11,7 +11,7 @@
             - Search: Search for charging stations by location as you would on Google Maps.<br><br>
             - Filters: Filter the visible markers based on available charger types and more!<br><br>
             - Location Details: Click on a marker to bring up location details such as available charger types.<br><br>
-            - Trip Planner: Find charging stations along your trip route from departure to destination locations.
+            - Directions: Find charging stations along your trip route from departure to destination locations.
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

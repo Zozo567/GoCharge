@@ -230,15 +230,15 @@ class Point extends Main
 
             foreach( $filters_no_disp_powerbank as $no_disp_powerbank ){
                 if ($i == 0) {
-                    $sql_disp_powerbank = $sql_disp_powerbank . " AND (";
+                    $sql_no_disp_powerbank = $sql_no_disp_powerbank . " AND (";
                 } else {
-                    $sql_disp_powerbank = $sql_disp_powerbank . " OR ";
+                    $sql_no_disp_powerbank = $sql_no_disp_powerbank . " OR ";
                 }
                 $sql_no_disp_powerbank = $sql_no_disp_powerbank . "`label` = " . "'". $no_disp_powerbank . "'";
                 $i++;
             }
     
-            $sql_disp_powerbank = $sql_disp_powerbank . ")";
+            $sql_no_disp_powerbank = $sql_no_disp_powerbank . ")";
 
             // $no_disp_powerbank_ = $db->getAll( $sql_no_disp_powerbank, 'powerbank');
             $test['no_disp_powerbank'] = $db->getAll( $sql_no_disp_powerbank, 'powerbank');
