@@ -49,28 +49,28 @@ class Point extends Main
 
             $out_point_list[$i]['info_point'] = $point;
 
-            $out_point_list[$i]['wirestatic-usb_a'] = $db->getAll( $sql_one_point_static_wire, 'wire', $point['ID'], 'usb_a' )[0]['COUNT(ID)'];
-            $out_point_list[$i]['wirestatic-micro_usb_b'] = $db->getAll( $sql_one_point_static_wire, 'wire', $point['ID'], 'micro_usb_b' )[0]['COUNT(ID)'];
-            $out_point_list[$i]['wirestatic-usb_type_c'] = $db->getAll( $sql_one_point_static_wire, 'wire', $point['ID'], 'usb_type_c' )[0]['COUNT(ID)'];
-            $out_point_list[$i]['wirestatic-iphone_lightning'] = $db->getAll( $sql_one_point_static_wire, 'wire', $point['ID'], '-iphone_lightning' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['wirestatic0usb_a'] = $db->getAll( $sql_one_point_static_wire, 'wire', $point['ID'], 'usb_a' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['wirestatic0micro_usb_b'] = $db->getAll( $sql_one_point_static_wire, 'wire', $point['ID'], 'micro_usb_b' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['wirestatic0usb_type_c'] = $db->getAll( $sql_one_point_static_wire, 'wire', $point['ID'], 'usb_type_c' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['wirestatic0iphone_lightning'] = $db->getAll( $sql_one_point_static_wire, 'wire', $point['ID'], '-iphone_lightning' )[0]['COUNT(ID)'];
 
-            $out_point_list[$i]['wiresale-micro_usb_b'] = $db->getAll( $sql_one_point_sale_wire, 'wire', $point['ID'], 'micro_usb_b' )[0]['COUNT(ID)'];
-            $out_point_list[$i]['wiresale-usb_type_c'] = $db->getAll( $sql_one_point_sale_wire, 'wire', $point['ID'], 'usb_type_c' )[0]['COUNT(ID)'];
-            $out_point_list[$i]['wiresale-iphone_lightning'] = $db->getAll( $sql_one_point_sale_wire, 'wire', $point['ID'], '-iphone_lightning' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['wiresale0micro_usb_b'] = $db->getAll( $sql_one_point_sale_wire, 'wire', $point['ID'], 'micro_usb_b' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['wiresale0usb_type_c'] = $db->getAll( $sql_one_point_sale_wire, 'wire', $point['ID'], 'usb_type_c' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['wiresale0iphone_lightning'] = $db->getAll( $sql_one_point_sale_wire, 'wire', $point['ID'], '-iphone_lightning' )[0]['COUNT(ID)'];
 
-            $out_point_list[$i]['powdisp-micro_usb_b'] = $db->getAll( $sql_one_point_disp_pow, 'wire', $point['ID'], 'micro_usb_b' )[0]['COUNT(ID)'];
-            $out_point_list[$i]['powdisp-usb_type_c'] = $db->getAll( $sql_one_point_disp_pow, 'wire', $point['ID'], 'usb_type_c' )[0]['COUNT(ID)'];
-            $out_point_list[$i]['powdisp-iphone_lightning'] = $db->getAll( $sql_one_point_disp_pow, 'wire', $point['ID'], '-iphone_lightning' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['powdisp0micro_usb_b'] = $db->getAll( $sql_one_point_disp_pow, 'wire', $point['ID'], 'micro_usb_b' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['powdisp0usb_type_c'] = $db->getAll( $sql_one_point_disp_pow, 'wire', $point['ID'], 'usb_type_c' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['powdisp0iphone_lightning'] = $db->getAll( $sql_one_point_disp_pow, 'wire', $point['ID'], '-iphone_lightning' )[0]['COUNT(ID)'];
 
-            $out_point_list[$i]['pownodisp-anker'] = $db->getAll( $sql_one_point_no_disp_pow, 'wire', $point['ID'], 'anker' )[0]['COUNT(ID)'];
-            $out_point_list[$i]['pownodisp-samsung'] = $db->getAll( $sql_one_point_no_disp_pow, 'wire', $point['ID'], 'samsung' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['pownodisp0anker'] = $db->getAll( $sql_one_point_no_disp_pow, 'wire', $point['ID'], 'anker' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['pownodisp0samsung'] = $db->getAll( $sql_one_point_no_disp_pow, 'wire', $point['ID'], 'samsung' )[0]['COUNT(ID)'];
 
-            $out_point_list[$i]['tools-walking_generator'] = $db->getAll( $sql_one_point_tool, 'wire', $point['ID'], 'walking_generator' )[0]['COUNT(ID)'];
-            $out_point_list[$i]['tools-cycling_generator'] = $db->getAll( $sql_one_point_tool, 'wire', $point['ID'], 'cycling_generator' )[0]['COUNT(ID)'];
-            $out_point_list[$i]['tools-solar_charger'] = $db->getAll( $sql_one_point_tool, 'wire', $point['ID'], '-solar_charger' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['tools0walking_generator'] = $db->getAll( $sql_one_point_tool, 'wire', $point['ID'], 'walking_generator' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['tools0cycling_generator'] = $db->getAll( $sql_one_point_tool, 'wire', $point['ID'], 'cycling_generator' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['tools0solar_charger'] = $db->getAll( $sql_one_point_tool, 'wire', $point['ID'], '-solar_charger' )[0]['COUNT(ID)'];
 
-            $out_point_list[$i]['charge-samsung_charger'] = $db->getAll( $sql_one_point_charge, 'wire', $point['ID'], 'samsung_charger' )[0]['COUNT(ID)'];
-            $out_point_list[$i]['charge-iphone_charger'] = $db->getAll( $sql_one_point_charge, 'wire', $point['ID'], 'iphone_charger' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['charge0samsung_charger'] = $db->getAll( $sql_one_point_charge, 'wire', $point['ID'], 'samsung_charger' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['charge0iphone_charger'] = $db->getAll( $sql_one_point_charge, 'wire', $point['ID'], 'iphone_charger' )[0]['COUNT(ID)'];
 
 
 
@@ -270,28 +270,28 @@ class Point extends Main
 
             $out_point_list[$i]['info_point'] = $one_point[0];
 
-            $out_point_list[$i]['wirestatic-usb_a'] = $db->getAll( $sql_one_point_static_wire, 'wire', $point_id, 'usb_a' )[0]['COUNT(ID)'];
-            $out_point_list[$i]['wirestatic-micro_usb_b'] = $db->getAll( $sql_one_point_static_wire, 'wire', $point_id, 'micro_usb_b' )[0]['COUNT(ID)'];
-            $out_point_list[$i]['wirestatic-usb_type_c'] = $db->getAll( $sql_one_point_static_wire, 'wire', $point_id, 'usb_type_c' )[0]['COUNT(ID)'];
-            $out_point_list[$i]['wirestatic-iphone_lightning'] = $db->getAll( $sql_one_point_static_wire, 'wire', $point_id, '-iphone_lightning' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['wirestatic0usb_a'] = $db->getAll( $sql_one_point_static_wire, 'wire', $point_id, 'usb_a' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['wirestatic0micro_usb_b'] = $db->getAll( $sql_one_point_static_wire, 'wire', $point_id, 'micro_usb_b' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['wirestatic0usb_type_c'] = $db->getAll( $sql_one_point_static_wire, 'wire', $point_id, 'usb_type_c' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['wirestatic0iphone_lightning'] = $db->getAll( $sql_one_point_static_wire, 'wire', $point_id, '-iphone_lightning' )[0]['COUNT(ID)'];
 
-            $out_point_list[$i]['wiresale-micro_usb_b'] = $db->getAll( $sql_one_point_sale_wire, 'wire', $point_id, 'micro_usb_b' )[0]['COUNT(ID)'];
-            $out_point_list[$i]['wiresale-usb_type_c'] = $db->getAll( $sql_one_point_sale_wire, 'wire', $point_id, 'usb_type_c' )[0]['COUNT(ID)'];
-            $out_point_list[$i]['wiresale-iphone_lightning'] = $db->getAll( $sql_one_point_sale_wire, 'wire', $point_id, '-iphone_lightning' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['wiresale0micro_usb_b'] = $db->getAll( $sql_one_point_sale_wire, 'wire', $point_id, 'micro_usb_b' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['wiresale0usb_type_c'] = $db->getAll( $sql_one_point_sale_wire, 'wire', $point_id, 'usb_type_c' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['wiresale0iphone_lightning'] = $db->getAll( $sql_one_point_sale_wire, 'wire', $point_id, '-iphone_lightning' )[0]['COUNT(ID)'];
 
-            $out_point_list[$i]['powdisp-micro_usb_b'] = $db->getAll( $sql_one_point_disp_pow, 'wire', $point_id, 'micro_usb_b' )[0]['COUNT(ID)'];
-            $out_point_list[$i]['powdisp-usb_type_c'] = $db->getAll( $sql_one_point_disp_pow, 'wire', $point_id, 'usb_type_c' )[0]['COUNT(ID)'];
-            $out_point_list[$i]['powdisp-iphone_lightning'] = $db->getAll( $sql_one_point_disp_pow, 'wire', $point_id, '-iphone_lightning' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['powdisp0micro_usb_b'] = $db->getAll( $sql_one_point_disp_pow, 'wire', $point_id, 'micro_usb_b' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['powdisp0usb_type_c'] = $db->getAll( $sql_one_point_disp_pow, 'wire', $point_id, 'usb_type_c' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['powdisp0iphone_lightning'] = $db->getAll( $sql_one_point_disp_pow, 'wire', $point_id, '-iphone_lightning' )[0]['COUNT(ID)'];
 
-            $out_point_list[$i]['pownodisp-anker'] = $db->getAll( $sql_one_point_no_disp_pow, 'wire', $point_id, 'anker' )[0]['COUNT(ID)'];
-            $out_point_list[$i]['pownodisp-samsung'] = $db->getAll( $sql_one_point_no_disp_pow, 'wire', $point_id, 'samsung' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['pownodisp0anker'] = $db->getAll( $sql_one_point_no_disp_pow, 'wire', $point_id, 'anker' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['pownodisp0samsung'] = $db->getAll( $sql_one_point_no_disp_pow, 'wire', $point_id, 'samsung' )[0]['COUNT(ID)'];
 
-            $out_point_list[$i]['tools-walking_generator'] = $db->getAll( $sql_one_point_tool, 'wire', $point_id, 'walking_generator' )[0]['COUNT(ID)'];
-            $out_point_list[$i]['tools-cycling_generator'] = $db->getAll( $sql_one_point_tool, 'wire', $point_id, 'cycling_generator' )[0]['COUNT(ID)'];
-            $out_point_list[$i]['tools-solar_charger'] = $db->getAll( $sql_one_point_tool, 'wire', $point_id, '-solar_charger' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['tools0walking_generator'] = $db->getAll( $sql_one_point_tool, 'wire', $point_id, 'walking_generator' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['tools0cycling_generator'] = $db->getAll( $sql_one_point_tool, 'wire', $point_id, 'cycling_generator' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['tools0solar_charger'] = $db->getAll( $sql_one_point_tool, 'wire', $point_id, '-solar_charger' )[0]['COUNT(ID)'];
 
-            $out_point_list[$i]['charge-samsung_charger'] = $db->getAll( $sql_one_point_charge, 'wire', $point_id, 'samsung_charger' )[0]['COUNT(ID)'];
-            $out_point_list[$i]['charge-iphone_charger'] = $db->getAll( $sql_one_point_charge, 'wire', $point_id, 'iphone_charger' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['charge0samsung_charger'] = $db->getAll( $sql_one_point_charge, 'wire', $point_id, 'samsung_charger' )[0]['COUNT(ID)'];
+            $out_point_list[$i]['charge0iphone_charger'] = $db->getAll( $sql_one_point_charge, 'wire', $point_id, 'iphone_charger' )[0]['COUNT(ID)'];
 
             $i++;
         

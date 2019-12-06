@@ -113,12 +113,12 @@ $(document).ready(function(){
             success : function( res ) {
                 console.log(res);
                 for (var i = 0; i < res.content.length; i ++) {
-                    var thisLat = parseFloat(res.content[i].latitude);
-                    var thisLng = parseFloat(res.content[i].longitude);
+                    var thisLat = parseFloat(res.content[i].info_point.latitude);
+                    var thisLng = parseFloat(res.content[i].info_point.longitude);
                     var thisLatLng = new google.maps.LatLng(thisLat,thisLng);
                     var marker = new google.maps.Marker({
                         position: thisLatLng,
-                        title: res.content[i].name + res.content[i].address,
+                        title: res.content[i].info_point.name + res.content[i].info_point.address,
                         icon: 'front/assets/images/charging_point_red.png'
                     });
                     marker.setMap(Go.map);
@@ -127,22 +127,67 @@ $(document).ready(function(){
 
                     var infowindow = new google.maps.InfoWindow({
                         content: '<div id="content">'+
-                                    '<h6>'+ res.content[i].name +'</h6>'+
-                                    '<div><b>'+ res.content[i].address +'</b></div><hr>'+
-                                    '<div><i class="fas fa-plug"></i> Disposable charger : '+
-                                        res.content[i].powerbanks.disposable_charger +
-                                    '</div>'+
-                                    '<div><i class="fas fa-charging-station"></i> Micro USB : '+
-                                        res.content[i].powerbanks.micro_usb +
-                                    '</div>'+
-                                    '<div><i class="fas fa-charging-station"></i> USB A : '+
-                                        res.content[i].powerbanks.usb_a +
-                                    '</div>'+
-                                    '<div><i class="fas fa-charging-station"></i> USB Type C : '+
-                                        res.content[i].powerbanks.usb_type_c +
-                                    '</div>'+
-                                    '<div><button type="button" id="'+i+'btn" class="btn btn-success goBtn">Go there</button></div>'+
-                                '</div>'
+                                '<h6>'+ res.content[i].info_point.name +'</h6>'+
+                                '<div><b>'+ res.content[i].info_point.address +'</b></div><hr>'+
+                                '<h6>In-cabinet chargers:</h6>'+
+                                '<div><i class="fas fa-charging-station"></i> USB-A : '+
+                                    res.content[i].wirestatic0usb_a +
+                                '</div>'+
+                                '<div><i class="fas fa-charging-station"></i> Micro-USB-B : '+
+                                    res.content[i].wirestatic0micro_usb_b +
+                                '</div>'+
+                                '<div><i class="fas fa-charging-station"></i> USB-Type-C : '+
+                                    res.content[i].wirestatic0usb_type_c +
+                                '</div>'+
+                                '<div><i class="fas fa-charging-station"></i> iPhone-Lightning : '+
+                                    res.content[i].wirestatic0iphone_lightning +
+                                '</div>'+
+                                '<h6>Charging Cables:</h6>'+
+                                '<div><i class="fas fa-charging-station"></i> Micro-USB-B : '+
+                                    res.content[i].wiresale0micro_usb_b +
+                                '</div>'+
+                                '<div><i class="fas fa-charging-station"></i> USB-Type-C : '+
+                                    res.content[i].wiresale0usb_type_c +
+                                '</div>'+
+                                '<div><i class="fas fa-charging-station"></i> iPhone-Lightning : '+
+                                    res.content[i].wiresale0iphone_lightning +
+                                '</div>'+
+                                '<h6>Disposable Power Banks:</h6>'+
+                                '<div><i class="fas fa-charging-station"></i>  Micro-USB-B : '+
+                                    res.content[i].powdisp0micro_usb_b +
+                                '</div>'+
+                                '<div><i class="fas fa-charging-station"></i> USB-Type-C : '+
+                                    res.content[i].powdisp0usb_type_c +
+                                '</div>'+
+                                '<div><i class="fas fa-charging-station"></i> iPhone-Lightning '+
+                                    res.content[i].powdisp0iphone_lightning +
+                                '</div>'+
+                                '<h6>Disposable Power Banks:</h6>'+
+                                '<div><i class="fas fa-charging-station"></i> Anker 12000mA : '+
+                                    res.content[i].pownodisp0anker +
+                                '</div>'+
+                                '<div><i class="fas fa-charging-station"></i> Samsung 5000mA : '+
+                                    res.content[i].pownodisp0samsung +
+                                '</div>'+
+                                '<h6>Special Charging Tools:</h6>'+
+                                '<div><i class="fas fa-charging-station"></i> Walking-Generator : '+
+                                    res.content[i].tools0walking_generator +
+                                '</div>'+
+                                '<div><i class="fas fa-charging-station"></i> Cycling-Generator : '+
+                                    res.content[i].tools0cycling_generator +
+                                '</div>'+
+                                '<div><i class="fas fa-charging-station"></i> Solar Charger : '+
+                                    res.content[i].tools0solar_charger +
+                                '</div>'+
+                                '<h6>Chargers:</h6>'+
+                                '<div><i class="fas fa-charging-station"></i> Samsung charger : '+
+                                    res.content[i].charge0samsung_charger +
+                                '</div>'+
+                                '<div><i class="fas fa-charging-station"></i> iPhone charger : '+
+                                    res.content[i].charge0iphone_charger +
+                                '</div>'+
+                                '<div><button type="button" id="'+i+'btn" class="btn btn-success goBtn">Go there</button></div>'+
+                             '</div>'
                     });
                     marker.addListener('click', infoCallback(infowindow, marker));
                 }
@@ -319,12 +364,12 @@ Go.addMapObject = function(){
         dataType : 'json',
         success : function( res ) {
             for (var i = 0; i < res.content.length; i ++) {
-                var thisLat = parseFloat(res.content[i].latitude);
-                var thisLng = parseFloat(res.content[i].longitude);
+                var thisLat = parseFloat(res.content[i].info_point.latitude);
+                var thisLng = parseFloat(res.content[i].info_point.longitude);
                 var thisLatLng = new google.maps.LatLng(thisLat,thisLng);
                 var marker = new google.maps.Marker({
                     position: thisLatLng,
-                    title: res.content[i].name + res.content[i].address,
+                    title: res.content[i].info_point.name + res.content[i].info_point.address,
                     icon: 'front/assets/images/charging_point_red.png'
                 });
                 marker.setMap(Go.map);
@@ -333,19 +378,64 @@ Go.addMapObject = function(){
 
                 var infowindow = new google.maps.InfoWindow({
                     content: '<div id="content">'+
-                                '<h6>'+ res.content[i].name +'</h6>'+
-                                '<div><b>'+ res.content[i].address +'</b></div><hr>'+
-                                '<div><i class="fas fa-plug"></i> Disposable charger : '+
-                                    res.content[i].powerbanks.disposable_charger +
+                                '<h6>'+ res.content[i].info_point.name +'</h6>'+
+                                '<div><b>'+ res.content[i].info_point.address +'</b></div><hr>'+
+                                '<h6>In-cabinet chargers:</h6>'+
+                                '<div><i class="fas fa-charging-station"></i> USB-A : '+
+                                    res.content[i].wirestatic0usb_a +
                                 '</div>'+
-                                '<div><i class="fas fa-charging-station"></i> Micro USB : '+
-                                    res.content[i].powerbanks.micro_usb +
+                                '<div><i class="fas fa-charging-station"></i> Micro-USB-B : '+
+                                    res.content[i].wirestatic0micro_usb_b +
                                 '</div>'+
-                                '<div><i class="fas fa-charging-station"></i> USB A : '+
-                                    res.content[i].powerbanks.usb_a +
+                                '<div><i class="fas fa-charging-station"></i> USB-Type-C : '+
+                                    res.content[i].wirestatic0usb_type_c +
                                 '</div>'+
-                                '<div><i class="fas fa-charging-station"></i> USB Type C : '+
-                                    res.content[i].powerbanks.usb_type_c +
+                                '<div><i class="fas fa-charging-station"></i> iPhone-Lightning : '+
+                                    res.content[i].wirestatic0iphone_lightning +
+                                '</div>'+
+                                '<h6>Charging Cables:</h6>'+
+                                '<div><i class="fas fa-charging-station"></i> Micro-USB-B : '+
+                                    res.content[i].wiresale0micro_usb_b +
+                                '</div>'+
+                                '<div><i class="fas fa-charging-station"></i> USB-Type-C : '+
+                                    res.content[i].wiresale0usb_type_c +
+                                '</div>'+
+                                '<div><i class="fas fa-charging-station"></i> iPhone-Lightning : '+
+                                    res.content[i].wiresale0iphone_lightning +
+                                '</div>'+
+                                '<h6>Disposable Power Banks:</h6>'+
+                                '<div><i class="fas fa-charging-station"></i>  Micro-USB-B : '+
+                                    res.content[i].powdisp0micro_usb_b +
+                                '</div>'+
+                                '<div><i class="fas fa-charging-station"></i> USB-Type-C : '+
+                                    res.content[i].powdisp0usb_type_c +
+                                '</div>'+
+                                '<div><i class="fas fa-charging-station"></i> iPhone-Lightning '+
+                                    res.content[i].powdisp0iphone_lightning +
+                                '</div>'+
+                                '<h6>Disposable Power Banks:</h6>'+
+                                '<div><i class="fas fa-charging-station"></i> Anker 12000mA : '+
+                                    res.content[i].pownodisp0anker +
+                                '</div>'+
+                                '<div><i class="fas fa-charging-station"></i> Samsung 5000mA : '+
+                                    res.content[i].pownodisp0samsung +
+                                '</div>'+
+                                '<h6>Special Charging Tools:</h6>'+
+                                '<div><i class="fas fa-charging-station"></i> Walking-Generator : '+
+                                    res.content[i].tools0walking_generator +
+                                '</div>'+
+                                '<div><i class="fas fa-charging-station"></i> Cycling-Generator : '+
+                                    res.content[i].tools0cycling_generator +
+                                '</div>'+
+                                '<div><i class="fas fa-charging-station"></i> Solar Charger : '+
+                                    res.content[i].tools0solar_charger +
+                                '</div>'+
+                                '<h6>Chargers:</h6>'+
+                                '<div><i class="fas fa-charging-station"></i> Samsung charger : '+
+                                    res.content[i].charge0samsung_charger +
+                                '</div>'+
+                                '<div><i class="fas fa-charging-station"></i> iPhone charger : '+
+                                    res.content[i].charge0iphone_charger +
                                 '</div>'+
                                 '<div><button type="button" id="'+i+'btn" class="btn btn-success goBtn">Go there</button></div>'+
                              '</div>'
