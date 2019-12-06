@@ -1,7 +1,7 @@
 <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
     	<div class="modal-header">
-        	<h5 class="modal-title" id="exampleModalCenterTitle">Trip Planner</h5>
+        	<h5 class="modal-title" id="exampleModalCenterTitle">Directions</h5>
         	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
           		<span aria-hidden="true">&times;</span>
         	</button>
@@ -13,19 +13,18 @@
                     <br>
                     <br>
                     <div class="autocomplete">
-                        <input class="form-control" id="startPoint" placeholder="Enter starting point">
+                        <input class="form-control" autocomplete="off" id="startPoint" placeholder="Enter starting point">
                     </div>    
                 </div>
                 <div class="form-group">
                     <div class="autocomplete">
-                        <input class="form-control" id="endPoint" placeholder="Enter end point">
+                        <input class="form-control" autocomplete="off" id="endPoint" placeholder="Enter end point">
                     </div>
                 </div>
             </form>
         </div>
     	<div class="modal-footer">
             <button type="button" id="openGoogle" class="btn btn-success btn-submit">Open in Google</button>
-        	<button type="button" id="tripPlane" class="btn btn-success btn-submit">Build route</button>
     	</div>
     </div>
 </div>
@@ -151,29 +150,14 @@
 
     //////////
 
-    $.ajax({
-        url: 'point',
-        data : "action=" + 'point' + "/read",
-        type: 'POST',
-        dataType : 'json',
-        success : function( res ) {
-            for (var i = 0; i < res.content.length; i ++) {
-                var thisLat = parseFloat(res.content[i].latitude);
-                var thisLng = parseFloat(res.content[i].longitude);
-                var thisLatLng = new google.maps.LatLng(thisLat,thisLng);
-                var marker = new google.maps.Marker({
-                    position: thisLatLng,
-                    title: res.content[i].name + res.content[i].address,
-                    icon: 'front/assets/images/charging_point_red.png'
-                });
+    // MARKERS already loaded
+    function addPoints() {
+        POINTS = [];
 
-                POINTS.push(res.content[i].name);
-            }
-        },
-        error : function ( jqXHR, textStatus, errorThrown ) {
-            console.log('error');
-        }
-    });
+        MARKERS.forEach(M => {
+            POINTS.push(M.title);
+        });
+    }
 
     function clear() {
         if (A_POINT == 'MY LOCATION') {
@@ -181,6 +165,7 @@
         }
     }
 
+    addPoints();
     clear();
     autocomplete(document.getElementById("startPoint"), POINTS);
     autocomplete(document.getElementById("endPoint"), POINTS);

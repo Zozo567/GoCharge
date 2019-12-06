@@ -1,3 +1,0 @@
-ALTER TABLE `point` 
-CHANGE COLUMN `longitude` `latitude` DOUBLE NULL DEFAULT NULL ,
-CHANGE COLUMN `latiude` `longitude` FLOAT NULL DEFAULT NULL ;

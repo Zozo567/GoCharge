@@ -1,1 +1,0 @@
-UPDATE `point` SET `longitude`='19.0531' WHERE `ID`='6';

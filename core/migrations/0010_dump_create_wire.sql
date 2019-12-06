@@ -1,0 +1,7 @@
+CREATE TABLE `wire` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `pid` INT NOT NULL,
+  `type` INT NOT NULL,
+  `label` VARCHAR(45) NOT NULL,
+  `name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`ID`));

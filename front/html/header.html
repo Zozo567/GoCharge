@@ -21,10 +21,13 @@
             <div class="col-md-4">
                 <div class="searchBox" style="display: inline-block;">
                     <i class="fas fa-search"></i>
-                    <input class="searchInput" type="text" name="" placeholder="search location">
+                    <input class="searchInput" autocomplete="off" type="text" id="searchInput" name="" placeholder="search location">
                 </div>
-                <button style="display: inline-block; border-radius: 7px;">
-                    <i class="fas fa-location-arrow"></i>
+                <button style="display: inline-block; border-radius: 7px;" id="searchBtn">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button style="display: inline-block; border-radius: 7px;" id="locationBtn">
+                    <i class="fa fa-map-marker"></i>
                 </button>
             </div>
             <div class="col-md-7">
@@ -73,9 +76,9 @@
                       </a>
                   </li>
                   <li class="showmodal">
-                      <a href="#planner" data-action="trip_planner">
+                      <a id="planner" href="#planner" data-action="trip_planner">
                           <i class="fas fa-road"></i>
-                          Trip Planner
+                          Directions
                       </a>
                   </li>
                   <li class="showmodal">

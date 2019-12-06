@@ -1,0 +1,218 @@
+--  -- DUMP of existing database (ex.: gocharge) --
+
+-- --
+-- -- Table structure for table `users`
+-- --
+
+DROP TABLE IF EXISTS `users`;
+
+CREATE TABLE `users` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(255) NOT NULL,
+  `authkey` varchar(255) NOT NULL,
+  `date_create` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `date_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+-- --
+-- -- Table structure for table `powerbank`
+-- --
+
+DROP TABLE IF EXISTS `powerbank`;
+
+CREATE TABLE `powerbank` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `status` int(11) NOT NULL DEFAULT 0,
+  `type` int(11) NOT NULL,
+  `wire` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+-- --
+-- -- Table structure for table `point`
+-- --
+
+DROP TABLE IF EXISTS `point`;
+
+CREATE TABLE `point` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `longitude` DOUBLE,
+  `latiude` FLOAT,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+-- --
+-- -- Table structure for table `address`
+-- --
+
+DROP TABLE IF EXISTS `address`;
+
+CREATE TABLE `address` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `region_id` varchar(45) DEFAULT NULL,
+  `city_id` varchar(45) DEFAULT NULL,
+  `street` varchar(255) DEFAULT NULL,
+  `house` varchar(20) DEFAULT NULL,
+  `geo_x` varchar(100) DEFAULT NULL,
+  `geo_y` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+-- --
+-- -- Table structure for table `advert`
+-- --
+
+DROP TABLE IF EXISTS `advert`;
+
+CREATE TABLE `advert` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `company_name` varchar(255) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+-- --
+-- -- Table structure for table `users_meta`
+-- --
+
+DROP TABLE IF EXISTS `users_meta`;
+
+CREATE TABLE `users_meta` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `pid` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `value` varchar(255) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `pid` (`pid`),
+  KEY `pid_name` (`pid`,`name`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+-- --
+-- -- Table structure for table `powerbank_meta`
+-- --
+
+DROP TABLE IF EXISTS `powerbank_meta`;
+
+CREATE TABLE `powerbank_meta` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `pid` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `value` varchar(255) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `pid` (`pid`),
+  KEY `pid_name` (`pid`,`name`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+-- --
+-- -- Table structure for table `point_meta`
+-- --
+
+DROP TABLE IF EXISTS `point_meta`;
+
+CREATE TABLE `point_meta` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `pid` int(11) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `value` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `pid` (`pid`),
+  KEY `pid_name` (`pid`,`name`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+-- --
+-- -- Table structure for table `address_meta`
+-- --
+
+DROP TABLE IF EXISTS `address_meta`;
+
+CREATE TABLE `address_meta` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `pid` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `value` varchar(255) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `pid` (`pid`),
+  KEY `pid_name` (`pid`,`name`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+-- --
+-- -- Table structure for table `advert_meta`
+-- --
+
+DROP TABLE IF EXISTS `advert_meta`;
+
+CREATE TABLE `advert_meta` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `pid` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `value` varchar(255) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `pid` (`pid`),
+  KEY `pid_name` (`pid`,`name`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+-- -- END DUMP --
+
+INSERT INTO `point` (`name`, `address`, `longitude`, `latiude`) VALUES 
+('Vasudvar Millennium Center', 'Budapest, Piarista u. 4, 1052', '47.493219', '19.0518'),
+('Kerekes Dorm', 'Budapest, Kerekes u. 12-20, 1135', '47.526238', '19.0844');
+
+INSERT INTO `point_meta` (`pid`, `name`, `value`) VALUES 
+('1', 'powerbank', '1'),
+('1', 'powerbank', '2'),
+('1', 'powerbank', '3');
+
+INSERT INTO `powerbank` (`status`, `type`, `wire`) VALUES 
+('1', '1', 'micro_usb'),
+('1', '1', 'usb_a'),
+('1', '1', 'usb_type_c');
+
+ALTER TABLE `point` 
+CHANGE COLUMN `longitude` `latitude` DOUBLE NULL DEFAULT NULL ,
+CHANGE COLUMN `latiude` `longitude` FLOAT NULL DEFAULT NULL ;
+
+INSERT INTO `point` (`name`, `address`, `latitude`, `longitude`) VALUES 
+('Budapest Inner-City Mother Church of the Blessed Virgin', 'Budapest, Március 15. tér, 1056', '47.492329', '19.0520'),
+('Liszt Ferenc International Airport', 'Budapest, 1185', '47.438408', '19.2521'),
+('City Hotel Matyas', 'Budapest, Március 15. tér 8, 1056', '47.491347', '19.0525'),
+('Mátyás Pince Étterem', 'Budapest, Március 15. tér 7, 1056', '47.491564', '47.4915'),
+('MOL Bubi', 'Budapest, 0513-Március 15. tér, 1052', '47.491653', '19.0529');
+
+INSERT INTO `point` (`name`, `address`, `latitude`, `longitude`) VALUES 
+('Parkoló', 'Budapest, Március 15. tér 8, 1056', '47.491817', '19.0524'),
+('Balance Home', 'Budapest, Belgrád rkp. 27, 1056', '47.491056', '19.0520'),
+('Bateau Budapest', 'Budapest, 1056', '47.490722', '19.0514'),
+('Mister Mens Fashion House', 'Budapest, Irányi u. 1, 1056', '47.490814', '19.0524'),
+('Style Optika', 'Budapest, Irányi u. 1, 1056', '47.490881', '19.0525');
+
+INSERT INTO `point` (`name`, `address`, `latitude`, `longitude`) VALUES 
+('Tuxi Divat', 'Budapest, Irányi u. 1, 1056', '47.490935', '19.0527'),
+('Budapest hostel', 'Budapest, Molnár u. 3, 1056', '47.490910', '19.0528'),
+('Budapesti Ward Mária Általános Iskola', 'Budapest, Irányi u. 3, 1056', '47.491024', '19.0529'),
+('Panagia Központ (Church)', 'Budapest, 3 fsz, Molnár u. 3, 1056', '47.490788', '19.0530'),
+('Erdélyi Magyarok Egyesülete', 'Budapest, Molnár u. 5, 1056', '47.490609', '19.0532');
+
+INSERT INTO `point` (`name`, `address`, `latitude`, `longitude`) VALUES 
+('Exalt Interactive', 'Budapest, Belgrád rkp. 25, 1056', '47.490368', '19.0525'),
+('Blow (fashion shop)', 'Budapest, Irányi u. 5, 1056', '47.491111', '19.0532'),
+('Históriás Bolt (Souvenir shop)', 'Budapest, Irányi u. 8, 1056', '47.491263', '19.0532'),
+('centralora.hu, Central Watch Belvárosi Óraüzlet (watch shop)', 'Budapest, Irányi u. 10. fsz. 1, 1056', '47.491267', '19.0534'),
+('Pink Orhid Thai Massage II. (Night Club)', 'Budapest, Irányi u. 12, 1056', '47.491309', '19.0538');
+
+INSERT INTO `point` (`name`, `address`, `latitude`, `longitude`) VALUES 
+('Pertu Drink Bár', 'Budapest, Váci u. 41, 1056', '47.491494', '19.0540'),
+('Kantin', 'Budapest, Váci u. 41, 1056', '47.491623', '19.0539'),
+('Spirit Thai Massage', 'Budapest, Váci u. 39, 1056', '47.491761', '19.0538'),
+('MKB Nyrt.', 'Budapest, Váci u. 38, 1056', '47.491663', '19.0540'),
+('Coffee&More', 'Budapest, Váci u. 39, 1056', '47.491859', '19.0537'),
+('Apartments', 'Budapest, Március 15. tér, 1056', '47.491977', '19.053583');
+
+UPDATE `point` SET `longitude`='19.0531' WHERE `ID`='6';
+
+--
+--
+-- LAST MIGRATION: 0030
+--
+--
