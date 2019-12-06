@@ -253,4 +253,227 @@ INSERT INTO `wire` (`pid`, `type`, `label`, `name`) VALUES
 
 ('14', '2', 'micro_usb_b', 'Micro-USB-B'),
 
-('14', '2', 'iphone_lightning', 'iPhone-Lightning');
+('14', '2', 'iphone_lightning', 'iPhone-Lightning'),
+
+('25', '1', 'micro_usb_b', 'Micro-USB-B'),
+
+('25', '1', 'iphone_lightning', 'iPhone-Lightning'),
+
+
+('25', '2', 'usb_type_c', 'USB-Type-C'),
+
+('25', '1', 'micro_usb_b', 'Micro-USB-B'),
+
+('25', '1', 'iphone_lightning', 'iPhone-Lightning'),
+('25', '1', 'usb_a', 'USB-A'),
+
+('25', '2', 'usb_type_c', 'USB-Type-C'),
+
+('26', '1', 'micro_usb_b', 'Micro-USB-B'),
+('26', '1', 'usb_type_c', 'USB-Type-C'),
+('26', '1', 'iphone_lightning', 'iPhone-Lightning'),
+('26', '1', 'usb_a', 'USB-A'),
+('26', '2', 'micro_usb_b', 'Micro-USB-B'),
+
+('26', '2', 'iphone_lightning', 'iPhone-Lightning'),
+('26', '1', 'micro_usb_b', 'Micro-USB-B'),
+('26', '1', 'usb_type_c', 'USB-Type-C'),
+('26', '1', 'iphone_lightning', 'iPhone-Lightning'),
+
+
+('26', '2', 'usb_type_c', 'USB-Type-C'),
+('26', '2', 'iphone_lightning', 'iPhone-Lightning'),
+
+('27', '1', 'micro_usb_b', 'Micro-USB-B'),
+('27', '1', 'usb_type_c', 'USB-Type-C'),
+
+('27', '1', 'usb_a', 'USB-A'),
+('27', '2', 'micro_usb_b', 'Micro-USB-B'),
+('27', '2', 'usb_type_c', 'USB-Type-C'),
+
+('27', '1', 'micro_usb_b', 'Micro-USB-B'),
+('27', '1', 'usb_type_c', 'USB-Type-C'),
+
+('27', '1', 'usb_a', 'USB-A'),
+('27', '2', 'micro_usb_b', 'Micro-USB-B'),
+('27', '2', 'usb_type_c', 'USB-Type-C'),
+
+('28', '1', 'micro_usb_b', 'Micro-USB-B'),
+('28', '1', 'usb_type_c', 'USB-Type-C'),
+
+('28', '1', 'usb_a', 'USB-A'),
+
+('28', '2', 'usb_type_c', 'USB-Type-C'),
+
+('28', '1', 'micro_usb_b', 'Micro-USB-B'),
+
+('28', '1', 'iphone_lightning', 'iPhone-Lightning'),
+
+
+('28', '2', 'usb_type_c', 'USB-Type-C'),
+('28', '2', 'iphone_lightning', 'iPhone-Lightning'),
+
+('29', '1', 'micro_usb_b', 'Micro-USB-B'),
+('29', '1', 'usb_type_c', 'USB-Type-C'),
+
+('29', '1', 'usb_a', 'USB-A'),
+
+('29', '2', 'usb_type_c', 'USB-Type-C'),
+('29', '2', 'iphone_lightning', 'iPhone-Lightning'),
+('29', '1', 'micro_usb_b', 'Micro-USB-B'),
+
+('29', '1', 'iphone_lightning', 'iPhone-Lightning'),
+
+('29', '2', 'micro_usb_b', 'Micro-USB-B'),
+
+('29', '2', 'iphone_lightning', 'iPhone-Lightning'),
+
+('30', '1', 'micro_usb_b', 'Micro-USB-B'),
+('30', '1', 'usb_type_c', 'USB-Type-C'),
+
+('30', '1', 'usb_a', 'USB-A'),
+
+('30', '2', 'usb_type_c', 'USB-Type-C'),
+
+('30', '1', 'micro_usb_b', 'Micro-USB-B'),
+
+
+('30', '1', 'usb_a', 'USB-A'),
+
+('30', '2', 'usb_type_c', 'USB-Type-C'),
+
+
+('31', '1', 'micro_usb_b', 'Micro-USB-B'),
+('31', '1', 'usb_type_c', 'USB-Type-C'),
+
+('31', '1', 'usb_a', 'USB-A'),
+
+
+('31', '2', 'iphone_lightning', 'iPhone-Lightning'),
+
+('31', '1', 'usb_type_c', 'USB-Type-C'),
+('31', '1', 'iphone_lightning', 'iPhone-Lightning'),
+
+('31', '2', 'micro_usb_b', 'Micro-USB-B'),
+
+('31', '2', 'iphone_lightning', 'iPhone-Lightning'),
+
+('32', '1', 'micro_usb_b', 'Micro-USB-B'),
+
+('32', '1', 'iphone_lightning', 'iPhone-Lightning'),
+('32', '1', 'usb_a', 'USB-A'),
+
+('32', '2', 'usb_type_c', 'USB-Type-C'),
+
+('32', '1', 'micro_usb_b', 'Micro-USB-B'),
+
+('32', '1', 'iphone_lightning', 'iPhone-Lightning'),
+
+('32', '2', 'micro_usb_b', 'Micro-USB-B'),
+
+('32', '2', 'iphone_lightning', 'iPhone-Lightning'),
+
+
+('33', '1', 'usb_type_c', 'USB-Type-C'),
+
+('33', '1', 'usb_a', 'USB-A'),
+('33', '2', 'micro_usb_b', 'Micro-USB-B'),
+
+('33', '2', 'iphone_lightning', 'iPhone-Lightning'),
+('33', '1', 'micro_usb_b', 'Micro-USB-B'),
+
+('33', '1', 'iphone_lightning', 'iPhone-Lightning'),
+('33', '1', 'usb_a', 'USB-A'),
+
+('33', '2', 'usb_type_c', 'USB-Type-C'),
+
+
+('34', '1', 'micro_usb_b', 'Micro-USB-B'),
+('34', '1', 'usb_type_c', 'USB-Type-C'),
+
+('34', '1', 'usb_a', 'USB-A'),
+
+('34', '2', 'usb_type_c', 'USB-Type-C'),
+
+('34', '1', 'micro_usb_b', 'Micro-USB-B'),
+
+('34', '1', 'iphone_lightning', 'iPhone-Lightning'),
+
+('34', '2', 'micro_usb_b', 'Micro-USB-B'),
+
+
+
+('35', '1', 'micro_usb_b', 'Micro-USB-B'),
+('35', '1', 'usb_type_c', 'USB-Type-C'),
+
+('35', '1', 'usb_a', 'USB-A'),
+
+('35', '2', 'usb_type_c', 'USB-Type-C'),
+
+('35', '1', 'micro_usb_b', 'Micro-USB-B'),
+
+('35', '1', 'iphone_lightning', 'iPhone-Lightning'),
+
+
+('35', '2', 'usb_type_c', 'USB-Type-C'),
+
+
+('36', '1', 'micro_usb_b', 'Micro-USB-B'),
+('36', '1', 'usb_type_c', 'USB-Type-C'),
+
+
+('36', '2', 'micro_usb_b', 'Micro-USB-B'),
+
+('36', '2', 'iphone_lightning', 'iPhone-Lightning'),
+
+('36', '1', 'usb_type_c', 'USB-Type-C'),
+
+('36', '1', 'usb_a', 'USB-A'),
+
+('36', '2', 'usb_type_c', 'USB-Type-C'),
+
+
+('37', '1', 'micro_usb_b', 'Micro-USB-B'),
+('37', '1', 'usb_type_c', 'USB-Type-C'),
+
+('37', '1', 'usb_a', 'USB-A'),
+
+('37', '2', 'usb_type_c', 'USB-Type-C'),
+
+
+('37', '1', 'usb_type_c', 'USB-Type-C'),
+('37', '1', 'iphone_lightning', 'iPhone-Lightning'),
+
+('37', '2', 'micro_usb_b', 'Micro-USB-B'),
+
+('37', '2', 'iphone_lightning', 'iPhone-Lightning'),
+
+('38', '1', 'micro_usb_b', 'Micro-USB-B'),
+('38', '1', 'usb_type_c', 'USB-Type-C'),
+
+('38', '1', 'usb_a', 'USB-A'),
+
+('38', '2', 'usb_type_c', 'USB-Type-C'),
+
+
+
+('38', '1', 'iphone_lightning', 'iPhone-Lightning'),
+('38', '1', 'usb_a', 'USB-A'),
+
+('38', '2', 'usb_type_c', 'USB-Type-C'),
+('38', '2', 'iphone_lightning', 'iPhone-Lightning'),
+
+('39', '1', 'micro_usb_b', 'Micro-USB-B'),
+('39', '1', 'usb_type_c', 'USB-Type-C'),
+('39', '1', 'iphone_lightning', 'iPhone-Lightning'),
+
+('39', '2', 'micro_usb_b', 'Micro-USB-B'),
+('39', '2', 'usb_type_c', 'USB-Type-C'),
+('39', '2', 'iphone_lightning', 'iPhone-Lightning'),
+('39', '1', 'micro_usb_b', 'Micro-USB-B'),
+('39', '1', 'usb_type_c', 'USB-Type-C'),
+
+('39', '1', 'usb_a', 'USB-A'),
+
+('39', '2', 'usb_type_c', 'USB-Type-C'),
+('39', '2', 'iphone_lightning', 'iPhone-Lightning');

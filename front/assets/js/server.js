@@ -93,6 +93,12 @@ $(document).ready(function(){
 
     jQuery('body').on('click', '#setFilter', function(e){
 
+        // Clear first
+        MARKERS.forEach(M => {
+            M.setMap(null);
+        });
+
+        MARKERS = [];
         
         e.preventDefault(); //prevent default action 
 
@@ -100,8 +106,6 @@ $(document).ready(function(){
         var post_url = form.attr("action"); //get form action url
         var request_method = form.attr("method"); //get form GET/POST method
         var form_data = form.serialize(); //Encode form elements for submission
-
-        MARKERS = [];
 
         $.ajax({
             url : post_url,
@@ -239,6 +243,20 @@ $(document).ready(function(){
         //         marker.addListener('click', infoCallback(infowindow, marker));
         //     }
         // });
+        $('#showModal').modal('hide');
+    });
+
+    jQuery('body').on('click', '#clearFilter', function(e){
+
+        // Clear first
+        MARKERS.forEach(M => {
+            M.setMap(null);
+        });
+
+        MARKERS = [];
+        
+        Go.addMapObject();
+
         $('#showModal').modal('hide');
     });
 

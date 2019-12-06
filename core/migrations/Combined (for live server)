@@ -1,0 +1,1502 @@
+-- --
+-- -- Table structure for table `charge`
+-- --
+
+DROP TABLE IF EXISTS `charge`;
+
+CREATE TABLE `charge` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `pid` INT NOT NULL,
+  `label` VARCHAR(45) NOT NULL,
+  `name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`ID`));
+
+-- --
+-- -- Table structure for table `point`
+-- --
+
+DROP TABLE IF EXISTS `point`;
+
+CREATE TABLE `point` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(255) NOT NULL,
+  `address` VARCHAR(255) NOT NULL,
+  `latitude` DOUBLE NOT NULL,
+  `longitude` DOUBLE NOT NULL,
+  PRIMARY KEY (`ID`));
+
+-- --
+-- -- Table structure for table `charge_tool`
+-- --
+
+DROP TABLE IF EXISTS `charge_tool`;
+
+CREATE TABLE `charge_tool` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `pid` INT NOT NULL,
+  `label` VARCHAR(45) NOT NULL,
+  `name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`ID`));
+
+  -- --
+-- -- Table structure for table `powerbank`
+-- --
+
+DROP TABLE IF EXISTS `powerbank`;
+
+CREATE TABLE `powerbank` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `pid` INT NOT NULL,
+  `status` INT NOT NULL DEFAULT 1,
+  `type` INT NOT NULL,
+  `label` VARCHAR(45) NOT NULL,
+  `name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`ID`));
+
+-- --
+-- -- Table structure for table `wire`
+-- --
+
+DROP TABLE IF EXISTS `wire`;
+
+CREATE TABLE `wire` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `pid` INT NOT NULL,
+  `type` INT NOT NULL,
+  `label` VARCHAR(45) NOT NULL,
+  `name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`ID`));
+
+INSERT INTO `point` (`name`, `address`, `latitude`, `longitude`) VALUES
+('ELTE - Eötvös Loránd University', 'Budapest, Egyetem tér 1-3, 1053', '47.472824', '19.063356'),
+('Vasudvar Millennium Center', 'Budapest, Piarista u. 4, 1052', '47.493219', '19.0518'),
+('Kerekes Dorm', 'Budapest, Kerekes u. 12-20, 1135', '47.526238', '19.0844'),
+('Budapest Inner-City Mother Church of the Blessed Virgin', 'Budapest, Március 15. tér, 1056', '47.492329', '19.0520'),
+('Liszt Ferenc International Airport', 'Budapest, 1185', '47.438408', '19.2521'),
+('Apartments', 'Budapest, Március 15. tér, 1056', '47.491977', '19.053583'),
+('Hungarian Parliament Building','Budapest, Kossuth Lajos tér 1-3, 1055','47.507030','19.045542'),
+('Ministry of Agriculture','Budapest, Kossuth Lajos tér 11, 1055','47.506486','19.048149'),
+('Westend Shopping Center','Budapest, Váci út 1-3, 1062','47.513907','19.059307'),
+('Costa Coffee','Budapest, Teréz krt. 55-57, 1062','47.509494','19.057720'),
+('Mammut','Budapest, Lövőház u. 2-6, 1024','47.508399','19.026442'),
+('Hungarian Railway Museum','Budapest, Tatai u. 95, 1142','47.542328','19.095555'),
+('House of Terror','Budapest, Andrássy út 60, 1062','47.506895','19.065112'),
+('Government office (6.district)','Budapest, Andrássy út 55, 1062','47.505893','19.064963'),
+('Castle Garden Bazaar','Budapest, Ybl Miklós tér 2-6, 1013 Hungary','47.494896','19.042559'),
+('Klauzál tér','Budapest, Klauzál tér 3, 1072 Hungary','47.499664','19.063619'),
+('BEAC','Budapest, Bogdánfy u. 10, 1117 Hungary','47.472780','19.056185'),
+('Barba Negra','Budapest, Prielle Kornélia u. 4, 1117 Hungary','47.469204','19.047471'),
+('Papp László Budapest Sportaréna','Budapest, Stefánia út 2, 1143 Hungary','47.501876','19.105692'),
+('IKEA Budapest','Budapest, Örs vezér tere 22, 1148 Hungary','47.505565','19.138216'),
+('Farkasréti Cemetery','Budapest, Németvölgyi út 99, 1124 Hungary','47.484778','18.999925'),
+('Rákosrendező','Budapest, 1142 Hungary','47.525371','19.089418'),
+('Budapest Zoo & Botanical Garden','Budapest, Állatkerti krt. 6-12, 1146 Hungary','47.518998','19.077633'),
+('Margit híd, budai hídfő','Budapest, 1023 Hungary','47.515369','19.039394'),
+('Iharos Sándor Athletic Center of Margaret Island','Budapest, 1138 Hungary','47.517527','19.043500'),
+('Alfred Hajos National Aquatics Complex','Budapest, Margitsziget 23800, 1138 Hungary','47.520984','19.042747'),
+('Margaret Island Water Tower','Budapest, 1138 Hungary','47.530258','19.050183'),
+('Asia center','Budapest, Szentmihályi út 167, 1152 Hungary','47.549128','19.148011'),
+('Pólus','Budapest, Szentmihályi út 131, 1152 Hungary','47.552571','19.142002'),
+('Széchenyi Thermal Bath','Budapest, Állatkerti krt. 9-11, 1146 Hungary','47.518656','19.082371'),
+('MOM Park','Budapest, Alkotás u. 53, 1123 Hungary','47.490599','19.023987'),
+('Citadella','Budapest, 1118 Hungary','47.487000','19.046459'),
+('Hungarian Natural History Museum','Budapest, Ludovika tér 2, 1083 Hungary','47.482473','19.085089'),
+('Arena Mall','Budapest, Kerepesi út 9, 1087 Hungary','47.498410','19.092162'),
+('Hungexpo','Budapest, Albertirsai út 10, 1101 Hungary','47.493164','19.127066'),
+('St. Stephen s Basilica','Budapest, Szent István tér 1, 1051 Hungary','47.500876','19.053935'),
+('Zugliget Chairlift','Budapest, Zugligeti út 97, 1121 Hungary','47.516604','18.974416'),
+('Uzsoki Street Hospital','Budapest, Uzsoki u., 1145 Hungary','47.519057','19.102065'),
+('MTK Lantos Sport Complex','Budapest, 1147, Csömöri út 25-27, 1161 Hungary','47.524604','19.120094'),
+('Váci Mihály Kollégium','Budapest, Mogyoródi út 128, 1141 Hungary','47.517576','19.131144');
+
+INSERT INTO `charge` (`pid`, `label`, `name`) VALUES 
+('1', 'samsung_charger', 'Samsung charger'),
+('1', 'iphone_charger', 'iPhone charger'),
+('1', 'samsung_charger', 'Samsung charger'),
+('1', 'iphone_charger', 'iPhone charger'),
+('1', 'samsung_charger', 'Samsung charger'),
+('1', 'iphone_charger', 'iPhone charger'),
+
+('2', 'samsung_charger', 'Samsung charger'),
+
+
+
+('2', 'samsung_charger', 'Samsung charger'),
+
+
+
+('3', 'iphone_charger', 'iPhone charger'),
+
+('3', 'iphone_charger', 'iPhone charger'),
+
+
+
+('4', 'samsung_charger', 'Samsung charger'),
+
+
+
+('4', 'samsung_charger', 'Samsung charger'),
+('4', 'iphone_charger', 'iPhone charger'),
+
+('5', 'samsung_charger', 'Samsung charger'),
+
+('5', 'samsung_charger', 'Samsung charger'),
+('5', 'iphone_charger', 'iPhone charger'),
+('5', 'samsung_charger', 'Samsung charger'),
+('5', 'iphone_charger', 'iPhone charger'),
+
+
+('6', 'iphone_charger', 'iPhone charger'),
+('6', 'samsung_charger', 'Samsung charger'),
+('6', 'iphone_charger', 'iPhone charger'),
+('6', 'samsung_charger', 'Samsung charger'),
+('6', 'iphone_charger', 'iPhone charger'),
+
+('7', 'samsung_charger', 'Samsung charger'),
+('7', 'samsung_charger', 'Samsung charger'),
+('7', 'iphone_charger', 'iPhone charger'),
+
+('8', 'samsung_charger', 'Samsung charger'),
+
+('8', 'samsung_charger', 'Samsung charger'),
+('8', 'iphone_charger', 'iPhone charger'),
+
+('9', 'samsung_charger', 'Samsung charger'),
+
+('10', 'samsung_charger', 'Samsung charger'),
+('10', 'iphone_charger', 'iPhone charger'),
+
+
+('11', 'samsung_charger', 'Samsung charger'),
+('11', 'iphone_charger', 'iPhone charger'),
+
+('11', 'samsung_charger', 'Samsung charger'),
+('11', 'iphone_charger', 'iPhone charger'),
+
+
+('12', 'iphone_charger', 'iPhone charger'),
+('12', 'samsung_charger', 'Samsung charger'),
+
+('12', 'samsung_charger', 'Samsung charger'),
+
+
+
+('13', 'iphone_charger', 'iPhone charger'),
+
+('13', 'iphone_charger', 'iPhone charger'),
+
+('13', 'iphone_charger', 'iPhone charger'),
+
+('14', 'samsung_charger', 'Samsung charger'),
+
+
+
+('14', 'samsung_charger', 'Samsung charger'),
+('14', 'iphone_charger', 'iPhone charger'),
+
+('15', 'samsung_charger', 'Samsung charger'),
+('15', 'iphone_charger', 'iPhone charger'),
+
+
+('16', 'samsung_charger', 'Samsung charger'),
+('16', 'samsung_charger', 'Samsung charger'),
+('16', 'samsung_charger', 'Samsung charger'),
+
+('17', 'iphone_charger', 'iPhone charger'),
+('17', 'iphone_charger', 'iPhone charger'),
+('17', 'iphone_charger', 'iPhone charger'),
+
+('18', 'samsung_charger', 'Samsung charger'),
+('18', 'iphone_charger', 'iPhone charger'),
+('18', 'iphone_charger', 'iPhone charger'),
+
+('19', 'samsung_charger', 'Samsung charger'),
+('19', 'iphone_charger', 'iPhone charger'),
+('19', 'samsung_charger', 'Samsung charger'),
+('19', 'iphone_charger', 'iPhone charger'),
+('19', 'samsung_charger', 'Samsung charger'),
+
+
+('21', 'samsung_charger', 'Samsung charger'),
+('21', 'iphone_charger', 'iPhone charger'),
+('21', 'samsung_charger', 'Samsung charger'),
+('21', 'iphone_charger', 'iPhone charger'),
+
+('22', 'samsung_charger', 'Samsung charger'),
+('22', 'iphone_charger', 'iPhone charger'),
+('22', 'iphone_charger', 'iPhone charger'),
+('22', 'iphone_charger', 'iPhone charger'),
+
+('23', 'samsung_charger', 'Samsung charger'),
+('23', 'iphone_charger', 'iPhone charger'),
+
+('24', 'samsung_charger', 'Samsung charger'),
+('24', 'iphone_charger', 'iPhone charger'),
+
+('25', 'samsung_charger', 'Samsung charger'),
+
+
+('27', 'samsung_charger', 'Samsung charger'),
+
+('27', 'samsung_charger', 'Samsung charger'),
+('27', 'iphone_charger', 'iPhone charger'),
+('27', 'iphone_charger', 'iPhone charger'),
+
+
+('28', 'iphone_charger', 'iPhone charger'),
+('28', 'samsung_charger', 'Samsung charger'),
+('28', 'iphone_charger', 'iPhone charger'),
+('28', 'samsung_charger', 'Samsung charger'),
+('28', 'iphone_charger', 'iPhone charger'),
+
+('29', 'samsung_charger', 'Samsung charger'),
+
+('29', 'samsung_charger', 'Samsung charger'),
+
+('29', 'samsung_charger', 'Samsung charger'),
+
+
+('30', 'samsung_charger', 'Samsung charger'),
+
+('30', 'samsung_charger', 'Samsung charger'),
+('30', 'iphone_charger', 'iPhone charger'),
+('30', 'samsung_charger', 'Samsung charger'),
+
+
+('31', 'samsung_charger', 'Samsung charger'),
+('31', 'iphone_charger', 'iPhone charger'),
+('31', 'samsung_charger', 'Samsung charger'),
+
+('31', 'samsung_charger', 'Samsung charger'),
+
+
+('32', 'samsung_charger', 'Samsung charger'),
+('32', 'iphone_charger', 'iPhone charger'),
+('32', 'samsung_charger', 'Samsung charger'),
+
+('32', 'samsung_charger', 'Samsung charger'),
+('32', 'iphone_charger', 'iPhone charger'),
+
+('33', 'samsung_charger', 'Samsung charger'),
+
+('33', 'samsung_charger', 'Samsung charger'),
+('33', 'iphone_charger', 'iPhone charger'),
+('33', 'samsung_charger', 'Samsung charger'),
+
+
+('34', 'samsung_charger', 'Samsung charger'),
+('34', 'iphone_charger', 'iPhone charger'),
+('34', 'samsung_charger', 'Samsung charger'),
+('34', 'iphone_charger', 'iPhone charger'),
+
+('34', 'iphone_charger', 'iPhone charger'),
+
+('35', 'samsung_charger', 'Samsung charger'),
+
+('35', 'samsung_charger', 'Samsung charger'),
+('35', 'iphone_charger', 'iPhone charger'),
+
+('35', 'iphone_charger', 'iPhone charger'),
+
+('36', 'samsung_charger', 'Samsung charger'),
+
+('36', 'samsung_charger', 'Samsung charger'),
+
+('36', 'samsung_charger', 'Samsung charger'),
+('36', 'iphone_charger', 'iPhone charger'),
+
+('37', 'samsung_charger', 'Samsung charger'),
+
+('37', 'samsung_charger', 'Samsung charger'),
+('37', 'iphone_charger', 'iPhone charger'),
+
+('37', 'iphone_charger', 'iPhone charger'),
+
+('38', 'samsung_charger', 'Samsung charger'),
+('38', 'iphone_charger', 'iPhone charger'),
+
+('38', 'iphone_charger', 'iPhone charger'),
+('38', 'samsung_charger', 'Samsung charger'),
+('38', 'iphone_charger', 'iPhone charger'),
+
+
+('39', 'iphone_charger', 'iPhone charger'),
+('39', 'samsung_charger', 'Samsung charger'),
+('39', 'iphone_charger', 'iPhone charger'),
+
+('39', 'iphone_charger', 'iPhone charger'),
+
+('40', 'samsung_charger', 'Samsung charger'),
+
+('40', 'samsung_charger', 'Samsung charger'),
+
+('40', 'samsung_charger', 'Samsung charger');
+
+INSERT INTO `charge_tool` (`pid`, `label`, `name`) VALUES 
+('1', 'walking_generator', 'Walking-Generator'),
+('1', 'cycling_generator', 'Cycling-Generator'),
+('1', 'solar_charger', 'Solar Charger'),
+('1', 'walking_generator', 'Walking-Generator'),
+('1', 'cycling_generator', 'Cycling-Generator'),
+('1', 'solar_charger', 'Solar Charger'),
+('1', 'walking_generator', 'Walking-Generator'),
+('1', 'cycling_generator', 'Cycling-Generator'),
+('1', 'solar_charger', 'Solar Charger'),
+
+('2', 'walking_generator', 'Walking-Generator'),
+('2', 'cycling_generator', 'Cycling-Generator'),
+('2', 'solar_charger', 'Solar Charger'),
+
+('3', 'walking_generator', 'Walking-Generator'),
+
+('3', 'solar_charger', 'Solar Charger'),
+('3', 'walking_generator', 'Walking-Generator'),
+
+('3', 'solar_charger', 'Solar Charger'),
+('3', 'walking_generator', 'Walking-Generator'),
+
+('3', 'solar_charger', 'Solar Charger'),
+
+('4', 'walking_generator', 'Walking-Generator'),
+
+('4', 'solar_charger', 'Solar Charger'),
+
+('4', 'cycling_generator', 'Cycling-Generator'),
+('4', 'solar_charger', 'Solar Charger'),
+
+('4', 'cycling_generator', 'Cycling-Generator'),
+
+
+
+('5', 'cycling_generator', 'Cycling-Generator'),
+
+('5', 'walking_generator', 'Walking-Generator'),
+('5', 'cycling_generator', 'Cycling-Generator'),
+
+('5', 'walking_generator', 'Walking-Generator'),
+
+('5', 'solar_charger', 'Solar Charger'),
+
+
+('6', 'cycling_generator', 'Cycling-Generator'),
+
+('6', 'walking_generator', 'Walking-Generator'),
+
+('6', 'solar_charger', 'Solar Charger'),
+
+
+
+
+
+
+
+('7', 'solar_charger', 'Solar Charger'),
+
+
+('8', 'cycling_generator', 'Cycling-Generator'),
+
+('8', 'walking_generator', 'Walking-Generator'),
+
+
+
+('8', 'cycling_generator', 'Cycling-Generator'),
+('8', 'solar_charger', 'Solar Charger'),
+
+
+('9', 'cycling_generator', 'Cycling-Generator'),
+
+
+
+('9', 'solar_charger', 'Solar Charger'),
+('9', 'walking_generator', 'Walking-Generator'),
+
+('9', 'solar_charger', 'Solar Charger'),
+
+
+('10', 'cycling_generator', 'Cycling-Generator'),
+
+('10', 'walking_generator', 'Walking-Generator'),
+
+('10', 'solar_charger', 'Solar Charger'),
+('10', 'walking_generator', 'Walking-Generator'),
+
+('10', 'solar_charger', 'Solar Charger'),
+
+('11', 'walking_generator', 'Walking-Generator'),
+('11', 'cycling_generator', 'Cycling-Generator'),
+
+('11', 'walking_generator', 'Walking-Generator'),
+('11', 'cycling_generator', 'Cycling-Generator'),
+('11', 'solar_charger', 'Solar Charger'),
+
+('11', 'cycling_generator', 'Cycling-Generator'),
+('11', 'solar_charger', 'Solar Charger'),
+
+('12', 'walking_generator', 'Walking-Generator'),
+('12', 'cycling_generator', 'Cycling-Generator'),
+
+('12', 'walking_generator', 'Walking-Generator'),
+('12', 'cycling_generator', 'Cycling-Generator'),
+('12', 'solar_charger', 'Solar Charger'),
+('12', 'walking_generator', 'Walking-Generator'),
+
+('12', 'solar_charger', 'Solar Charger'),
+
+('13', 'walking_generator', 'Walking-Generator'),
+
+('13', 'solar_charger', 'Solar Charger'),
+('13', 'walking_generator', 'Walking-Generator'),
+
+('13', 'solar_charger', 'Solar Charger'),
+
+('13', 'cycling_generator', 'Cycling-Generator'),
+
+
+
+
+
+('14', 'walking_generator', 'Walking-Generator'),
+('14', 'cycling_generator', 'Cycling-Generator'),
+('14', 'solar_charger', 'Solar Charger'),
+('14', 'walking_generator', 'Walking-Generator'),
+('14', 'cycling_generator', 'Cycling-Generator'),
+('14', 'solar_charger', 'Solar Charger'),
+
+('15', 'walking_generator', 'Walking-Generator'),
+('15', 'cycling_generator', 'Cycling-Generator'),
+('15', 'solar_charger', 'Solar Charger'),
+
+('16', 'walking_generator', 'Walking-Generator'),
+('16', 'cycling_generator', 'Cycling-Generator'),
+
+('16', 'walking_generator', 'Walking-Generator'),
+('16', 'cycling_generator', 'Cycling-Generator'),
+
+('16', 'walking_generator', 'Walking-Generator'),
+
+('16', 'solar_charger', 'Solar Charger'),
+
+('17', 'walking_generator', 'Walking-Generator'),
+('17', 'cycling_generator', 'Cycling-Generator'),
+
+('17', 'walking_generator', 'Walking-Generator'),
+('17', 'cycling_generator', 'Cycling-Generator'),
+
+
+('17', 'cycling_generator', 'Cycling-Generator'),
+
+
+('18', 'walking_generator', 'Walking-Generator'),
+('18', 'cycling_generator', 'Cycling-Generator'),
+
+('18', 'walking_generator', 'Walking-Generator'),
+
+('18', 'solar_charger', 'Solar Charger'),
+
+
+('18', 'solar_charger', 'Solar Charger'),
+
+('19', 'walking_generator', 'Walking-Generator'),
+
+
+('20', 'walking_generator', 'Walking-Generator'),
+
+
+
+('20', 'cycling_generator', 'Cycling-Generator'),
+
+
+('20', 'cycling_generator', 'Cycling-Generator'),
+('20', 'solar_charger', 'Solar Charger'),
+
+('21', 'walking_generator', 'Walking-Generator'),
+
+('21', 'solar_charger', 'Solar Charger'),
+
+('21', 'cycling_generator', 'Cycling-Generator'),
+
+
+
+('21', 'solar_charger', 'Solar Charger'),
+
+('22', 'walking_generator', 'Walking-Generator'),
+
+('22', 'solar_charger', 'Solar Charger'),
+
+
+('22', 'solar_charger', 'Solar Charger'),
+
+('22', 'cycling_generator', 'Cycling-Generator'),
+
+
+('23', 'walking_generator', 'Walking-Generator'),
+
+('23', 'solar_charger', 'Solar Charger'),
+
+
+('23', 'solar_charger', 'Solar Charger'),
+
+('23', 'cycling_generator', 'Cycling-Generator'),
+
+
+('24', 'walking_generator', 'Walking-Generator'),
+
+('24', 'solar_charger', 'Solar Charger'),
+
+
+('24', 'solar_charger', 'Solar Charger'),
+
+('24', 'cycling_generator', 'Cycling-Generator'),
+
+('25', 'walking_generator', 'Walking-Generator'),
+
+('25', 'solar_charger', 'Solar Charger'),
+
+('25', 'cycling_generator', 'Cycling-Generator'),
+
+
+('25', 'cycling_generator', 'Cycling-Generator'),
+
+('26', 'walking_generator', 'Walking-Generator'),
+
+('26', 'solar_charger', 'Solar Charger'),
+
+
+('26', 'solar_charger', 'Solar Charger'),
+
+('26', 'cycling_generator', 'Cycling-Generator'),
+
+('27', 'walking_generator', 'Walking-Generator'),
+('27', 'cycling_generator', 'Cycling-Generator'),
+
+('27', 'walking_generator', 'Walking-Generator'),
+
+
+('27', 'walking_generator', 'Walking-Generator'),
+
+('27', 'solar_charger', 'Solar Charger'),
+
+('28', 'walking_generator', 'Walking-Generator'),
+('28', 'solar_charger', 'Solar Charger'),
+
+('28', 'cycling_generator', 'Cycling-Generator'),
+
+('28', 'walking_generator', 'Walking-Generator'),
+
+('28', 'solar_charger', 'Solar Charger'),
+
+('29', 'walking_generator', 'Walking-Generator'),
+
+('29', 'solar_charger', 'Solar Charger'),
+
+
+('29', 'solar_charger', 'Solar Charger'),
+
+('29', 'cycling_generator', 'Cycling-Generator'),
+
+
+('30', 'walking_generator', 'Walking-Generator'),
+
+('30', 'solar_charger', 'Solar Charger'),
+
+
+('30', 'solar_charger', 'Solar Charger'),
+
+('30', 'cycling_generator', 'Cycling-Generator'),
+
+
+
+('31', 'cycling_generator', 'Cycling-Generator'),
+('31', 'cycling_generator', 'Cycling-Generator'),
+('31', 'solar_charger', 'Solar Charger'),
+
+('32', 'walking_generator', 'Walking-Generator'),
+
+('32', 'solar_charger', 'Solar Charger'),
+
+('32', 'cycling_generator', 'Cycling-Generator'),
+('32', 'solar_charger', 'Solar Charger'),
+
+
+('32', 'solar_charger', 'Solar Charger'),
+
+('33', 'walking_generator', 'Walking-Generator'),
+
+('33', 'solar_charger', 'Solar Charger'),
+
+
+
+
+('33', 'cycling_generator', 'Cycling-Generator'),
+('33', 'solar_charger', 'Solar Charger'),
+
+
+
+('34', 'solar_charger', 'Solar Charger'),
+
+('34', 'cycling_generator', 'Cycling-Generator'),
+
+('34', 'walking_generator', 'Walking-Generator'),
+
+
+
+
+
+('35', 'solar_charger', 'Solar Charger'),
+
+('35', 'cycling_generator', 'Cycling-Generator'),
+
+
+
+
+
+('36', 'cycling_generator', 'Cycling-Generator'),
+('36', 'solar_charger', 'Solar Charger'),
+
+('36', 'cycling_generator', 'Cycling-Generator'),
+('36', 'solar_charger', 'Solar Charger'),
+
+
+('36', 'solar_charger', 'Solar Charger'),
+
+('37', 'walking_generator', 'Walking-Generator'),
+
+('37', 'solar_charger', 'Solar Charger'),
+
+
+('37', 'solar_charger', 'Solar Charger'),
+
+('37', 'cycling_generator', 'Cycling-Generator'),
+
+
+('38', 'walking_generator', 'Walking-Generator'),
+
+
+('39', 'walking_generator', 'Walking-Generator'),
+('39', 'cycling_generator', 'Cycling-Generator'),
+
+
+
+('39', 'solar_charger', 'Solar Charger'),
+
+
+('39', 'solar_charger', 'Solar Charger'),
+
+('40', 'walking_generator', 'Walking-Generator'),
+
+
+('40', 'walking_generator', 'Walking-Generator'),
+
+('40', 'solar_charger', 'Solar Charger'),
+
+
+('40', 'solar_charger', 'Solar Charger');
+
+INSERT INTO `powerbank` (`pid`, `status`, `type`, `label`, `name`) VALUES 
+('1', '1', '1', 'micro_usb_b', 'Micro-USB-B'),
+('1', '1', '1', 'usb_type_c', 'USB-Type-C'),
+('1', '1', '1', 'iphone_lightning', 'iPhone-Lightning'),
+('1', '1', '2', 'anker', 'Anker 12000mA'),
+('1', '1', '2', 'samsung', 'Samsung 5000mA'),
+('1', '1', '1', 'micro_usb_b', 'Micro-USB-B'),
+('1', '1', '1', 'usb_type_c', 'USB-Type-C'),
+('1', '1', '1', 'iphone_lightning', 'iPhone-Lightning'),
+('1', '1', '2', 'anker', 'Anker 12000mA'),
+('1', '1', '2', 'samsung', 'Samsung 5000mA'),
+('1', '1', '1', 'micro_usb_b', 'Micro-USB-B'),
+('1', '1', '1', 'usb_type_c', 'USB-Type-C'),
+('1', '1', '1', 'iphone_lightning', 'iPhone-Lightning'),
+('1', '1', '2', 'anker', 'Anker 12000mA'),
+('1', '1', '2', 'samsung', 'Samsung 5000mA'),
+
+('2', '1', '1', 'micro_usb_b', 'Micro-USB-B'),
+('2', '1', '1', 'usb_type_c', 'USB-Type-C'),
+('2', '1', '1', 'iphone_lightning', 'iPhone-Lightning'),
+('2', '1', '2', 'anker', 'Anker 12000mA'),
+('2', '1', '2', 'samsung', 'Samsung 5000mA'),
+
+
+('3', '1', '2', 'anker', 'Anker 12000mA'),
+('3', '1', '2', 'samsung', 'Samsung 5000mA'),
+('3', '1', '2', 'anker', 'Anker 12000mA'),
+('3', '1', '2', 'samsung', 'Samsung 5000mA'),
+
+('4', '1', '1', 'micro_usb_b', 'Micro-USB-B'),
+('4', '1', '1', 'usb_type_c', 'USB-Type-C'),
+
+('4', '1', '2', 'anker', 'Anker 12000mA'),
+
+('4', '1', '1', 'micro_usb_b', 'Micro-USB-B'),
+
+
+('4', '1', '2', 'anker', 'Anker 12000mA'),
+('4', '1', '2', 'samsung', 'Samsung 5000mA'),
+
+
+
+('4', '1', '2', 'anker', 'Anker 12000mA'),
+('4', '1', '2', 'samsung', 'Samsung 5000mA'),
+
+('5', '1', '2', 'anker', 'Anker 12000mA'),
+('5', '1', '2', 'samsung', 'Samsung 5000mA'),
+('5', '1', '2', 'anker', 'Anker 12000mA'),
+('5', '1', '2', 'samsung', 'Samsung 5000mA'),
+
+('6', '1', '1', 'micro_usb_b', 'Micro-USB-B'),
+('6', '1', '1', 'usb_type_c', 'USB-Type-C'),
+('6', '1', '1', 'iphone_lightning', 'iPhone-Lightning'),
+('6', '1', '1', 'micro_usb_b', 'Micro-USB-B'),
+('6', '1', '1', 'usb_type_c', 'USB-Type-C'),
+('6', '1', '1', 'iphone_lightning', 'iPhone-Lightning'),
+('6', '1', '1', 'micro_usb_b', 'Micro-USB-B'),
+('6', '1', '1', 'usb_type_c', 'USB-Type-C'),
+('6', '1', '1', 'iphone_lightning', 'iPhone-Lightning'),
+
+('7', '1', '1', 'micro_usb_b', 'Micro-USB-B'),
+('7', '1', '1', 'usb_type_c', 'USB-Type-C'),
+('7', '1', '1', 'iphone_lightning', 'iPhone-Lightning'),
+
+
+('7', '1', '1', 'micro_usb_b', 'Micro-USB-B'),
+
+('7', '1', '1', 'iphone_lightning', 'iPhone-Lightning'),
+('7', '1', '1', 'usb_type_c', 'USB-Type-C'),
+('7', '1', '1', 'iphone_lightning', 'iPhone-Lightning'),
+
+('7', '1', '2', 'samsung', 'Samsung 5000mA'),
+
+
+('8', '1', '1', 'usb_type_c', 'USB-Type-C'),
+
+('8', '1', '2', 'anker', 'Anker 12000mA'),
+
+('8', '1', '1', 'micro_usb_b', 'Micro-USB-B'),
+('8', '1', '1', 'usb_type_c', 'USB-Type-C'),
+('8', '1', '1', 'iphone_lightning', 'iPhone-Lightning'),
+
+('8', '1', '2', 'samsung', 'Samsung 5000mA'),
+('8', '1', '1', 'micro_usb_b', 'Micro-USB-B'),
+
+('8', '1', '1', 'iphone_lightning', 'iPhone-Lightning'),
+
+
+
+('9', '1', '1', 'micro_usb_b', 'Micro-USB-B'),
+('9', '1', '1', 'usb_type_c', 'USB-Type-C'),
+
+('9', '1', '2', 'anker', 'Anker 12000mA'),
+('9', '1', '2', 'samsung', 'Samsung 5000mA'),
+
+('9', '1', '1', 'usb_type_c', 'USB-Type-C'),
+
+('9', '1', '2', 'anker', 'Anker 12000mA'),
+
+('9', '1', '1', 'micro_usb_b', 'Micro-USB-B'),
+
+('9', '1', '1', 'iphone_lightning', 'iPhone-Lightning'),
+
+('9', '1', '2', 'samsung', 'Samsung 5000mA'),
+
+
+('10', '1', '1', 'usb_type_c', 'USB-Type-C'),
+
+('10', '1', '2', 'anker', 'Anker 12000mA'),
+
+
+('10', '1', '1', 'usb_type_c', 'USB-Type-C'),
+('10', '1', '1', 'iphone_lightning', 'iPhone-Lightning'),
+
+('10', '1', '2', 'samsung', 'Samsung 5000mA'),
+
+('10', '1', '1', 'usb_type_c', 'USB-Type-C'),
+('10', '1', '1', 'iphone_lightning', 'iPhone-Lightning'),
+
+
+
+('11', '1', '1', 'micro_usb_b', 'Micro-USB-B'),
+
+('11', '1', '1', 'iphone_lightning', 'iPhone-Lightning'),
+('11', '1', '2', 'anker', 'Anker 12000mA'),
+
+('11', '1', '1', 'micro_usb_b', 'Micro-USB-B'),
+
+('11', '1', '1', 'iphone_lightning', 'iPhone-Lightning'),
+('11', '1', '2', 'anker', 'Anker 12000mA'),
+('11', '1', '2', 'samsung', 'Samsung 5000mA'),
+
+('11', '1', '1', 'usb_type_c', 'USB-Type-C'),
+('11', '1', '1', 'iphone_lightning', 'iPhone-Lightning'),
+('11', '1', '2', 'anker', 'Anker 12000mA'),
+
+
+('12', '1', '1', 'micro_usb_b', 'Micro-USB-B'),
+('12', '1', '1', 'usb_type_c', 'USB-Type-C'),
+
+('12', '1', '2', 'anker', 'Anker 12000mA'),
+('12', '1', '2', 'samsung', 'Samsung 5000mA'),
+('12', '1', '1', 'micro_usb_b', 'Micro-USB-B'),
+
+
+
+('12', '1', '2', 'samsung', 'Samsung 5000mA'),
+
+('12', '1', '1', 'usb_type_c', 'USB-Type-C'),
+
+('12', '1', '2', 'anker', 'Anker 12000mA'),
+('12', '1', '2', 'samsung', 'Samsung 5000mA'),
+
+('13', '1', '1', 'micro_usb_b', 'Micro-USB-B'),
+
+('13', '1', '1', 'micro_usb_b', 'Micro-USB-B'),
+('13', '1', '2', 'samsung', 'Samsung 5000mA'),
+('13', '1', '1', 'micro_usb_b', 'Micro-USB-B'),
+('13', '1', '1', 'iphone_lightning', 'iPhone-Lightning'),
+('13', '1', '2', 'samsung', 'Samsung 5000mA'),
+
+('14', '1', '1', 'micro_usb_b', 'Micro-USB-B'),
+('14', '1', '1', 'usb_type_c', 'USB-Type-C'),
+
+('14', '1', '2', 'anker', 'Anker 12000mA'),
+('14', '1', '2', 'samsung', 'Samsung 5000mA'),
+
+('14', '1', '1', 'usb_type_c', 'USB-Type-C'),
+('14', '1', '1', 'iphone_lightning', 'iPhone-Lightning'),
+('14', '1', '2', 'samsung', 'Samsung 5000mA'),
+
+('14', '1', '1', 'usb_type_c', 'USB-Type-C'),
+
+('14', '1', '2', 'anker', 'Anker 12000mA'),
+('14', '1', '2', 'samsung', 'Samsung 5000mA'),
+
+('15', '1', '1', 'micro_usb_b', 'Micro-USB-B'),
+('15', '1', '1', 'usb_type_c', 'USB-Type-C'),
+('15', '1', '1', 'iphone_lightning', 'iPhone-Lightning'),
+('15', '1', '2', 'anker', 'Anker 12000mA'),
+('15', '1', '2', 'samsung', 'Samsung 5000mA'),
+
+('16', '1', '1', 'micro_usb_b', 'Micro-USB-B'),
+('16', '1', '1', 'usb_type_c', 'USB-Type-C'),
+
+('16', '1', '2', 'anker', 'Anker 12000mA'),
+
+('16', '1', '1', 'micro_usb_b', 'Micro-USB-B'),
+
+('16', '1', '1', 'iphone_lightning', 'iPhone-Lightning'),
+
+
+
+('17', '1', '1', 'micro_usb_b', 'Micro-USB-B'),
+
+
+('17', '1', '2', 'anker', 'Anker 12000mA'),
+
+
+('17', '1', '1', 'usb_type_c', 'USB-Type-C'),
+
+('17', '1', '2', 'anker', 'Anker 12000mA'),
+
+
+('18', '1', '1', 'micro_usb_b', 'Micro-USB-B'),
+
+('18', '1', '1', 'iphone_lightning', 'iPhone-Lightning'),
+
+('18', '1', '2', 'samsung', 'Samsung 5000mA'),
+
+
+('18', '1', '1', 'iphone_lightning', 'iPhone-Lightning'),
+
+('18', '1', '2', 'samsung', 'Samsung 5000mA'),
+
+('19', '1', '1', 'micro_usb_b', 'Micro-USB-B'),
+
+
+('19', '1', '2', 'anker', 'Anker 12000mA'),
+
+('19', '1', '1', 'micro_usb_b', 'Micro-USB-B'),
+
+
+('19', '1', '2', 'anker', 'Anker 12000mA'),
+
+
+('20', '1', '1', 'micro_usb_b', 'Micro-USB-B'),
+
+('20', '1', '1', 'iphone_lightning', 'iPhone-Lightning'),
+
+('20', '1', '2', 'samsung', 'Samsung 5000mA'),
+
+('20', '1', '1', 'usb_type_c', 'USB-Type-C'),
+
+
+('20', '1', '2', 'samsung', 'Samsung 5000mA'),
+
+('21', '1', '1', 'micro_usb_b', 'Micro-USB-B'),
+
+('21', '1', '1', 'iphone_lightning', 'iPhone-Lightning'),
+
+
+('21', '1', '1', 'micro_usb_b', 'Micro-USB-B'),
+
+('21', '1', '1', 'iphone_lightning', 'iPhone-Lightning'),
+
+
+
+('22', '1', '1', 'micro_usb_b', 'Micro-USB-B'),
+
+('22', '1', '1', 'iphone_lightning', 'iPhone-Lightning'),
+
+('22', '1', '2', 'samsung', 'Samsung 5000mA'),
+
+
+
+('22', '1', '2', 'anker', 'Anker 12000mA'),
+('22', '1', '2', 'samsung', 'Samsung 5000mA'),
+
+('23', '1', '1', 'micro_usb_b', 'Micro-USB-B'),
+
+('23', '1', '1', 'iphone_lightning', 'iPhone-Lightning'),
+
+('23', '1', '2', 'samsung', 'Samsung 5000mA'),
+
+('23', '1', '1', 'usb_type_c', 'USB-Type-C'),
+
+
+('23', '1', '2', 'samsung', 'Samsung 5000mA'),
+
+('24', '1', '1', 'micro_usb_b', 'Micro-USB-B'),
+
+
+('24', '1', '2', 'anker', 'Anker 12000mA'),
+
+('24', '1', '1', 'micro_usb_b', 'Micro-USB-B'),
+
+
+('24', '1', '2', 'anker', 'Anker 12000mA'),
+
+
+('25', '1', '1', 'micro_usb_b', 'Micro-USB-B'),
+
+('25', '1', '1', 'iphone_lightning', 'iPhone-Lightning'),
+
+
+('25', '1', '2', 'samsung', 'Samsung 5000mA'),
+
+('26', '1', '1', 'micro_usb_b', 'Micro-USB-B'),
+
+('26', '1', '1', 'iphone_lightning', 'iPhone-Lightning'),
+
+('26', '1', '2', 'samsung', 'Samsung 5000mA'),
+
+
+('26', '1', '1', 'iphone_lightning', 'iPhone-Lightning'),
+
+
+('28', '1', '1', 'micro_usb_b', 'Micro-USB-B'),
+
+('28', '1', '1', 'iphone_lightning', 'iPhone-Lightning'),
+('28', '1', '2', 'anker', 'Anker 12000mA'),
+
+('28', '1', '1', 'micro_usb_b', 'Micro-USB-B'),
+
+
+('28', '1', '2', 'anker', 'Anker 12000mA'),
+
+
+
+('29', '1', '1', 'usb_type_c', 'USB-Type-C'),
+
+
+('29', '1', '2', 'samsung', 'Samsung 5000mA'),
+
+('29', '1', '1', 'usb_type_c', 'USB-Type-C'),
+('29', '1', '2', 'samsung', 'Samsung 5000mA'),
+
+
+('30', '1', '1', 'usb_type_c', 'USB-Type-C'),
+
+('30', '1', '2', 'anker', 'Anker 12000mA'),
+
+('30', '1', '1', 'micro_usb_b', 'Micro-USB-B'),
+
+
+('30', '1', '2', 'anker', 'Anker 12000mA'),
+('30', '1', '2', 'samsung', 'Samsung 5000mA');
+
+INSERT INTO `wire` (`pid`, `type`, `label`, `name`) VALUES 
+('1', '1', 'micro_usb_b', 'Micro-USB-B'),
+('1', '1', 'usb_type_c', 'USB-Type-C'),
+('1', '1', 'iphone_lightning', 'iPhone-Lightning'),
+('1', '1', 'usb_a', 'USB-A'),
+('1', '2', 'micro_usb_b', 'Micro-USB-B'),
+('1', '2', 'usb_type_c', 'USB-Type-C'),
+('1', '2', 'iphone_lightning', 'iPhone-Lightning'),
+('1', '1', 'micro_usb_b', 'Micro-USB-B'),
+('1', '1', 'usb_type_c', 'USB-Type-C'),
+('1', '1', 'iphone_lightning', 'iPhone-Lightning'),
+('1', '1', 'usb_a', 'USB-A'),
+('1', '2', 'micro_usb_b', 'Micro-USB-B'),
+('1', '2', 'usb_type_c', 'USB-Type-C'),
+('1', '2', 'iphone_lightning', 'iPhone-Lightning'),
+('1', '1', 'micro_usb_b', 'Micro-USB-B'),
+('1', '1', 'usb_type_c', 'USB-Type-C'),
+('1', '1', 'iphone_lightning', 'iPhone-Lightning'),
+('1', '1', 'usb_a', 'USB-A'),
+('1', '2', 'micro_usb_b', 'Micro-USB-B'),
+('1', '2', 'usb_type_c', 'USB-Type-C'),
+('1', '2', 'iphone_lightning', 'iPhone-Lightning'),
+
+('2', '1', 'micro_usb_b', 'Micro-USB-B'),
+('2', '1', 'usb_type_c', 'USB-Type-C'),
+('2', '1', 'iphone_lightning', 'iPhone-Lightning'),
+
+('2', '2', 'micro_usb_b', 'Micro-USB-B'),
+
+
+('2', '1', 'micro_usb_b', 'Micro-USB-B'),
+
+('2', '1', 'iphone_lightning', 'iPhone-Lightning'),
+
+('2', '2', 'micro_usb_b', 'Micro-USB-B'),
+('2', '2', 'usb_type_c', 'USB-Type-C'),
+
+('2', '1', 'micro_usb_b', 'Micro-USB-B'),
+
+('2', '1', 'iphone_lightning', 'iPhone-Lightning'),
+
+('2', '2', 'micro_usb_b', 'Micro-USB-B'),
+('2', '2', 'usb_type_c', 'USB-Type-C'),
+
+
+
+('3', '1', 'micro_usb_b', 'Micro-USB-B'),
+('3', '1', 'usb_type_c', 'USB-Type-C'),
+('3', '1', 'iphone_lightning', 'iPhone-Lightning'),
+('3', '1', 'usb_a', 'USB-A'),
+('3', '2', 'micro_usb_b', 'Micro-USB-B'),
+('3', '2', 'usb_type_c', 'USB-Type-C'),
+('3', '2', 'iphone_lightning', 'iPhone-Lightning'),
+('3', '1', 'micro_usb_b', 'Micro-USB-B'),
+('3', '1', 'usb_type_c', 'USB-Type-C'),
+('3', '1', 'iphone_lightning', 'iPhone-Lightning'),
+('3', '1', 'usb_a', 'USB-A'),
+('3', '2', 'micro_usb_b', 'Micro-USB-B'),
+('3', '2', 'usb_type_c', 'USB-Type-C'),
+('3', '2', 'iphone_lightning', 'iPhone-Lightning'),
+
+
+('4', '1', 'micro_usb_b', 'Micro-USB-B'),
+('4', '1', 'usb_type_c', 'USB-Type-C'),
+('4', '1', 'iphone_lightning', 'iPhone-Lightning'),
+('4', '1', 'usb_a', 'USB-A'),
+('4', '2', 'micro_usb_b', 'Micro-USB-B'),
+('4', '2', 'usb_type_c', 'USB-Type-C'),
+('4', '2', 'iphone_lightning', 'iPhone-Lightning'),
+
+('5', '1', 'micro_usb_b', 'Micro-USB-B'),
+('5', '1', 'usb_type_c', 'USB-Type-C'),
+('5', '1', 'iphone_lightning', 'iPhone-Lightning'),
+
+
+
+
+('5', '1', 'micro_usb_b', 'Micro-USB-B'),
+('5', '1', 'usb_type_c', 'USB-Type-C'),
+('5', '1', 'iphone_lightning', 'iPhone-Lightning'),
+
+
+
+
+('5', '1', 'micro_usb_b', 'Micro-USB-B'),
+('5', '1', 'usb_type_c', 'USB-Type-C'),
+('5', '1', 'iphone_lightning', 'iPhone-Lightning'),
+
+
+
+
+
+('6', '1', 'micro_usb_b', 'Micro-USB-B'),
+('6', '1', 'iphone_lightning', 'iPhone-Lightning'),
+('6', '1', 'usb_a', 'USB-A'),
+
+('6', '2', 'usb_type_c', 'USB-Type-C'),
+
+('6', '1', 'micro_usb_b', 'Micro-USB-B'),
+('6', '1', 'usb_type_c', 'USB-Type-C'),
+
+('6', '1', 'usb_a', 'USB-A'),
+('6', '2', 'micro_usb_b', 'Micro-USB-B'),
+
+('6', '2', 'iphone_lightning', 'iPhone-Lightning'),
+
+('6', '1', 'usb_type_c', 'USB-Type-C'),
+
+('6', '1', 'usb_a', 'USB-A'),
+
+
+('6', '2', 'iphone_lightning', 'iPhone-Lightning'),
+
+
+
+
+('7', '2', 'usb_type_c', 'USB-Type-C'),
+
+('7', '1', 'micro_usb_b', 'Micro-USB-B'),
+
+('7', '1', 'iphone_lightning', 'iPhone-Lightning'),
+
+('7', '2', 'micro_usb_b', 'Micro-USB-B'),
+
+('7', '2', 'iphone_lightning', 'iPhone-Lightning'),
+
+('8', '1', 'micro_usb_b', 'Micro-USB-B'),
+('8', '1', 'usb_type_c', 'USB-Type-C'),
+('8', '1', 'iphone_lightning', 'iPhone-Lightning'),
+('8', '2', 'micro_usb_b', 'Micro-USB-B'),
+('8', '2', 'usb_type_c', 'USB-Type-C'),
+
+('8', '1', 'micro_usb_b', 'Micro-USB-B'),
+
+('8', '1', 'iphone_lightning', 'iPhone-Lightning'),
+('8', '1', 'usb_a', 'USB-A'),
+('8', '2', 'micro_usb_b', 'Micro-USB-B'),
+
+('8', '2', 'iphone_lightning', 'iPhone-Lightning'),
+
+('9', '1', 'micro_usb_b', 'Micro-USB-B'),
+('9', '1', 'usb_type_c', 'USB-Type-C'),
+('9', '1', 'usb_a', 'USB-A'),
+
+('9', '2', 'usb_type_c', 'USB-Type-C'),
+('9', '2', 'iphone_lightning', 'iPhone-Lightning'),
+
+('9', '1', 'usb_type_c', 'USB-Type-C'),
+
+('9', '1', 'usb_a', 'USB-A'),
+
+('9', '1', 'usb_type_c', 'USB-Type-C'),
+('9', '1', 'iphone_lightning', 'iPhone-Lightning'),
+
+('9', '2', 'micro_usb_b', 'Micro-USB-B'),
+
+('9', '2', 'iphone_lightning', 'iPhone-Lightning'),
+
+('10', '1', 'micro_usb_b', 'Micro-USB-B'),
+('10', '1', 'usb_type_c', 'USB-Type-C'),
+
+('10', '1', 'usb_a', 'USB-A'),
+('10', '2', 'micro_usb_b', 'Micro-USB-B'),
+
+('10', '2', 'iphone_lightning', 'iPhone-Lightning'),
+('10', '1', 'micro_usb_b', 'Micro-USB-B'),
+
+('10', '1', 'iphone_lightning', 'iPhone-Lightning'),
+('10', '1', 'usb_a', 'USB-A'),
+
+('10', '2', 'usb_type_c', 'USB-Type-C'),
+
+('10', '1', 'micro_usb_b', 'Micro-USB-B'),
+
+('10', '1', 'iphone_lightning', 'iPhone-Lightning'),
+
+('10', '2', 'micro_usb_b', 'Micro-USB-B'),
+('10', '2', 'usb_type_c', 'USB-Type-C'),
+
+
+('11', '1', 'micro_usb_b', 'Micro-USB-B'),
+
+
+
+
+('11', '2', 'usb_type_c', 'USB-Type-C'),
+
+('11', '1', 'micro_usb_b', 'Micro-USB-B'),
+
+('11', '1', 'iphone_lightning', 'iPhone-Lightning'),
+
+('11', '2', 'micro_usb_b', 'Micro-USB-B'),
+
+('11', '2', 'iphone_lightning', 'iPhone-Lightning'),
+
+('11', '1', 'usb_type_c', 'USB-Type-C'),
+
+
+
+
+('11', '2', 'iphone_lightning', 'iPhone-Lightning'),
+
+('12', '1', 'micro_usb_b', 'Micro-USB-B'),
+('12', '1', 'usb_type_c', 'USB-Type-C'),
+
+('12', '1', 'usb_a', 'USB-A'),
+('12', '2', 'micro_usb_b', 'Micro-USB-B'),
+
+('12', '2', 'iphone_lightning', 'iPhone-Lightning'),
+
+('12', '1', 'usb_type_c', 'USB-Type-C'),
+
+('12', '1', 'usb_a', 'USB-A'),
+('12', '2', 'micro_usb_b', 'Micro-USB-B'),
+
+('12', '2', 'iphone_lightning', 'iPhone-Lightning'),
+
+
+
+('12', '1', 'usb_a', 'USB-A'),
+('12', '2', 'micro_usb_b', 'Micro-USB-B'),
+
+
+
+('13', '1', 'micro_usb_b', 'Micro-USB-B'),
+('13', '1', 'usb_type_c', 'USB-Type-C'),
+
+('13', '1', 'micro_usb_b', 'Micro-USB-B'),
+('13', '1', 'usb_type_c', 'USB-Type-C'),
+
+('13', '1', 'usb_a', 'USB-A'),
+
+('13', '2', 'usb_type_c', 'USB-Type-C'),
+
+
+('14', '1', 'micro_usb_b', 'Micro-USB-B'),
+('14', '1', 'usb_type_c', 'USB-Type-C'),
+
+('14', '1', 'usb_a', 'USB-A'),
+('14', '2', 'micro_usb_b', 'Micro-USB-B'),
+
+('14', '2', 'iphone_lightning', 'iPhone-Lightning'),
+
+('14', '1', 'usb_type_c', 'USB-Type-C'),
+
+
+('14', '2', 'micro_usb_b', 'Micro-USB-B'),
+
+('14', '2', 'iphone_lightning', 'iPhone-Lightning'),
+('14', '1', 'micro_usb_b', 'Micro-USB-B'),
+
+('14', '1', 'iphone_lightning', 'iPhone-Lightning'),
+
+('14', '2', 'micro_usb_b', 'Micro-USB-B'),
+
+('14', '2', 'iphone_lightning', 'iPhone-Lightning'),
+
+('25', '1', 'micro_usb_b', 'Micro-USB-B'),
+
+('25', '1', 'iphone_lightning', 'iPhone-Lightning'),
+
+
+('25', '2', 'usb_type_c', 'USB-Type-C'),
+
+('25', '1', 'micro_usb_b', 'Micro-USB-B'),
+
+('25', '1', 'iphone_lightning', 'iPhone-Lightning'),
+('25', '1', 'usb_a', 'USB-A'),
+
+('25', '2', 'usb_type_c', 'USB-Type-C'),
+
+('26', '1', 'micro_usb_b', 'Micro-USB-B'),
+('26', '1', 'usb_type_c', 'USB-Type-C'),
+('26', '1', 'iphone_lightning', 'iPhone-Lightning'),
+('26', '1', 'usb_a', 'USB-A'),
+('26', '2', 'micro_usb_b', 'Micro-USB-B'),
+
+('26', '2', 'iphone_lightning', 'iPhone-Lightning'),
+('26', '1', 'micro_usb_b', 'Micro-USB-B'),
+('26', '1', 'usb_type_c', 'USB-Type-C'),
+('26', '1', 'iphone_lightning', 'iPhone-Lightning'),
+
+
+('26', '2', 'usb_type_c', 'USB-Type-C'),
+('26', '2', 'iphone_lightning', 'iPhone-Lightning'),
+
+('27', '1', 'micro_usb_b', 'Micro-USB-B'),
+('27', '1', 'usb_type_c', 'USB-Type-C'),
+
+('27', '1', 'usb_a', 'USB-A'),
+('27', '2', 'micro_usb_b', 'Micro-USB-B'),
+('27', '2', 'usb_type_c', 'USB-Type-C'),
+
+('27', '1', 'micro_usb_b', 'Micro-USB-B'),
+('27', '1', 'usb_type_c', 'USB-Type-C'),
+
+('27', '1', 'usb_a', 'USB-A'),
+('27', '2', 'micro_usb_b', 'Micro-USB-B'),
+('27', '2', 'usb_type_c', 'USB-Type-C'),
+
+('28', '1', 'micro_usb_b', 'Micro-USB-B'),
+('28', '1', 'usb_type_c', 'USB-Type-C'),
+
+('28', '1', 'usb_a', 'USB-A'),
+
+('28', '2', 'usb_type_c', 'USB-Type-C'),
+
+('28', '1', 'micro_usb_b', 'Micro-USB-B'),
+
+('28', '1', 'iphone_lightning', 'iPhone-Lightning'),
+
+
+('28', '2', 'usb_type_c', 'USB-Type-C'),
+('28', '2', 'iphone_lightning', 'iPhone-Lightning'),
+
+('29', '1', 'micro_usb_b', 'Micro-USB-B'),
+('29', '1', 'usb_type_c', 'USB-Type-C'),
+
+('29', '1', 'usb_a', 'USB-A'),
+
+('29', '2', 'usb_type_c', 'USB-Type-C'),
+('29', '2', 'iphone_lightning', 'iPhone-Lightning'),
+('29', '1', 'micro_usb_b', 'Micro-USB-B'),
+
+('29', '1', 'iphone_lightning', 'iPhone-Lightning'),
+
+('29', '2', 'micro_usb_b', 'Micro-USB-B'),
+
+('29', '2', 'iphone_lightning', 'iPhone-Lightning'),
+
+('30', '1', 'micro_usb_b', 'Micro-USB-B'),
+('30', '1', 'usb_type_c', 'USB-Type-C'),
+
+('30', '1', 'usb_a', 'USB-A'),
+
+('30', '2', 'usb_type_c', 'USB-Type-C'),
+
+('30', '1', 'micro_usb_b', 'Micro-USB-B'),
+
+
+('30', '1', 'usb_a', 'USB-A'),
+
+('30', '2', 'usb_type_c', 'USB-Type-C'),
+
+
+('31', '1', 'micro_usb_b', 'Micro-USB-B'),
+('31', '1', 'usb_type_c', 'USB-Type-C'),
+
+('31', '1', 'usb_a', 'USB-A'),
+
+
+('31', '2', 'iphone_lightning', 'iPhone-Lightning'),
+
+('31', '1', 'usb_type_c', 'USB-Type-C'),
+('31', '1', 'iphone_lightning', 'iPhone-Lightning'),
+
+('31', '2', 'micro_usb_b', 'Micro-USB-B'),
+
+('31', '2', 'iphone_lightning', 'iPhone-Lightning'),
+
+('32', '1', 'micro_usb_b', 'Micro-USB-B'),
+
+('32', '1', 'iphone_lightning', 'iPhone-Lightning'),
+('32', '1', 'usb_a', 'USB-A'),
+
+('32', '2', 'usb_type_c', 'USB-Type-C'),
+
+('32', '1', 'micro_usb_b', 'Micro-USB-B'),
+
+('32', '1', 'iphone_lightning', 'iPhone-Lightning'),
+
+('32', '2', 'micro_usb_b', 'Micro-USB-B'),
+
+('32', '2', 'iphone_lightning', 'iPhone-Lightning'),
+
+
+('33', '1', 'usb_type_c', 'USB-Type-C'),
+
+('33', '1', 'usb_a', 'USB-A'),
+('33', '2', 'micro_usb_b', 'Micro-USB-B'),
+
+('33', '2', 'iphone_lightning', 'iPhone-Lightning'),
+('33', '1', 'micro_usb_b', 'Micro-USB-B'),
+
+('33', '1', 'iphone_lightning', 'iPhone-Lightning'),
+('33', '1', 'usb_a', 'USB-A'),
+
+('33', '2', 'usb_type_c', 'USB-Type-C'),
+
+
+('34', '1', 'micro_usb_b', 'Micro-USB-B'),
+('34', '1', 'usb_type_c', 'USB-Type-C'),
+
+('34', '1', 'usb_a', 'USB-A'),
+
+('34', '2', 'usb_type_c', 'USB-Type-C'),
+
+('34', '1', 'micro_usb_b', 'Micro-USB-B'),
+
+('34', '1', 'iphone_lightning', 'iPhone-Lightning'),
+
+('34', '2', 'micro_usb_b', 'Micro-USB-B'),
+
+
+
+('35', '1', 'micro_usb_b', 'Micro-USB-B'),
+('35', '1', 'usb_type_c', 'USB-Type-C'),
+
+('35', '1', 'usb_a', 'USB-A'),
+
+('35', '2', 'usb_type_c', 'USB-Type-C'),
+
+('35', '1', 'micro_usb_b', 'Micro-USB-B'),
+
+('35', '1', 'iphone_lightning', 'iPhone-Lightning'),
+
+
+('35', '2', 'usb_type_c', 'USB-Type-C'),
+
+
+('36', '1', 'micro_usb_b', 'Micro-USB-B'),
+('36', '1', 'usb_type_c', 'USB-Type-C'),
+
+
+('36', '2', 'micro_usb_b', 'Micro-USB-B'),
+
+('36', '2', 'iphone_lightning', 'iPhone-Lightning'),
+
+('36', '1', 'usb_type_c', 'USB-Type-C'),
+
+('36', '1', 'usb_a', 'USB-A'),
+
+('36', '2', 'usb_type_c', 'USB-Type-C'),
+
+
+('37', '1', 'micro_usb_b', 'Micro-USB-B'),
+('37', '1', 'usb_type_c', 'USB-Type-C'),
+
+('37', '1', 'usb_a', 'USB-A'),
+
+('37', '2', 'usb_type_c', 'USB-Type-C'),
+
+
+('37', '1', 'usb_type_c', 'USB-Type-C'),
+('37', '1', 'iphone_lightning', 'iPhone-Lightning'),
+
+('37', '2', 'micro_usb_b', 'Micro-USB-B'),
+
+('37', '2', 'iphone_lightning', 'iPhone-Lightning'),
+
+('38', '1', 'micro_usb_b', 'Micro-USB-B'),
+('38', '1', 'usb_type_c', 'USB-Type-C'),
+
+('38', '1', 'usb_a', 'USB-A'),
+
+('38', '2', 'usb_type_c', 'USB-Type-C'),
+
+
+
+('38', '1', 'iphone_lightning', 'iPhone-Lightning'),
+('38', '1', 'usb_a', 'USB-A'),
+
+('38', '2', 'usb_type_c', 'USB-Type-C'),
+('38', '2', 'iphone_lightning', 'iPhone-Lightning'),
+
+('39', '1', 'micro_usb_b', 'Micro-USB-B'),
+('39', '1', 'usb_type_c', 'USB-Type-C'),
+('39', '1', 'iphone_lightning', 'iPhone-Lightning'),
+
+('39', '2', 'micro_usb_b', 'Micro-USB-B'),
+('39', '2', 'usb_type_c', 'USB-Type-C'),
+('39', '2', 'iphone_lightning', 'iPhone-Lightning'),
+('39', '1', 'micro_usb_b', 'Micro-USB-B'),
+('39', '1', 'usb_type_c', 'USB-Type-C'),
+
+('39', '1', 'usb_a', 'USB-A'),
+
+('39', '2', 'usb_type_c', 'USB-Type-C'),
+('39', '2', 'iphone_lightning', 'iPhone-Lightning');
