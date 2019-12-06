@@ -7,6 +7,8 @@
         	</button>
     	</div>
         <form id="filterForm" action="point/getFilter" method="post">
+
+        <input type="hidden" name="action" value="point/getFilter">
             <div class="modal-body">
                 <div class="filterWrap">
                     <div class="text-center">
