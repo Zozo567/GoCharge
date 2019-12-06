@@ -132,16 +132,16 @@ $(document).ready(function(){
                                 '<h6>'+ res.content[i].info_point.name +'</h6>'+
                                 '<div><b>'+ res.content[i].info_point.address +'</b></div><hr>'+
                                 '<h6>In-cabinet chargers:</h6>'+
-                                '<div><i class="fas fa-charging-station"></i> USB-A : '+
+                                '<div><i class="fas fa-plug"></i> USB-A : '+
                                     res.content[i].wirestatic0usb_a +
                                 '</div>'+
-                                '<div><i class="fas fa-charging-station"></i> Micro-USB-B : '+
+                                '<div><i class="fas fa-plug"></i> Micro-USB-B : '+
                                     res.content[i].wirestatic0micro_usb_b +
                                 '</div>'+
-                                '<div><i class="fas fa-charging-station"></i> USB-Type-C : '+
+                                '<div><i class="fas fa-plug"></i> USB-Type-C : '+
                                     res.content[i].wirestatic0usb_type_c +
                                 '</div>'+
-                                '<div><i class="fas fa-charging-station"></i> iPhone-Lightning : '+
+                                '<div><i class="fas fa-plug"></i> iPhone-Lightning : '+
                                     res.content[i].wirestatic0iphone_lightning +
                                 '</div><br>'+
                                 '<h6>Charging Cables:</h6>'+
