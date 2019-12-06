@@ -68,8 +68,6 @@ $(document).ready(function(){
 
     $('#showModal').on('hidden.bs.modal', function () {
         $('#showModal').empty();
-        
-        btnID = -1;
     });
 
     $('#showModal').on('shown.bs.modal', function() {
@@ -514,6 +512,7 @@ $('body').on('click', '#tripPlane', function(e){
 function addPointData() {
     B_POINT = MARKERS[btnID].title;
     $('#endPoint').val(B_POINT);
+    btnID = -1;
 }
 
 // MARKERS already loaded

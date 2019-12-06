@@ -4,4 +4,12 @@ INSERT INTO `point` (`name`, `address`, `latitude`, `longitude`) VALUES
 ('Kerekes Dorm', 'Budapest, Kerekes u. 12-20, 1135', '47.526238', '19.0844'),
 ('Budapest Inner-City Mother Church of the Blessed Virgin', 'Budapest, Március 15. tér, 1056', '47.492329', '19.0520'),
 ('Liszt Ferenc International Airport', 'Budapest, 1185', '47.438408', '19.2521'),
-('Apartments', 'Budapest, Március 15. tér, 1056', '47.491977', '19.053583');
+('Apartments', 'Budapest, Március 15. tér, 1056', '47.491977', '19.053583'),
+('Hungarian Parliament Building','Budapest, Kossuth Lajos tér 1-3, 1055','47.507030','19.045542'),
+('Ministry of Agriculture','Budapest, Kossuth Lajos tér 11, 1055','47.506486','19.048149'),
+('Westend Shopping Center','Budapest, Váci út 1-3, 1062','47.513907','19.059307'),
+('Costa Coffee','Budapest, Teréz krt. 55-57, 1062','47.509494','19.057720'),
+('Mammut','Budapest, Lövőház u. 2-6, 1024','47.508399','19.026442'),
+('Hungarian Railway Museum','Budapest, Tatai u. 95, 1142','47.542328','19.095555'),
+('House of Terror','Budapest, Andrássy út 60, 1062','47.506895','19.065112'),
+('Government office (6.district)','Budapest, Andrássy út 55, 1062','47.505893','19.064963');
