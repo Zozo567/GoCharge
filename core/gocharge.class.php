@@ -28,6 +28,9 @@ class GoCharge {
                 $model_name = $action;
         }
 
+        if( $model_name == '?i=1' )
+            $model_name = 'main';
+
         self::$model_name = $model_name;
 
         $this->initialModel();
