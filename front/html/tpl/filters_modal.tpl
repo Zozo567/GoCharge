@@ -15,36 +15,40 @@
                         <h1 class="h4 text-gray-900 mb-4">In-cabinet Chargers</h1>
                     </div>
                     <div class="row">
-                        <div class="col-md-3 text-center">
-                            <label class="image-checkbox">
-                                <img src="front/assets/images/typeA.png" class="img-responsive img-fluid">
-                                <input type="checkbox" name="wirestatic-usb_a" value="true"/>
-                                <!-- <i class="fa fa-check hidden"></i> -->
-                            </label>
+                        <div class="col-xs-3 col-sm-3 col-lg-3 text-center">
+                            <div class="custom-control custom-checkbox image-checkbox">
+                                <input type="checkbox" class="custom-control-input" name="wirestatic-usb_a" value="true">
+                                <label class="custom-control-label">
+                                    <img src="front/assets/images/charger_types/typeA.png" class="img-fluid">
+                                </label>
+                            </div>
                         </div>
-                        <div class="col-md-3 text-center">
-                            <label class="image-checkbox">
-                                <img src="front/assets/images/typeC.png" class="img-responsive img-fluid">
-                                <input type="checkbox" name="wirestatic-micro_usb_b" value="true"/>
-                                <!-- <i class="fa fa-check hidden"></i> -->
-                            </label>
+                        <div class="col-xs-3 col-sm-3 col-lg-3 text-center">
+                            <div class="custom-control custom-checkbox image-checkbox">
+                                <input type="checkbox" class="custom-control-input" name="wirestatic-micro_usb_b" value="true">
+                                <label class="custom-control-label">
+                                    <img src="front/assets/images/charger_types/microB.png" class="img-fluid">
+                                </label>
+                            </div>
                         </div>
-                        <div class="col-md-3 text-center">
-                            <label class="image-checkbox">
-                                <img src="front/assets/images/microB.png" class="img-responsive img-fluid">
-                                <input type="checkbox" name="wirestatic-usb_type_c" value="true"/>
-                                <!-- <i class="fa fa-check hidden"></i> -->
-                            </label>
+                        <div class="col-xs-3 col-sm-3 col-lg-3 text-center">
+                            <div class="custom-control custom-checkbox image-checkbox">
+                                <input type="checkbox" class="custom-control-input" name="wirestatic-usb_type_c" value="true">
+                                <label class="custom-control-label">
+                                    <img src="front/assets/images/charger_types/typeC.png" class="img-fluid">
+                                </label>
+                            </div>
                         </div>
-                        <div class="col-md-3 text-center">
-                            <label class="image-checkbox">
-                                <img src="front/assets/images/lightning.png" class="img-responsive img-fluid">
-                                <input type="checkbox" name="wirestatic-iphone_lightning" value="true"/>
-                                <!-- <i class="fa fa-check hidden"></i> -->
-                            </label>
+                        <div class="col-xs-3 col-sm-3 col-lg-3 text-center">
+                            <div class="custom-control custom-checkbox image-checkbox">
+                                <input type="checkbox" class="custom-control-input" name="wirestatic-iphone_lightning" value="true">
+                                <label class="custom-control-label">
+                                    <img src="front/assets/images/charger_types/lightning.png" class="img-fluid">
+                                </label>
+                            </div>
                         </div>
                     </div>
-                    <hr>
+                    <hr class="boldy">
                     <div class="text-center">
                         <h1 class="h4 text-gray-900 mb-4">Items For Sale</h1>
                     </div>
@@ -53,25 +57,28 @@
                     </div>
                     <div class="row">
                         <div class="col-md-4 text-center">
-                            <label class="image-checkbox">micro USB-B
-                                <img src="front/assets/images/micro_usb_b.png" class="img-responsive img-fluid">
-                                <input type="checkbox" name="powdisp-micro_usb_b" value="true"/>
-                                <!-- <i class="fa fa-check hidden"></i> -->
-                            </label>
+                            <div class="custom-control custom-checkbox image-checkbox">
+                                <input type="checkbox" class="custom-control-input" name="powdisp-micro_usb_b" value="true">
+                                <label class="custom-control-label">micro USB-B
+                                    <img src="front/assets/images/charger_types/micro_usb_b.svg" class="img-fluid">
+                                </label>
+                            </div>
                         </div>
                         <div class="col-md-4 text-center">
-                            <label class="image-checkbox">USB Type-C
-                                <img src="front/assets/images/usb_type_c.png" class="img-responsive img-fluid">
-                                <input type="checkbox" name="powdisp-usb_type_c" value="true"/>
-                                <!-- <i class="fa fa-check hidden"></i> -->
-                            </label>
+                            <div class="custom-control custom-checkbox image-checkbox">
+                                <input type="checkbox" class="custom-control-input" name="powdisp-usb_type_c" value="true">
+                                <label class="custom-control-label">USB Type-C
+                                    <img src="front/assets/images/charger_types/usb_type_c.svg" class="img-fluid">
+                                </label>
+                            </div>
                         </div>
                         <div class="col-md-4 text-center">
-                            <label class="image-checkbox">Lightning
-                                <img src="front/assets/images/iphone_lightning.png" class="img-responsive img-fluid">
-                                <input type="checkbox" name="powdisp-iphone_lightning" value="true"/>
-                                <!-- <i class="fa fa-check hidden"></i> -->
-                            </label>
+                            <div class="custom-control custom-checkbox image-checkbox">
+                                <input type="checkbox" class="custom-control-input" name="powdisp-iphone_lightning" value="true">
+                                <label class="custom-control-label">Lightning
+                                    <img src="front/assets/images/charger_types/iphone_lightning.svg" class="img-fluid">
+                                </label>
+                            </div>
                         </div>
                     </div>    
                     <hr>
@@ -80,25 +87,28 @@
                     </div>
                     <div class="row">
                         <div class="col-md-4 text-center">
-                            <label class="image-checkbox">Walking generator
-                                <img src="front/assets/images/walking_generator_h.png" class="img-responsive img-fluid">
-                                <input type="checkbox" name="tools-walking_generator" value="true"/>
-                                <!-- <i class="fa fa-check hidden"></i> -->
-                            </label>
+                            <div class="custom-control custom-checkbox image-checkbox">
+                                <input type="checkbox" class="custom-control-input" name="tools-walking_generator" value="true">
+                                <label class="custom-control-label">Walking generator
+                                    <img src="front/assets/images/charger_types/walking_generator_h.svg" class="img-fluid">
+                                </label>
+                            </div>
                         </div>
                         <div class="col-md-4 text-center">
-                            <label class="image-checkbox">Cycling generator
-                                <img src="front/assets/images/cycling_generator_h.png" class="img-responsive img-fluid">
-                                <input type="checkbox" name="tools-cycling_generator" value="true"/>
-                                <!-- <i class="fa fa-check hidden"></i> -->
-                            </label>
+                            <div class="custom-control custom-checkbox image-checkbox">
+                                <input type="checkbox" class="custom-control-input" name="tools-cycling_generator" value="true">
+                                <label class="custom-control-label">Cycling <br/>generator
+                                    <img src="front/assets/images/charger_types/cycling_generator_h.svg" class="img-fluid">
+                                </label>
+                            </div>
                         </div>
                         <div class="col-md-4 text-center">
-                            <label class="image-checkbox">Solar charger
-                                <img src="front/assets/images/solar.png" class="img-responsive img-fluid">
-                                <input type="checkbox" name="tools-solar_charger" value="true"/>
-                                <!-- <i class="fa fa-check hidden"></i> -->
-                            </label>
+                            <div class="custom-control custom-checkbox image-checkbox">
+                                <input type="checkbox" class="custom-control-input" name="tools-solar_charger" value="true">
+                                <label class="custom-control-label">Solar charger
+                                    <img src="front/assets/images/charger_types/solar.svg" class="img-fluid">
+                                </label>
+                            </div>
                         </div>
                     </div>
                     <hr>
@@ -107,18 +117,20 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6 text-center">
-                            <label class="image-checkbox">
-                                <img src="front/assets/images/samsung.png" class="img-responsive img-fluid">
-                                <input type="checkbox" name="charge-samsung_charger" value="true"/>
-                                <!-- <i class="fa fa-check hidden"></i> -->
-                            </label>
+                            <div class="custom-control custom-checkbox image-checkbox">
+                                <input type="checkbox" class="custom-control-input" name="charge-samsung_charger" value="true">
+                                <label class="custom-control-label">
+                                    <img src="front/assets/images/charger_types/samsung.svg" class="img-fluid">
+                                </label>
+                            </div>
                         </div>
                         <div class="col-md-6 text-center">
-                            <label class="image-checkbox">
-                                <img src="front/assets/images/iphone.png" class="img-responsive img-fluid">
-                                <input type="checkbox" name="charge-iphone_charger" value="true"/>
-                                <!-- <i class="fa fa-check hidden"></i> -->
-                            </label>
+                            <div class="custom-control custom-checkbox image-checkbox">
+                                <input type="checkbox" class="custom-control-input" name="charge-iphone_charger" value="true">
+                                <label class="custom-control-label">
+                                    <img src="front/assets/images/charger_types/iphone.svg" class="img-fluid">
+                                </label>
+                            </div>
                         </div>
                     </div>
                     <hr>
@@ -127,25 +139,28 @@
                     </div>
                     <div class="row">
                         <div class="col-md-4 text-center">
-                            <label class="image-checkbox">micro USB-B
-                                <img src="front/assets/images/micro_usb_b.png" class="img-responsive img-fluid">
-                                <input type="checkbox" name="wiresale-micro_usb_b" value="true"/>
-                                <!-- <i class="fa fa-check hidden"></i> -->
-                            </label>
+                            <div class="custom-control custom-checkbox image-checkbox">
+                                <input type="checkbox" class="custom-control-input" name="wiresale-micro_usb_b" value="true">
+                                <label class="custom-control-label">micro USB-B
+                                    <img src="front/assets/images/charger_types/micro_usb_b.svg" class="img-fluid">
+                                </label>
+                            </div>
                         </div>
                         <div class="col-md-4 text-center">
-                            <label class="image-checkbox">USB Type-C
-                                <img src="front/assets/images/usb_type_c.png" class="img-responsive img-fluid">
-                                <input type="checkbox" name="wiresale-usb_type_c" value="true"/>
-                                <!-- <i class="fa fa-check hidden"></i> -->
-                            </label>
+                            <div class="custom-control custom-checkbox image-checkbox">
+                                <input type="checkbox" class="custom-control-input" name="wiresale-usb_type_c" value="true">
+                                <label class="custom-control-label">USB Type-C
+                                    <img src="front/assets/images/charger_types/usb_type_c.svg" class="img-fluid">
+                                </label>
+                            </div>
                         </div>
                         <div class="col-md-4 text-center">
-                            <label class="image-checkbox">Lightning
-                                <img src="front/assets/images/iphone_lightning.png" class="img-responsive img-fluid">
-                                <input type="checkbox" name="wiresale-iphone_lightning" value="true"/>
-                                <!-- <i class="fa fa-check hidden"></i> -->
-                            </label>
+                            <div class="custom-control custom-checkbox image-checkbox">
+                                <input type="checkbox" class="custom-control-input" name="wiresale-iphone_lightning" value="true">
+                                <label class="custom-control-label">Lightning
+                                    <img src="front/assets/images/charger_types/iphone_lightning.svg" class="img-fluid">
+                                </label>
+                            </div>
                         </div>
                     </div>
                     <hr>
@@ -154,18 +169,20 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6 text-center">
-                            <label class="image-checkbox">
-                                <img src="front/assets/images/anker.png" class="img-responsive img-fluid">
-                                <input type="checkbox" name="pownodisp-anker" value="true"/>
-                                <!-- <i class="fa fa-check hidden"></i> -->
-                            </label>
+                            <div class="custom-control custom-checkbox image-checkbox">
+                                <input type="checkbox" class="custom-control-input" name="pownodisp-anker" value="true">
+                                <label class="custom-control-label">
+                                    <img src="front/assets/images/charger_types/anker.svg" class="img-fluid">
+                                </label>
+                            </div>
                         </div>
                         <div class="col-md-6 text-center">
-                            <label class="image-checkbox">
-                                <img src="front/assets/images/samsung.png" class="img-responsive img-fluid">
-                                <input type="checkbox" name="pownodisp-samsung" value="true"/>
-                                <!-- <i class="fa fa-check hidden"></i> -->
-                            </label>
+                            <div class="custom-control custom-checkbox image-checkbox">
+                                <input type="checkbox" class="custom-control-input" name="ppownodisp-samsung" value="true">
+                                <label class="custom-control-label">
+                                    <img src="front/assets/images/charger_types/samsung.svg" class="img-fluid">
+                                </label>
+                            </div>
                         </div>
                     </div>
                     
@@ -173,8 +190,8 @@
             </div>
             </form>
         	<div class="modal-footer">
-            	<button type="submit" id="setFilter" class="btn btn-info bg-gradient-info">Set Filter</button>
                 <button id="clearFilter" class="btn btn-warning bg-gradient-warning">Clear Filter</button>
+                <button type="submit" id="setFilter" class="btn btn-info bg-gradient-info">Set Filter</button>
         	</div>
     </div>
 </div>
